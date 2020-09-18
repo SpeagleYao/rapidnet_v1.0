@@ -30,35 +30,13 @@ class Smoke : public RapidNetApplicationBase
 {
 public:
   static const string CANCER;
-  static const string EPRETURN;
-  static const string EPROVQUERY;
-  static const string ERRETURN;
-  static const string ERULEQUERY;
   static const string ECANCER;
-  static const string ECANCERDELETE;
-  static const string ECANCERTEMP;
-  static const string ECANCERTEMPDELETE;
-  static const string ESHARESULT;
-  static const string ESHARESULTDELETE;
-  static const string ESHARESULTTEMP;
-  static const string ESHARESULTTEMPDELETE;
+  static const string EDGE;
+  static const string EDGECOUNT;
   static const string ESMOKE;
-  static const string ESMOKEDELETE;
-  static const string ESMOKETEMP;
-  static const string ESMOKETEMPDELETE;
   static const string FRIENDS;
-  static const string PITERATE;
-  static const string PQLIST;
-  static const string PRESULTTMP;
-  static const string PRETURN;
+  static const string INSERTEDGE;
   static const string PROV;
-  static const string PROVQUERY;
-  static const string RITERATE;
-  static const string RQLIST;
-  static const string RRESULTTMP;
-  static const string RRETURN;
-  static const string RULEEXEC;
-  static const string RULEQUERY;
   static const string SHARESULT;
   static const string SMOKE;
 
@@ -80,133 +58,45 @@ protected:
 
   virtual void DemuxRecv (Ptr<Tuple> tuple);
 
-  virtual void Prov_r1_1Eca0Ins (Ptr<Tuple> smoke);
+  virtual void R1_1Eca0Ins (Ptr<Tuple> smoke);
 
-  virtual void Prov_r1_1Eca0Del (Ptr<Tuple> smoke);
+  virtual void R1_2_eca (Ptr<Tuple> ecancer);
 
-  virtual void Prov_r1_2_ecaAdd (Ptr<Tuple> ecancerTemp);
+  virtual void R1_3_eca (Ptr<Tuple> ecancer);
 
-  virtual void Prov_r1_2_ecaDel (Ptr<Tuple> ecancerTempDelete);
+  virtual void R1_4_eca (Ptr<Tuple> ecancer);
 
-  virtual void Prov_r1_3_ecaAdd (Ptr<Tuple> ecancerTemp);
+  virtual void R2_1Eca0Ins (Ptr<Tuple> friends);
 
-  virtual void Prov_r1_3_ecaDel (Ptr<Tuple> ecancerTempDelete);
+  virtual void R2_1Eca2Ins (Ptr<Tuple> smoke);
 
-  virtual void Prov_r1_4_ecaAdd (Ptr<Tuple> ecancer);
+  virtual void R2_2_eca (Ptr<Tuple> esmoke);
 
-  virtual void Prov_r1_4_ecaDel (Ptr<Tuple> ecancerDelete);
+  virtual void R2_3_eca (Ptr<Tuple> esmoke);
 
-  virtual void Prov_r1_5_ecaAdd (Ptr<Tuple> ecancer);
+  virtual void R2_4_eca (Ptr<Tuple> esmoke);
 
-  virtual void Prov_r1_5_ecaDel (Ptr<Tuple> ecancerDelete);
+  virtual void R3_1Eca0Ins (Ptr<Tuple> friends);
 
-  virtual void Prov_r2_1Eca0Ins (Ptr<Tuple> friends);
+  virtual void R3_1Eca2Ins (Ptr<Tuple> smoke);
 
-  virtual void Prov_r2_1Eca0Del (Ptr<Tuple> friends);
+  virtual void Re_1_eca (Ptr<Tuple> insertedge);
 
-  virtual void Prov_r2_1Eca3Ins (Ptr<Tuple> smoke);
+  virtual void Re_2_eca (Ptr<Tuple> edgeCount);
 
-  virtual void Prov_r2_1Eca3Del (Ptr<Tuple> smoke);
+  virtual void Re_3_eca (Ptr<Tuple> edgeCount);
 
-  virtual void Prov_r2_2_ecaAdd (Ptr<Tuple> esmokeTemp);
+  virtual void R11Eca0Ins (Ptr<Tuple> smoke);
 
-  virtual void Prov_r2_2_ecaDel (Ptr<Tuple> esmokeTempDelete);
+  virtual void R11Eca0Del (Ptr<Tuple> smoke);
 
-  virtual void Prov_r2_3_ecaAdd (Ptr<Tuple> esmokeTemp);
+  virtual void R12Eca0Ins (Ptr<Tuple> cancer);
 
-  virtual void Prov_r2_3_ecaDel (Ptr<Tuple> esmokeTempDelete);
+  virtual void R12Eca0Del (Ptr<Tuple> cancer);
 
-  virtual void Prov_r2_4_ecaAdd (Ptr<Tuple> esmoke);
+  virtual void R13Eca0Ins (Ptr<Tuple> friends);
 
-  virtual void Prov_r2_4_ecaDel (Ptr<Tuple> esmokeDelete);
-
-  virtual void Prov_r2_5_ecaAdd (Ptr<Tuple> esmoke);
-
-  virtual void Prov_r2_5_ecaDel (Ptr<Tuple> esmokeDelete);
-
-  virtual void Prov_r3_1Eca0Ins (Ptr<Tuple> friends);
-
-  virtual void Prov_r3_1Eca0Del (Ptr<Tuple> friends);
-
-  virtual void Prov_r3_1Eca3Ins (Ptr<Tuple> smoke);
-
-  virtual void Prov_r3_1Eca3Del (Ptr<Tuple> smoke);
-
-  virtual void Prov_r11_1Eca0Ins (Ptr<Tuple> smoke);
-
-  virtual void Prov_r11_1Eca0Del (Ptr<Tuple> smoke);
-
-  virtual void Prov_r11_2_ecaAdd (Ptr<Tuple> eshaResultTemp);
-
-  virtual void Prov_r11_2_ecaDel (Ptr<Tuple> eshaResultTempDelete);
-
-  virtual void Prov_r11_3_ecaAdd (Ptr<Tuple> eshaResultTemp);
-
-  virtual void Prov_r11_3_ecaDel (Ptr<Tuple> eshaResultTempDelete);
-
-  virtual void Prov_r11_4_ecaAdd (Ptr<Tuple> eshaResult);
-
-  virtual void Prov_r11_4_ecaDel (Ptr<Tuple> eshaResultDelete);
-
-  virtual void Prov_r11_5_ecaAdd (Ptr<Tuple> eshaResult);
-
-  virtual void Prov_r11_5_ecaDel (Ptr<Tuple> eshaResultDelete);
-
-  virtual void Prov_r12_1Eca0Ins (Ptr<Tuple> cancer);
-
-  virtual void Prov_r12_1Eca0Del (Ptr<Tuple> cancer);
-
-  virtual void Prov_r13_1Eca0Ins (Ptr<Tuple> friends);
-
-  virtual void Prov_r13_1Eca0Del (Ptr<Tuple> friends);
-
-  virtual void Prov_edb_1Eca1Ins (Ptr<Tuple> friends);
-
-  virtual void Prov_edb_1Eca1Del (Ptr<Tuple> friends);
-
-  virtual void Edb1_eca (Ptr<Tuple> provQuery);
-
-  virtual void Idb1a_eca (Ptr<Tuple> provQuery);
-
-  virtual void Idb1b_eca (Ptr<Tuple> provQuery);
-
-  virtual void Idb2_eca (Ptr<Tuple> provQuery);
-
-  virtual void Idb3_eca (Ptr<Tuple> provQuery);
-
-  virtual void Idb4_eca (Ptr<Tuple> pIterate);
-
-  virtual void Idb5_eca (Ptr<Tuple> pIterate);
-
-  virtual void Idb6_eca (Ptr<Tuple> eRuleQuery);
-
-  virtual void Idb7_eca (Ptr<Tuple> rReturn);
-
-  virtual void Idb8Eca0Ins (Ptr<Tuple> pResultTmp);
-
-  virtual void Idb8Eca1Ins (Ptr<Tuple> pQList);
-
-  virtual void Idb9a_eca (Ptr<Tuple> ePReturn);
-
-  virtual void Rv1_eca (Ptr<Tuple> ruleQuery);
-
-  virtual void Rv2_eca (Ptr<Tuple> ruleQuery);
-
-  virtual void Rv3_eca (Ptr<Tuple> ruleQuery);
-
-  virtual void Rv4_eca (Ptr<Tuple> rIterate);
-
-  virtual void Rv5_eca (Ptr<Tuple> rIterate);
-
-  virtual void Rv6_eca (Ptr<Tuple> eProvQuery);
-
-  virtual void Rv7_eca (Ptr<Tuple> pReturn);
-
-  virtual void Rv8Eca0Ins (Ptr<Tuple> rResultTmp);
-
-  virtual void Rv8Eca1Ins (Ptr<Tuple> rQList);
-
-  virtual void Rv9_eca (Ptr<Tuple> eRReturn);
+  virtual void R13Eca0Del (Ptr<Tuple> friends);
 
 };
 

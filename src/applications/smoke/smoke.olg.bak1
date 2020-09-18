@@ -1,0 +1,38 @@
+materialize(smoke, infinity, infinity, keys(1, 2:int32)).
+materialize(cancer, infinity, infinity, keys(1, 2:int32)).
+materialize(friends, infinity, infinity, keys(1, 2:int32, 3:int32)).
+
+materialize(shaResult, infinity, infinity, keys(1, 2:cid, 3:str)).
+
+materialize(edge, infinity, infinity, keys(1, 2, 3, 4:int32)).
+materialize(maxedge, infinity, infinity, keys(1, 2, 3)).
+
+materialize(esmoke, infinity, infinity, keys(1, 2, 3, 4)).
+materialize(ecancer, infinity, infinity, keys(1, 2, 3, 4)).
+
+r1_1 ecancer(@Local, P, NRID1, NRID2) :- smoke(@Local, P), NRID1 := f_sha1("r1"+Local), NRID2 := f_sha1("smoke1"+Local+P).
+r1_2 ecancer(@Local, P, NRID1, NRID2) :- esmoke(@Local, P, RID1, RID2), NRID1 := f_sha1("r1"+Local), NRID2 := RID1.
+r1_3 cancer(@Local, P) :- ecancer(@Local, P, RID1, RID2).
+r1_4 insertedge(@Local, RID1, RID2) :- ecancer(@Local, P, RID1, RID2).
+
+
+r2_1 esmoke(@Local, A, NRID1, NRID2) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), List := f_append(PID), smoke(@Local, B), A != B, NRID1 := f_sha1(("r2"+Local)+List), NRID2 := f_sha1("smoke"+Local+B).
+r2_2 esmoke(@Local, A, NRID1, NRID2) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), List := f_append(PID), esmoke(@Local, B, RID1, RID2), A != B, NRID1 := f_sha1(("r2"+Local)+List), NRID2 := RID1.
+r2_3 smoke(@Local, A) :- esmoke(@Local, A, RID1, RID2).
+r2_4 insertedge(@Local, RID1, RID2) :- esmoke(@Local, A, RID1, RID2).
+
+
+r3_1 esmoke(@Local, B, NRID1, NRID2) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), List := f_append(PID), smoke(@Local, A), A != B, NRID1 := f_sha1(("r3"+Local)+List), NRID2 := f_sha1("smoke"+Local+A).
+r3_2 esmoke(@Local, A, NRID1, NRID2) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), List := f_append(PID), esmoke(@Local, A, RID1, RID2), A != B, NRID1 := f_sha1(("r3"+Local)+List), NRID2 := RID1.
+
+
+re_1 edge(@Local, RID1, RID2, N) :- insertedge(@Local, RID1, RID2), N := 1.
+re_2 edge(@Local, RID1, RID2, N1) :- maxedge(@Local, RID1, RID2, N), insertedge(@Local, RID1, RID2), N1 := N+1.
+re_3 maxedge(@Local, RID1, RID2, a_MAX<N>) :- edge(@Local, RID1, RID2, N).
+
+
+r11 shaResult(@Local, VID, Content) :- smoke(@Local, P), VID:=f_sha1("smoke"+Local+P), Name:="smoke", Content:=Name+"_"+P.
+r12 shaResult(@Local, VID, Content) :- cancer(@Local, P), VID:=f_sha1("cancer"+Local+P), Name:="cancer", Content:=Name+"_"+P.
+r13 shaResult(@Local, VID, Content) :- friends(@Local, A, B), VID:=f_sha1("friends"+Local+A+B), Name:="friends", Content:=Name+"_"+A+"_"+B.
+
+

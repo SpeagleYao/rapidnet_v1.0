@@ -92,6 +92,9 @@ void parseLine(const string& line) {
   }
 
   string predicate = words[0];
+  if (predicate=="//") {
+    return;
+  }
   if (predicate=="Friends") {
     string person1 = words[1];
     string person2 = words[2];
@@ -101,6 +104,7 @@ void parseLine(const string& line) {
     if (people.find(person2)==people.end()) {
       people[person2] = people.size();
     }
+    cout << "friends" << ' ' << people[person1] << ' ' << people[person2] << endl;
     insertfriends(1, people[person1], people[person2]);
   }
   else if (predicate=="Smokes") {
@@ -108,6 +112,7 @@ void parseLine(const string& line) {
     if (people.find(person)==people.end()) {
       people[person] = people.size();
     }
+    cout << "smoke" << ' ' << people[person] << endl;
     insertsmoke(1, people[person]);
   }
   else if (predicate=="Cancer") {
@@ -115,6 +120,7 @@ void parseLine(const string& line) {
     if (people.find(person)==people.end()) {
       people[person] = people.size();
     }
+    cout << "cancer" << ' ' << people[person] << endl;
     insertcancer(1, people[person]);
   }
 }
@@ -152,6 +158,8 @@ void Print() {
   PrintRelation(apps, Smoke::FRIENDS);
   PrintRelation(apps, Smoke::SMOKE);
   PrintRelation(apps, Smoke::CANCER);
+  PrintRelation(apps, Smoke::EDGE);
+  // PrintRelation(apps, Smoke::MAXEDGE);
 }
 
 

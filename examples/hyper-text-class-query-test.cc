@@ -34,34 +34,64 @@
 
 
 #define HyperTextClassTest1 \
-"./data/hyper-text-class/sample1.db"
+"./data/hyper-text-class/sample3/sample31.db"
 
 #define HyperTextClassTest2 \
-"./data/hyper-text-class/sample2.db"
+"./data/hyper-text-class/sample3/sample32.db"
 
 #define HyperTextClassTest3 \
-"./data/hyper-text-class/sample3.db"
+"./data/hyper-text-class/sample3/sample33.db"
 
 #define HyperTextClassTest4 \
-"./data/hyper-text-class/sample4.db"
+"./data/hyper-text-class/sample3/sample34.db"
 
 #define HyperTextClassTest5 \
-"./data/hyper-text-class/sample5.db"
+"./data/hyper-text-class/sample3/sample35.db"
 
 #define HyperTextClassTest6 \
-"./data/hyper-text-class/sample6.db"
+"./data/hyper-text-class/sample3/sample36.db"
 
 #define HyperTextClassTest7 \
-"./data/hyper-text-class/sample7.db"
+"./data/hyper-text-class/sample3/sample37.db"
 
 #define HyperTextClassTest8 \
-"./data/hyper-text-class/sample8.db"
+"./data/hyper-text-class/sample3/sample38.db"
 
 #define HyperTextClassTest9 \
-"./data/hyper-text-class/sample9.db"
+"./data/hyper-text-class/sample3/sample39.db"
 
 #define HyperTextClassTest10 \
-"./data/hyper-text-class/sample10.db"
+"./data/hyper-text-class/sample3/sample310.db"
+
+#define HyperTextClassTest11 \
+"./data/hyper-text-class/sample3/sample311.db"
+
+#define HyperTextClassTest12 \
+"./data/hyper-text-class/sample3/sample312.db"
+
+#define HyperTextClassTest13 \
+"./data/hyper-text-class/sample3/sample313.db"
+
+#define HyperTextClassTest14 \
+"./data/hyper-text-class/sample3/sample314.db"
+
+#define HyperTextClassTest15 \
+"./data/hyper-text-class/sample3/sample315.db"
+
+#define HyperTextClassTest16 \
+"./data/hyper-text-class/sample3/sample316.db"
+
+#define HyperTextClassTest17 \
+"./data/hyper-text-class/sample3/sample317.db"
+
+#define HyperTextClassTest18 \
+"./data/hyper-text-class/sample3/sample318.db"
+
+#define HyperTextClassTest19 \
+"./data/hyper-text-class/sample3/sample319.db"
+
+#define HyperTextClassTest20 \
+"./data/hyper-text-class/sample3/sample320.db"
 
 #define hasword(local, word, address) \
 tuple (HyperTextClass::HASWORD, \
@@ -174,7 +204,7 @@ void parseLine(const string& line) {
 
 
 void train() {
-  ifstream fp(HyperTextClassTest5);
+  ifstream fp(HyperTextClassTest15);
   string line;
 
   while (getline(fp, line)) {
@@ -216,7 +246,7 @@ void TupleToQuery() {
 
 void TupleToQueryLoop() {
   Ptr<RapidNetApplicationBase> queryNode = queryapps.Get(0)->GetObject<RapidNetApplicationBase>();
-  inserttuple(1, "topic", 1, g_topics[g_i], 46);
+  inserttuple(1, "topic", 1, g_topics[g_i], 1);
   g_i++;
 }
 
@@ -270,9 +300,9 @@ int main(int argc, char *argv[]){
   // schedule (i+2.0, TupleToQueryLoop);
   // }
 
-  for (int i=0; i<100; i++) {
-  schedule (i+1.0, TupleToQueryLoopV2);
-  }
+  // for (int i=0; i<100; i++) {
+  // schedule (i+1.0, TupleToQueryLoopV2);
+  // }
 
   // schedule  (g_i*5.0+3, TupleToQueryLoop);
   // schedule  (g_i*5.0+3, TupleToQueryLoop);

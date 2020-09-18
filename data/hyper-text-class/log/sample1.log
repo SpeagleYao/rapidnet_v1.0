@@ -191,4 +191,4 @@ time=999 node=10.1.1.4 tuple=records records_attr1=10.1.1.4 records_attr2=ae22d8
 time=999 node=10.1.1.4 tuple=records records_attr1=10.1.1.4 records_attr2=f26b8b4c012b3bfdc2f14fcce6aefd4e5043d94b records_attr3=ae54253201929ebd06ffd16b14d7ccd41dd230ab records_attr4=topic_Student_18(r486@n257(hasword_professor_18)) 
 time=999 node=10.1.1.4 tuple=records records_attr1=10.1.1.4 records_attr2=f36865b1620d9792046a1d6abd4098432e3949da records_attr3=f5ef325ee9c4ebd2430710bbc88988926a68546e records_attr4=topic_Student_34(r160@n257(hasword_thing_34)) 
 time=999 node=10.1.1.4 tuple=records records_attr1=10.1.1.4 records_attr2=fa2c4c59297f34b1662bfd2ff77d876b1ea06f39 records_attr3=6b29f6741fee7d2ea64db202bfc6e80f6c0783f records_attr4=topic_Student_20(r482@n257(hasword_date_20)) 
-time cost: 8.20569 seconds
+time cost: 7.19414 seconds
