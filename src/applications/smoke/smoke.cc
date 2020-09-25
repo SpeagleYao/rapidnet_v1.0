@@ -649,6 +649,8 @@ void
 Smoke::Re_1_eca (Ptr<Tuple> insertedge)
 {
   RAPIDNET_LOG_INFO ("Re_1_eca triggered");
+  cout << "re1 triggered" << endl;
+  cout << insertedge << endl;
 
   Ptr<RelationBase> result;
 
@@ -657,14 +659,17 @@ Smoke::Re_1_eca (Ptr<Tuple> insertedge)
     strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
     strlist ("insertedge_attr1", "insertedge_attr2", "insertedge_attr3"));
 
-  result->Assign (Assignor::New ("Local",
-    LOCAL_ADDRESS));
+  result->PrintAllTuples(cout);
+
+
+  // result->Assign (Assignor::New ("Local",
+  //   LOCAL_ADDRESS));
 
   result = AggWrapCount::New ()->Compute (result, insertedge);
 
   result = result->Project (
     EDGECOUNT,
-    strlist ("Local",
+    strlist ("insertedge_attr1",
       "insertedge_attr2",
       "insertedge_attr3",
       "count"),
@@ -672,6 +677,8 @@ Smoke::Re_1_eca (Ptr<Tuple> insertedge)
       "edgeCount_attr2",
       "edgeCount_attr3",
       "edgeCount_attr4"));
+
+  cout << "project success" << endl;
 
   SendLocal (result);
 }

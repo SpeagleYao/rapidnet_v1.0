@@ -408,6 +408,10 @@ protected:
 
   virtual void Prov_r76_1Eca0Del (Ptr<Tuple> hasword);
 
+  virtual void Prov_r77_1Eca0Ins (Ptr<Tuple> hasword);
+
+  virtual void Prov_r77_1Eca0Del (Ptr<Tuple> hasword);
+
   virtual void Prov_r78_1Eca0Ins (Ptr<Tuple> hasword);
 
   virtual void Prov_r78_1Eca0Del (Ptr<Tuple> hasword);

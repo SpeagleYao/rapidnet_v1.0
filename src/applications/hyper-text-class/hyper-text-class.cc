@@ -817,6 +817,14 @@ HyperTextClass::DemuxRecv (Ptr<Tuple> tuple)
     }
   if (IsInsertEvent (tuple, HASWORD))
     {
+      Prov_r77_1Eca0Ins (tuple);
+    }
+  if (IsDeleteEvent (tuple, HASWORD))
+    {
+      Prov_r77_1Eca0Del (tuple);
+    }
+  if (IsInsertEvent (tuple, HASWORD))
+    {
       Prov_r78_1Eca0Ins (tuple);
     }
   if (IsDeleteEvent (tuple, HASWORD))
@@ -4979,7 +4987,7 @@ HyperTextClass::Prov_r0_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5004,7 +5012,7 @@ HyperTextClass::Prov_r0_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("number")))));
+      ValueExpr::New (StrValue::New ("bit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5052,7 +5060,7 @@ HyperTextClass::Prov_r0_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5077,7 +5085,7 @@ HyperTextClass::Prov_r0_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("number")))));
+      ValueExpr::New (StrValue::New ("bit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -5125,7 +5133,7 @@ HyperTextClass::Prov_r1_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5150,7 +5158,7 @@ HyperTextClass::Prov_r1_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("interpret")))));
+      ValueExpr::New (StrValue::New ("effici")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5198,7 +5206,7 @@ HyperTextClass::Prov_r1_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5223,7 +5231,7 @@ HyperTextClass::Prov_r1_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("interpret")))));
+      ValueExpr::New (StrValue::New ("effici")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -5271,7 +5279,7 @@ HyperTextClass::Prov_r2_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5296,7 +5304,7 @@ HyperTextClass::Prov_r2_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("standard")))));
+      ValueExpr::New (StrValue::New ("compani")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5344,7 +5352,7 @@ HyperTextClass::Prov_r2_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5369,7 +5377,7 @@ HyperTextClass::Prov_r2_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("standard")))));
+      ValueExpr::New (StrValue::New ("compani")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -5417,7 +5425,7 @@ HyperTextClass::Prov_r3_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5442,7 +5450,7 @@ HyperTextClass::Prov_r3_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("todai")))));
+      ValueExpr::New (StrValue::New ("express")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5490,7 +5498,7 @@ HyperTextClass::Prov_r3_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5515,7 +5523,7 @@ HyperTextClass::Prov_r3_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("todai")))));
+      ValueExpr::New (StrValue::New ("express")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -5563,7 +5571,7 @@ HyperTextClass::Prov_r4_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5588,7 +5596,7 @@ HyperTextClass::Prov_r4_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cach")))));
+      ValueExpr::New (StrValue::New ("log")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5636,7 +5644,7 @@ HyperTextClass::Prov_r4_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5661,7 +5669,7 @@ HyperTextClass::Prov_r4_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cach")))));
+      ValueExpr::New (StrValue::New ("log")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -5709,7 +5717,7 @@ HyperTextClass::Prov_r5_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5734,7 +5742,7 @@ HyperTextClass::Prov_r5_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("depend")))));
+      ValueExpr::New (StrValue::New ("programm")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5782,7 +5790,7 @@ HyperTextClass::Prov_r5_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5807,7 +5815,7 @@ HyperTextClass::Prov_r5_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("depend")))));
+      ValueExpr::New (StrValue::New ("programm")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -5855,7 +5863,7 @@ HyperTextClass::Prov_r6_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5880,7 +5888,7 @@ HyperTextClass::Prov_r6_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("acm")))));
+      ValueExpr::New (StrValue::New ("buffer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -5928,7 +5936,7 @@ HyperTextClass::Prov_r6_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -5953,7 +5961,7 @@ HyperTextClass::Prov_r6_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("acm")))));
+      ValueExpr::New (StrValue::New ("buffer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6001,7 +6009,7 @@ HyperTextClass::Prov_r7_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6026,7 +6034,7 @@ HyperTextClass::Prov_r7_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("descript")))));
+      ValueExpr::New (StrValue::New ("techniqu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6074,7 +6082,7 @@ HyperTextClass::Prov_r7_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6099,7 +6107,7 @@ HyperTextClass::Prov_r7_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("descript")))));
+      ValueExpr::New (StrValue::New ("techniqu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6147,7 +6155,7 @@ HyperTextClass::Prov_r8_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6172,7 +6180,7 @@ HyperTextClass::Prov_r8_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("audio")))));
+      ValueExpr::New (StrValue::New ("finish")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6220,7 +6228,7 @@ HyperTextClass::Prov_r8_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6245,7 +6253,7 @@ HyperTextClass::Prov_r8_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("audio")))));
+      ValueExpr::New (StrValue::New ("finish")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6293,7 +6301,7 @@ HyperTextClass::Prov_r9_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6318,7 +6326,7 @@ HyperTextClass::Prov_r9_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("calcul")))));
+      ValueExpr::New (StrValue::New ("devic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6366,7 +6374,7 @@ HyperTextClass::Prov_r9_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6391,7 +6399,7 @@ HyperTextClass::Prov_r9_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("calcul")))));
+      ValueExpr::New (StrValue::New ("devic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6439,7 +6447,7 @@ HyperTextClass::Prov_r10_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6464,7 +6472,7 @@ HyperTextClass::Prov_r10_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("url")))));
+      ValueExpr::New (StrValue::New ("type")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6512,7 +6520,7 @@ HyperTextClass::Prov_r10_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6537,7 +6545,7 @@ HyperTextClass::Prov_r10_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("url")))));
+      ValueExpr::New (StrValue::New ("type")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6585,7 +6593,7 @@ HyperTextClass::Prov_r11_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6610,7 +6618,7 @@ HyperTextClass::Prov_r11_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("score")))));
+      ValueExpr::New (StrValue::New ("architectur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6658,7 +6666,7 @@ HyperTextClass::Prov_r11_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6683,7 +6691,7 @@ HyperTextClass::Prov_r11_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("score")))));
+      ValueExpr::New (StrValue::New ("architectur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6731,7 +6739,7 @@ HyperTextClass::Prov_r12_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6756,7 +6764,7 @@ HyperTextClass::Prov_r12_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simul")))));
+      ValueExpr::New (StrValue::New ("august")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6804,7 +6812,7 @@ HyperTextClass::Prov_r12_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6829,7 +6837,7 @@ HyperTextClass::Prov_r12_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simul")))));
+      ValueExpr::New (StrValue::New ("august")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -6877,7 +6885,7 @@ HyperTextClass::Prov_r13_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6902,7 +6910,7 @@ HyperTextClass::Prov_r13_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("homework")))));
+      ValueExpr::New (StrValue::New ("high")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -6950,7 +6958,7 @@ HyperTextClass::Prov_r13_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -6975,7 +6983,7 @@ HyperTextClass::Prov_r13_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("homework")))));
+      ValueExpr::New (StrValue::New ("high")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7023,7 +7031,7 @@ HyperTextClass::Prov_r14_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7048,7 +7056,7 @@ HyperTextClass::Prov_r14_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("autom")))));
+      ValueExpr::New (StrValue::New ("locat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7096,7 +7104,7 @@ HyperTextClass::Prov_r14_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7121,7 +7129,7 @@ HyperTextClass::Prov_r14_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("autom")))));
+      ValueExpr::New (StrValue::New ("locat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7169,7 +7177,7 @@ HyperTextClass::Prov_r15_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7194,7 +7202,7 @@ HyperTextClass::Prov_r15_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("multimedia")))));
+      ValueExpr::New (StrValue::New ("make")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7242,7 +7250,7 @@ HyperTextClass::Prov_r15_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7267,7 +7275,7 @@ HyperTextClass::Prov_r15_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("multimedia")))));
+      ValueExpr::New (StrValue::New ("make")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7340,7 +7348,7 @@ HyperTextClass::Prov_r16_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("valu")))));
+      ValueExpr::New (StrValue::New ("pass")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7413,7 +7421,7 @@ HyperTextClass::Prov_r16_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("valu")))));
+      ValueExpr::New (StrValue::New ("pass")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7461,7 +7469,7 @@ HyperTextClass::Prov_r17_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7486,7 +7494,7 @@ HyperTextClass::Prov_r17_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ncsa")))));
+      ValueExpr::New (StrValue::New ("collect")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7534,7 +7542,7 @@ HyperTextClass::Prov_r17_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7559,7 +7567,7 @@ HyperTextClass::Prov_r17_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ncsa")))));
+      ValueExpr::New (StrValue::New ("collect")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7607,7 +7615,7 @@ HyperTextClass::Prov_r18_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7632,7 +7640,7 @@ HyperTextClass::Prov_r18_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("repres")))));
+      ValueExpr::New (StrValue::New ("devic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7680,7 +7688,7 @@ HyperTextClass::Prov_r18_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7705,7 +7713,7 @@ HyperTextClass::Prov_r18_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("repres")))));
+      ValueExpr::New (StrValue::New ("devic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7753,7 +7761,7 @@ HyperTextClass::Prov_r19_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7778,7 +7786,7 @@ HyperTextClass::Prov_r19_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("approxim")))));
+      ValueExpr::New (StrValue::New ("server")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7826,7 +7834,7 @@ HyperTextClass::Prov_r19_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7851,7 +7859,7 @@ HyperTextClass::Prov_r19_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("approxim")))));
+      ValueExpr::New (StrValue::New ("server")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -7899,7 +7907,7 @@ HyperTextClass::Prov_r20_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7924,7 +7932,7 @@ HyperTextClass::Prov_r20_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("extend")))));
+      ValueExpr::New (StrValue::New ("great")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -7972,7 +7980,7 @@ HyperTextClass::Prov_r20_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -7997,7 +8005,7 @@ HyperTextClass::Prov_r20_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("extend")))));
+      ValueExpr::New (StrValue::New ("great")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8045,7 +8053,7 @@ HyperTextClass::Prov_r21_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8070,7 +8078,7 @@ HyperTextClass::Prov_r21_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("demonstr")))));
+      ValueExpr::New (StrValue::New ("order")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -8118,7 +8126,7 @@ HyperTextClass::Prov_r21_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8143,7 +8151,7 @@ HyperTextClass::Prov_r21_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("demonstr")))));
+      ValueExpr::New (StrValue::New ("order")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8216,7 +8224,7 @@ HyperTextClass::Prov_r22_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("degre")))));
+      ValueExpr::New (StrValue::New ("hardwar")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -8289,7 +8297,7 @@ HyperTextClass::Prov_r22_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("degre")))));
+      ValueExpr::New (StrValue::New ("hardwar")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8337,7 +8345,7 @@ HyperTextClass::Prov_r23_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8362,7 +8370,7 @@ HyperTextClass::Prov_r23_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("syllabu")))));
+      ValueExpr::New (StrValue::New ("graphic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -8410,7 +8418,7 @@ HyperTextClass::Prov_r23_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8435,7 +8443,7 @@ HyperTextClass::Prov_r23_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("syllabu")))));
+      ValueExpr::New (StrValue::New ("graphic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8483,7 +8491,7 @@ HyperTextClass::Prov_r24_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8508,7 +8516,7 @@ HyperTextClass::Prov_r24_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("domain")))));
+      ValueExpr::New (StrValue::New ("result")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -8556,7 +8564,7 @@ HyperTextClass::Prov_r24_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8581,7 +8589,7 @@ HyperTextClass::Prov_r24_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("domain")))));
+      ValueExpr::New (StrValue::New ("result")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8629,7 +8637,7 @@ HyperTextClass::Prov_r25_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8654,7 +8662,7 @@ HyperTextClass::Prov_r25_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tabl")))));
+      ValueExpr::New (StrValue::New ("pp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -8702,7 +8710,7 @@ HyperTextClass::Prov_r25_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8727,7 +8735,7 @@ HyperTextClass::Prov_r25_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tabl")))));
+      ValueExpr::New (StrValue::New ("pp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8775,7 +8783,7 @@ HyperTextClass::Prov_r26_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8800,7 +8808,7 @@ HyperTextClass::Prov_r26_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("background")))));
+      ValueExpr::New (StrValue::New ("investig")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -8848,7 +8856,7 @@ HyperTextClass::Prov_r26_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -8873,7 +8881,7 @@ HyperTextClass::Prov_r26_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("background")))));
+      ValueExpr::New (StrValue::New ("investig")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -8946,7 +8954,7 @@ HyperTextClass::Prov_r27_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pp")))));
+      ValueExpr::New (StrValue::New ("count")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9019,7 +9027,7 @@ HyperTextClass::Prov_r27_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pp")))));
+      ValueExpr::New (StrValue::New ("count")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9067,7 +9075,7 @@ HyperTextClass::Prov_r28_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9092,7 +9100,7 @@ HyperTextClass::Prov_r28_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("initi")))));
+      ValueExpr::New (StrValue::New ("gener")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9140,7 +9148,7 @@ HyperTextClass::Prov_r28_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9165,7 +9173,7 @@ HyperTextClass::Prov_r28_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("initi")))));
+      ValueExpr::New (StrValue::New ("gener")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9213,7 +9221,7 @@ HyperTextClass::Prov_r29_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9238,7 +9246,7 @@ HyperTextClass::Prov_r29_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("layer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9286,7 +9294,7 @@ HyperTextClass::Prov_r29_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9311,7 +9319,7 @@ HyperTextClass::Prov_r29_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("layer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9359,7 +9367,7 @@ HyperTextClass::Prov_r30_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9384,7 +9392,7 @@ HyperTextClass::Prov_r30_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("lab")))));
+      ValueExpr::New (StrValue::New ("homepag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9432,7 +9440,7 @@ HyperTextClass::Prov_r30_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9457,7 +9465,7 @@ HyperTextClass::Prov_r30_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("lab")))));
+      ValueExpr::New (StrValue::New ("homepag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9505,7 +9513,7 @@ HyperTextClass::Prov_r31_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9530,7 +9538,7 @@ HyperTextClass::Prov_r31_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("packag")))));
+      ValueExpr::New (StrValue::New ("digit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9578,7 +9586,7 @@ HyperTextClass::Prov_r31_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9603,7 +9611,7 @@ HyperTextClass::Prov_r31_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("packag")))));
+      ValueExpr::New (StrValue::New ("digit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9651,7 +9659,7 @@ HyperTextClass::Prov_r32_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9676,7 +9684,7 @@ HyperTextClass::Prov_r32_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("archiv")))));
+      ValueExpr::New (StrValue::New ("copyright")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9724,7 +9732,7 @@ HyperTextClass::Prov_r32_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9749,7 +9757,7 @@ HyperTextClass::Prov_r32_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("archiv")))));
+      ValueExpr::New (StrValue::New ("copyright")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9797,7 +9805,7 @@ HyperTextClass::Prov_r33_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9822,7 +9830,7 @@ HyperTextClass::Prov_r33_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("public")))));
+      ValueExpr::New (StrValue::New ("summer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -9870,7 +9878,7 @@ HyperTextClass::Prov_r33_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9895,7 +9903,7 @@ HyperTextClass::Prov_r33_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("public")))));
+      ValueExpr::New (StrValue::New ("summer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -9943,7 +9951,7 @@ HyperTextClass::Prov_r34_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -9968,7 +9976,7 @@ HyperTextClass::Prov_r34_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("vol")))));
+      ValueExpr::New (StrValue::New ("nation")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10016,7 +10024,7 @@ HyperTextClass::Prov_r34_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10041,7 +10049,7 @@ HyperTextClass::Prov_r34_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("vol")))));
+      ValueExpr::New (StrValue::New ("nation")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10089,7 +10097,7 @@ HyperTextClass::Prov_r35_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10114,7 +10122,7 @@ HyperTextClass::Prov_r35_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("extens")))));
+      ValueExpr::New (StrValue::New ("respons")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10162,7 +10170,7 @@ HyperTextClass::Prov_r35_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10187,7 +10195,7 @@ HyperTextClass::Prov_r35_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("extens")))));
+      ValueExpr::New (StrValue::New ("respons")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10260,7 +10268,7 @@ HyperTextClass::Prov_r36_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("applic")))));
+      ValueExpr::New (StrValue::New ("thu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10333,7 +10341,7 @@ HyperTextClass::Prov_r36_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("applic")))));
+      ValueExpr::New (StrValue::New ("thu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10406,7 +10414,7 @@ HyperTextClass::Prov_r37_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("review")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10479,7 +10487,7 @@ HyperTextClass::Prov_r37_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("review")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10527,7 +10535,7 @@ HyperTextClass::Prov_r38_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10552,7 +10560,7 @@ HyperTextClass::Prov_r38_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("machin")))));
+      ValueExpr::New (StrValue::New ("translat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10600,7 +10608,7 @@ HyperTextClass::Prov_r38_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10625,7 +10633,7 @@ HyperTextClass::Prov_r38_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("machin")))));
+      ValueExpr::New (StrValue::New ("translat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10673,7 +10681,7 @@ HyperTextClass::Prov_r39_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10698,7 +10706,7 @@ HyperTextClass::Prov_r39_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("equal")))));
+      ValueExpr::New (StrValue::New ("region")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10746,7 +10754,7 @@ HyperTextClass::Prov_r39_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10771,7 +10779,7 @@ HyperTextClass::Prov_r39_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("equal")))));
+      ValueExpr::New (StrValue::New ("region")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10819,7 +10827,7 @@ HyperTextClass::Prov_r40_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10844,7 +10852,7 @@ HyperTextClass::Prov_r40_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("solv")))));
+      ValueExpr::New (StrValue::New ("discuss")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -10892,7 +10900,7 @@ HyperTextClass::Prov_r40_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10917,7 +10925,7 @@ HyperTextClass::Prov_r40_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("solv")))));
+      ValueExpr::New (StrValue::New ("discuss")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -10965,7 +10973,7 @@ HyperTextClass::Prov_r41_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -10990,7 +10998,7 @@ HyperTextClass::Prov_r41_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("failur")))));
+      ValueExpr::New (StrValue::New ("wi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11038,7 +11046,7 @@ HyperTextClass::Prov_r41_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11063,7 +11071,7 @@ HyperTextClass::Prov_r41_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("failur")))));
+      ValueExpr::New (StrValue::New ("wi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11111,7 +11119,7 @@ HyperTextClass::Prov_r42_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11136,7 +11144,7 @@ HyperTextClass::Prov_r42_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("process")))));
+      ValueExpr::New (StrValue::New ("institut")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11184,7 +11192,7 @@ HyperTextClass::Prov_r42_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11209,7 +11217,7 @@ HyperTextClass::Prov_r42_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("process")))));
+      ValueExpr::New (StrValue::New ("institut")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11257,7 +11265,7 @@ HyperTextClass::Prov_r43_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11282,7 +11290,7 @@ HyperTextClass::Prov_r43_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hw")))));
+      ValueExpr::New (StrValue::New ("mathemat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11330,7 +11338,7 @@ HyperTextClass::Prov_r43_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11355,7 +11363,7 @@ HyperTextClass::Prov_r43_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hw")))));
+      ValueExpr::New (StrValue::New ("mathemat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11403,7 +11411,7 @@ HyperTextClass::Prov_r44_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11428,7 +11436,7 @@ HyperTextClass::Prov_r44_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("displai")))));
+      ValueExpr::New (StrValue::New ("techniqu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11476,7 +11484,7 @@ HyperTextClass::Prov_r44_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11501,7 +11509,7 @@ HyperTextClass::Prov_r44_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("displai")))));
+      ValueExpr::New (StrValue::New ("techniqu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11549,7 +11557,7 @@ HyperTextClass::Prov_r45_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11574,7 +11582,7 @@ HyperTextClass::Prov_r45_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instruct")))));
+      ValueExpr::New (StrValue::New ("quiz")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11622,7 +11630,7 @@ HyperTextClass::Prov_r45_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11647,7 +11655,7 @@ HyperTextClass::Prov_r45_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instruct")))));
+      ValueExpr::New (StrValue::New ("quiz")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11695,7 +11703,7 @@ HyperTextClass::Prov_r46_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11720,7 +11728,7 @@ HyperTextClass::Prov_r46_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("agent")))));
+      ValueExpr::New (StrValue::New ("school")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11768,7 +11776,7 @@ HyperTextClass::Prov_r46_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11793,7 +11801,7 @@ HyperTextClass::Prov_r46_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("agent")))));
+      ValueExpr::New (StrValue::New ("school")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11841,7 +11849,7 @@ HyperTextClass::Prov_r47_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11866,7 +11874,7 @@ HyperTextClass::Prov_r47_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("kernel")))));
+      ValueExpr::New (StrValue::New ("neural")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -11914,7 +11922,7 @@ HyperTextClass::Prov_r47_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -11939,7 +11947,7 @@ HyperTextClass::Prov_r47_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("kernel")))));
+      ValueExpr::New (StrValue::New ("neural")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -11987,7 +11995,7 @@ HyperTextClass::Prov_r48_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12012,7 +12020,7 @@ HyperTextClass::Prov_r48_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instructor")))));
+      ValueExpr::New (StrValue::New ("space")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12060,7 +12068,7 @@ HyperTextClass::Prov_r48_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12085,7 +12093,7 @@ HyperTextClass::Prov_r48_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instructor")))));
+      ValueExpr::New (StrValue::New ("space")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -12133,7 +12141,7 @@ HyperTextClass::Prov_r49_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12158,7 +12166,7 @@ HyperTextClass::Prov_r49_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hall")))));
+      ValueExpr::New (StrValue::New ("page")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12206,7 +12214,7 @@ HyperTextClass::Prov_r49_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12231,7 +12239,7 @@ HyperTextClass::Prov_r49_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hall")))));
+      ValueExpr::New (StrValue::New ("page")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -12279,7 +12287,7 @@ HyperTextClass::Prov_r50_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12304,7 +12312,7 @@ HyperTextClass::Prov_r50_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("addition")))));
+      ValueExpr::New (StrValue::New ("ncsa")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12352,7 +12360,7 @@ HyperTextClass::Prov_r50_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12377,7 +12385,7 @@ HyperTextClass::Prov_r50_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("addition")))));
+      ValueExpr::New (StrValue::New ("ncsa")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -12425,7 +12433,7 @@ HyperTextClass::Prov_r51_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12450,7 +12458,7 @@ HyperTextClass::Prov_r51_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("learn")))));
+      ValueExpr::New (StrValue::New ("format")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12498,7 +12506,7 @@ HyperTextClass::Prov_r51_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12523,7 +12531,7 @@ HyperTextClass::Prov_r51_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("learn")))));
+      ValueExpr::New (StrValue::New ("format")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -12571,7 +12579,7 @@ HyperTextClass::Prov_r52_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12596,7 +12604,7 @@ HyperTextClass::Prov_r52_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("math")))));
+      ValueExpr::New (StrValue::New ("jame")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12644,7 +12652,7 @@ HyperTextClass::Prov_r52_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12669,7 +12677,7 @@ HyperTextClass::Prov_r52_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("math")))));
+      ValueExpr::New (StrValue::New ("jame")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -12717,7 +12725,7 @@ HyperTextClass::Prov_r53_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12742,7 +12750,7 @@ HyperTextClass::Prov_r53_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("task")))));
+      ValueExpr::New (StrValue::New ("small")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12790,7 +12798,7 @@ HyperTextClass::Prov_r53_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12815,7 +12823,7 @@ HyperTextClass::Prov_r53_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("task")))));
+      ValueExpr::New (StrValue::New ("small")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -12863,7 +12871,7 @@ HyperTextClass::Prov_r54_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12888,7 +12896,7 @@ HyperTextClass::Prov_r54_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("repres")))));
+      ValueExpr::New (StrValue::New ("track")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -12936,7 +12944,7 @@ HyperTextClass::Prov_r54_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -12961,7 +12969,7 @@ HyperTextClass::Prov_r54_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("repres")))));
+      ValueExpr::New (StrValue::New ("track")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13009,7 +13017,7 @@ HyperTextClass::Prov_r55_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13034,7 +13042,7 @@ HyperTextClass::Prov_r55_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mit")))));
+      ValueExpr::New (StrValue::New ("user")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13082,7 +13090,7 @@ HyperTextClass::Prov_r55_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13107,7 +13115,7 @@ HyperTextClass::Prov_r55_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mit")))));
+      ValueExpr::New (StrValue::New ("user")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13180,7 +13188,7 @@ HyperTextClass::Prov_r56_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("theorem")))));
+      ValueExpr::New (StrValue::New ("end")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13253,7 +13261,7 @@ HyperTextClass::Prov_r56_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("theorem")))));
+      ValueExpr::New (StrValue::New ("end")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13301,7 +13309,7 @@ HyperTextClass::Prov_r57_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13326,7 +13334,7 @@ HyperTextClass::Prov_r57_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("friend")))));
+      ValueExpr::New (StrValue::New ("connect")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13374,7 +13382,7 @@ HyperTextClass::Prov_r57_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13399,7 +13407,7 @@ HyperTextClass::Prov_r57_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("friend")))));
+      ValueExpr::New (StrValue::New ("connect")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13447,7 +13455,7 @@ HyperTextClass::Prov_r58_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13472,7 +13480,7 @@ HyperTextClass::Prov_r58_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("region")))));
+      ValueExpr::New (StrValue::New ("seattl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13520,7 +13528,7 @@ HyperTextClass::Prov_r58_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13545,7 +13553,7 @@ HyperTextClass::Prov_r58_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("region")))));
+      ValueExpr::New (StrValue::New ("seattl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13593,7 +13601,7 @@ HyperTextClass::Prov_r59_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13618,7 +13626,7 @@ HyperTextClass::Prov_r59_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("loop")))));
+      ValueExpr::New (StrValue::New ("hw")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13666,7 +13674,7 @@ HyperTextClass::Prov_r59_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13691,7 +13699,7 @@ HyperTextClass::Prov_r59_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("loop")))));
+      ValueExpr::New (StrValue::New ("hw")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13739,7 +13747,7 @@ HyperTextClass::Prov_r60_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13764,7 +13772,7 @@ HyperTextClass::Prov_r60_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("exampl")))));
+      ValueExpr::New (StrValue::New ("guid")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13812,7 +13820,7 @@ HyperTextClass::Prov_r60_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13837,7 +13845,7 @@ HyperTextClass::Prov_r60_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("exampl")))));
+      ValueExpr::New (StrValue::New ("guid")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -13885,7 +13893,7 @@ HyperTextClass::Prov_r61_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13910,7 +13918,7 @@ HyperTextClass::Prov_r61_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("partial")))));
+      ValueExpr::New (StrValue::New ("storag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -13958,7 +13966,7 @@ HyperTextClass::Prov_r61_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -13983,7 +13991,7 @@ HyperTextClass::Prov_r61_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("partial")))));
+      ValueExpr::New (StrValue::New ("storag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14031,7 +14039,7 @@ HyperTextClass::Prov_r62_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14056,7 +14064,7 @@ HyperTextClass::Prov_r62_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("condition")))));
+      ValueExpr::New (StrValue::New ("proof")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14104,7 +14112,7 @@ HyperTextClass::Prov_r62_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14129,7 +14137,7 @@ HyperTextClass::Prov_r62_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("condition")))));
+      ValueExpr::New (StrValue::New ("proof")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14177,7 +14185,7 @@ HyperTextClass::Prov_r63_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14202,7 +14210,7 @@ HyperTextClass::Prov_r63_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("adapt")))));
+      ValueExpr::New (StrValue::New ("don")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14250,7 +14258,7 @@ HyperTextClass::Prov_r63_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14275,7 +14283,7 @@ HyperTextClass::Prov_r63_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("adapt")))));
+      ValueExpr::New (StrValue::New ("don")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14323,7 +14331,7 @@ HyperTextClass::Prov_r64_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14348,7 +14356,7 @@ HyperTextClass::Prov_r64_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("build")))));
+      ValueExpr::New (StrValue::New ("fault")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14396,7 +14404,7 @@ HyperTextClass::Prov_r64_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14421,7 +14429,7 @@ HyperTextClass::Prov_r64_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("build")))));
+      ValueExpr::New (StrValue::New ("fault")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14494,7 +14502,7 @@ HyperTextClass::Prov_r65_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("logic")))));
+      ValueExpr::New (StrValue::New ("wait")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14567,7 +14575,7 @@ HyperTextClass::Prov_r65_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("logic")))));
+      ValueExpr::New (StrValue::New ("wait")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14615,7 +14623,7 @@ HyperTextClass::Prov_r66_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14640,7 +14648,7 @@ HyperTextClass::Prov_r66_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("uw")))));
+      ValueExpr::New (StrValue::New ("order")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14688,7 +14696,7 @@ HyperTextClass::Prov_r66_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14713,7 +14721,7 @@ HyperTextClass::Prov_r66_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("uw")))));
+      ValueExpr::New (StrValue::New ("order")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14761,7 +14769,7 @@ HyperTextClass::Prov_r67_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14786,7 +14794,7 @@ HyperTextClass::Prov_r67_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("book")))));
+      ValueExpr::New (StrValue::New ("provid")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14834,7 +14842,7 @@ HyperTextClass::Prov_r67_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14859,7 +14867,7 @@ HyperTextClass::Prov_r67_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("book")))));
+      ValueExpr::New (StrValue::New ("provid")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -14907,7 +14915,7 @@ HyperTextClass::Prov_r68_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -14932,7 +14940,7 @@ HyperTextClass::Prov_r68_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("autom")))));
+      ValueExpr::New (StrValue::New ("switch")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -14980,7 +14988,7 @@ HyperTextClass::Prov_r68_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15005,7 +15013,7 @@ HyperTextClass::Prov_r68_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("autom")))));
+      ValueExpr::New (StrValue::New ("switch")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15053,7 +15061,7 @@ HyperTextClass::Prov_r69_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15078,7 +15086,7 @@ HyperTextClass::Prov_r69_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("novemb")))));
+      ValueExpr::New (StrValue::New ("string")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -15126,7 +15134,7 @@ HyperTextClass::Prov_r69_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15151,7 +15159,7 @@ HyperTextClass::Prov_r69_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("novemb")))));
+      ValueExpr::New (StrValue::New ("string")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15199,7 +15207,7 @@ HyperTextClass::Prov_r70_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15224,7 +15232,7 @@ HyperTextClass::Prov_r70_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("amp")))));
+      ValueExpr::New (StrValue::New ("knowledg")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -15272,7 +15280,7 @@ HyperTextClass::Prov_r70_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15297,7 +15305,7 @@ HyperTextClass::Prov_r70_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("amp")))));
+      ValueExpr::New (StrValue::New ("knowledg")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15345,7 +15353,7 @@ HyperTextClass::Prov_r71_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15370,7 +15378,7 @@ HyperTextClass::Prov_r71_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sun")))));
+      ValueExpr::New (StrValue::New ("current")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -15418,7 +15426,7 @@ HyperTextClass::Prov_r71_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15443,7 +15451,7 @@ HyperTextClass::Prov_r71_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sun")))));
+      ValueExpr::New (StrValue::New ("current")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15491,7 +15499,7 @@ HyperTextClass::Prov_r72_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15516,7 +15524,7 @@ HyperTextClass::Prov_r72_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("java")))));
+      ValueExpr::New (StrValue::New ("august")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -15564,7 +15572,7 @@ HyperTextClass::Prov_r72_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15589,7 +15597,7 @@ HyperTextClass::Prov_r72_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("java")))));
+      ValueExpr::New (StrValue::New ("august")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15662,7 +15670,7 @@ HyperTextClass::Prov_r73_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("binari")))));
+      ValueExpr::New (StrValue::New ("compil")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -15735,7 +15743,7 @@ HyperTextClass::Prov_r73_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("binari")))));
+      ValueExpr::New (StrValue::New ("compil")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15808,7 +15816,7 @@ HyperTextClass::Prov_r74_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("independ")))));
+      ValueExpr::New (StrValue::New ("sampl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -15881,7 +15889,7 @@ HyperTextClass::Prov_r74_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("independ")))));
+      ValueExpr::New (StrValue::New ("sampl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -15929,7 +15937,7 @@ HyperTextClass::Prov_r75_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -15954,7 +15962,7 @@ HyperTextClass::Prov_r75_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("address")))));
+      ValueExpr::New (StrValue::New ("meet")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16002,7 +16010,7 @@ HyperTextClass::Prov_r75_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16027,7 +16035,7 @@ HyperTextClass::Prov_r75_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("address")))));
+      ValueExpr::New (StrValue::New ("meet")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16100,7 +16108,7 @@ HyperTextClass::Prov_r76_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("technic")))));
+      ValueExpr::New (StrValue::New ("dissert")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16173,7 +16181,153 @@ HyperTextClass::Prov_r76_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("technic")))));
+      ValueExpr::New (StrValue::New ("dissert")))));
+
+  result = result->Project (
+    ETOPICTEMPDELETE,
+    strlist ("RLOC",
+      "Local",
+      "T",
+      "hasword_attr3",
+      "RID",
+      "RWeight",
+      "R",
+      "List",
+      "RLOC"),
+    strlist ("etopicTempDelete_attr1",
+      "etopicTempDelete_attr2",
+      "etopicTempDelete_attr3",
+      "etopicTempDelete_attr4",
+      "etopicTempDelete_attr5",
+      "etopicTempDelete_attr6",
+      "etopicTempDelete_attr7",
+      "etopicTempDelete_attr8",
+      RN_DEST));
+
+  Send (result);
+}
+
+void
+HyperTextClass::Prov_r77_1Eca0Ins (Ptr<Tuple> hasword)
+{
+  RAPIDNET_LOG_INFO ("Prov_r77_1Eca0Ins triggered");
+
+  Ptr<Tuple> result = hasword;
+
+  result->Assign (Assignor::New ("PID1",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("hasword")),
+            VarExpr::New ("hasword_attr1")),
+          VarExpr::New ("hasword_attr2")),
+        VarExpr::New ("hasword_attr3")))));
+
+  result->Assign (Assignor::New ("List",
+    FAppend::New (
+      VarExpr::New ("PID1"))));
+
+  result->Assign (Assignor::New ("T",
+    ValueExpr::New (StrValue::New ("Faculty"))));
+
+  result->Assign (Assignor::New ("RLOC",
+    VarExpr::New ("hasword_attr1")));
+
+  result->Assign (Assignor::New ("RWeight",
+    ValueExpr::New (RealValue::New (1))));
+
+  result->Assign (Assignor::New ("R",
+    ValueExpr::New (StrValue::New ("r77"))));
+
+  result->Assign (Assignor::New ("RID",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          VarExpr::New ("R"),
+          VarExpr::New ("RLOC")),
+        VarExpr::New ("List")))));
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+  result = result->Select (Selector::New (
+    Operation::New (RN_EQ,
+      VarExpr::New ("hasword_attr2"),
+      ValueExpr::New (StrValue::New ("dissert")))));
+
+  result = result->Project (
+    ETOPICTEMP,
+    strlist ("RLOC",
+      "Local",
+      "T",
+      "hasword_attr3",
+      "RID",
+      "RWeight",
+      "R",
+      "List",
+      "RLOC"),
+    strlist ("etopicTemp_attr1",
+      "etopicTemp_attr2",
+      "etopicTemp_attr3",
+      "etopicTemp_attr4",
+      "etopicTemp_attr5",
+      "etopicTemp_attr6",
+      "etopicTemp_attr7",
+      "etopicTemp_attr8",
+      RN_DEST));
+
+  Send (result);
+}
+
+void
+HyperTextClass::Prov_r77_1Eca0Del (Ptr<Tuple> hasword)
+{
+  RAPIDNET_LOG_INFO ("Prov_r77_1Eca0Del triggered");
+
+  Ptr<Tuple> result = hasword;
+
+  result->Assign (Assignor::New ("PID1",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("hasword")),
+            VarExpr::New ("hasword_attr1")),
+          VarExpr::New ("hasword_attr2")),
+        VarExpr::New ("hasword_attr3")))));
+
+  result->Assign (Assignor::New ("List",
+    FAppend::New (
+      VarExpr::New ("PID1"))));
+
+  result->Assign (Assignor::New ("T",
+    ValueExpr::New (StrValue::New ("Faculty"))));
+
+  result->Assign (Assignor::New ("RLOC",
+    VarExpr::New ("hasword_attr1")));
+
+  result->Assign (Assignor::New ("RWeight",
+    ValueExpr::New (RealValue::New (1))));
+
+  result->Assign (Assignor::New ("R",
+    ValueExpr::New (StrValue::New ("r77"))));
+
+  result->Assign (Assignor::New ("RID",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          VarExpr::New ("R"),
+          VarExpr::New ("RLOC")),
+        VarExpr::New ("List")))));
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+  result = result->Select (Selector::New (
+    Operation::New (RN_EQ,
+      VarExpr::New ("hasword_attr2"),
+      ValueExpr::New (StrValue::New ("dissert")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16221,7 +16375,7 @@ HyperTextClass::Prov_r78_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16246,7 +16400,7 @@ HyperTextClass::Prov_r78_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("page")))));
+      ValueExpr::New (StrValue::New ("dai")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16294,7 +16448,7 @@ HyperTextClass::Prov_r78_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16319,7 +16473,7 @@ HyperTextClass::Prov_r78_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("page")))));
+      ValueExpr::New (StrValue::New ("dai")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16367,7 +16521,7 @@ HyperTextClass::Prov_r79_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16392,7 +16546,7 @@ HyperTextClass::Prov_r79_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("test")))));
+      ValueExpr::New (StrValue::New ("refin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16440,7 +16594,7 @@ HyperTextClass::Prov_r79_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16465,7 +16619,7 @@ HyperTextClass::Prov_r79_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("test")))));
+      ValueExpr::New (StrValue::New ("refin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16513,7 +16667,7 @@ HyperTextClass::Prov_r80_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16538,7 +16692,7 @@ HyperTextClass::Prov_r80_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("demonstr")))));
+      ValueExpr::New (StrValue::New ("hardwar")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16586,7 +16740,7 @@ HyperTextClass::Prov_r80_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16611,7 +16765,7 @@ HyperTextClass::Prov_r80_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("demonstr")))));
+      ValueExpr::New (StrValue::New ("hardwar")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16659,7 +16813,7 @@ HyperTextClass::Prov_r81_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16684,7 +16838,7 @@ HyperTextClass::Prov_r81_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("problem")))));
+      ValueExpr::New (StrValue::New ("step")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16732,7 +16886,7 @@ HyperTextClass::Prov_r81_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16757,7 +16911,7 @@ HyperTextClass::Prov_r81_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("problem")))));
+      ValueExpr::New (StrValue::New ("step")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16830,7 +16984,7 @@ HyperTextClass::Prov_r82_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("includ")))));
+      ValueExpr::New (StrValue::New ("path")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -16903,7 +17057,7 @@ HyperTextClass::Prov_r82_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("includ")))));
+      ValueExpr::New (StrValue::New ("path")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -16951,7 +17105,7 @@ HyperTextClass::Prov_r83_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -16976,7 +17130,7 @@ HyperTextClass::Prov_r83_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("input")))));
+      ValueExpr::New (StrValue::New ("pc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17024,7 +17178,7 @@ HyperTextClass::Prov_r83_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17049,7 +17203,7 @@ HyperTextClass::Prov_r83_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("input")))));
+      ValueExpr::New (StrValue::New ("pc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17097,7 +17251,7 @@ HyperTextClass::Prov_r84_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17122,7 +17276,7 @@ HyperTextClass::Prov_r84_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("detect")))));
+      ValueExpr::New (StrValue::New ("issu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17170,7 +17324,7 @@ HyperTextClass::Prov_r84_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17195,7 +17349,7 @@ HyperTextClass::Prov_r84_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("detect")))));
+      ValueExpr::New (StrValue::New ("issu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17243,7 +17397,7 @@ HyperTextClass::Prov_r85_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17268,7 +17422,7 @@ HyperTextClass::Prov_r85_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("order")))));
+      ValueExpr::New (StrValue::New ("specif")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17316,7 +17470,7 @@ HyperTextClass::Prov_r85_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17341,7 +17495,7 @@ HyperTextClass::Prov_r85_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("order")))));
+      ValueExpr::New (StrValue::New ("specif")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17389,7 +17543,7 @@ HyperTextClass::Prov_r86_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17414,7 +17568,7 @@ HyperTextClass::Prov_r86_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ad")))));
+      ValueExpr::New (StrValue::New ("tabl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17462,7 +17616,7 @@ HyperTextClass::Prov_r86_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17487,7 +17641,7 @@ HyperTextClass::Prov_r86_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ad")))));
+      ValueExpr::New (StrValue::New ("tabl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17535,7 +17689,7 @@ HyperTextClass::Prov_r87_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17560,7 +17714,7 @@ HyperTextClass::Prov_r87_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("year")))));
+      ValueExpr::New (StrValue::New ("break")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17608,7 +17762,7 @@ HyperTextClass::Prov_r87_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17633,7 +17787,7 @@ HyperTextClass::Prov_r87_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("year")))));
+      ValueExpr::New (StrValue::New ("break")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17681,7 +17835,7 @@ HyperTextClass::Prov_r88_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17706,7 +17860,7 @@ HyperTextClass::Prov_r88_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pp")))));
+      ValueExpr::New (StrValue::New ("maintain")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17754,7 +17908,7 @@ HyperTextClass::Prov_r88_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17779,7 +17933,7 @@ HyperTextClass::Prov_r88_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pp")))));
+      ValueExpr::New (StrValue::New ("maintain")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17827,7 +17981,7 @@ HyperTextClass::Prov_r89_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17852,7 +18006,7 @@ HyperTextClass::Prov_r89_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("detect")))));
+      ValueExpr::New (StrValue::New ("local")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -17900,7 +18054,7 @@ HyperTextClass::Prov_r89_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17925,7 +18079,7 @@ HyperTextClass::Prov_r89_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("detect")))));
+      ValueExpr::New (StrValue::New ("local")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -17973,7 +18127,7 @@ HyperTextClass::Prov_r90_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -17998,7 +18152,7 @@ HyperTextClass::Prov_r90_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("rivl")))));
+      ValueExpr::New (StrValue::New ("introduct")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18046,7 +18200,7 @@ HyperTextClass::Prov_r90_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18071,7 +18225,7 @@ HyperTextClass::Prov_r90_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("rivl")))));
+      ValueExpr::New (StrValue::New ("introduct")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18119,7 +18273,7 @@ HyperTextClass::Prov_r91_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18144,7 +18298,7 @@ HyperTextClass::Prov_r91_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("combin")))));
+      ValueExpr::New (StrValue::New ("method")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18192,7 +18346,7 @@ HyperTextClass::Prov_r91_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18217,7 +18371,7 @@ HyperTextClass::Prov_r91_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("combin")))));
+      ValueExpr::New (StrValue::New ("method")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18265,7 +18419,7 @@ HyperTextClass::Prov_r92_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18290,7 +18444,7 @@ HyperTextClass::Prov_r92_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("result")))));
+      ValueExpr::New (StrValue::New ("structur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18338,7 +18492,7 @@ HyperTextClass::Prov_r92_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18363,7 +18517,7 @@ HyperTextClass::Prov_r92_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("result")))));
+      ValueExpr::New (StrValue::New ("structur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18411,7 +18565,7 @@ HyperTextClass::Prov_r93_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18436,7 +18590,7 @@ HyperTextClass::Prov_r93_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("type")))));
+      ValueExpr::New (StrValue::New ("exist")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18484,7 +18638,7 @@ HyperTextClass::Prov_r93_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18509,7 +18663,7 @@ HyperTextClass::Prov_r93_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("type")))));
+      ValueExpr::New (StrValue::New ("exist")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18582,7 +18736,7 @@ HyperTextClass::Prov_r94_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dai")))));
+      ValueExpr::New (StrValue::New ("rate")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18655,7 +18809,7 @@ HyperTextClass::Prov_r94_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dai")))));
+      ValueExpr::New (StrValue::New ("rate")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18728,7 +18882,7 @@ HyperTextClass::Prov_r95_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("compil")))));
+      ValueExpr::New (StrValue::New ("effici")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18801,7 +18955,7 @@ HyperTextClass::Prov_r95_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("compil")))));
+      ValueExpr::New (StrValue::New ("effici")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18849,7 +19003,7 @@ HyperTextClass::Prov_r96_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18874,7 +19028,7 @@ HyperTextClass::Prov_r96_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hill")))));
+      ValueExpr::New (StrValue::New ("public")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -18922,7 +19076,7 @@ HyperTextClass::Prov_r96_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -18947,7 +19101,7 @@ HyperTextClass::Prov_r96_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hill")))));
+      ValueExpr::New (StrValue::New ("public")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -18995,7 +19149,7 @@ HyperTextClass::Prov_r97_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19020,7 +19174,7 @@ HyperTextClass::Prov_r97_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("load")))));
+      ValueExpr::New (StrValue::New ("argum")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19068,7 +19222,7 @@ HyperTextClass::Prov_r97_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19093,7 +19247,7 @@ HyperTextClass::Prov_r97_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("load")))));
+      ValueExpr::New (StrValue::New ("argum")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -19141,7 +19295,7 @@ HyperTextClass::Prov_r98_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19166,7 +19320,7 @@ HyperTextClass::Prov_r98_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("friend")))));
+      ValueExpr::New (StrValue::New ("introduct")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19214,7 +19368,7 @@ HyperTextClass::Prov_r98_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19239,7 +19393,7 @@ HyperTextClass::Prov_r98_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("friend")))));
+      ValueExpr::New (StrValue::New ("introduct")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -19287,7 +19441,7 @@ HyperTextClass::Prov_r99_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19312,7 +19466,7 @@ HyperTextClass::Prov_r99_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("school")))));
+      ValueExpr::New (StrValue::New ("differ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19360,7 +19514,7 @@ HyperTextClass::Prov_r99_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19385,7 +19539,7 @@ HyperTextClass::Prov_r99_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("school")))));
+      ValueExpr::New (StrValue::New ("differ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -19433,7 +19587,7 @@ HyperTextClass::Prov_r100_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19458,7 +19612,7 @@ HyperTextClass::Prov_r100_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("direct")))));
+      ValueExpr::New (StrValue::New ("art")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19506,7 +19660,7 @@ HyperTextClass::Prov_r100_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19531,7 +19685,7 @@ HyperTextClass::Prov_r100_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("direct")))));
+      ValueExpr::New (StrValue::New ("art")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -19579,7 +19733,7 @@ HyperTextClass::Prov_r101_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19604,7 +19758,7 @@ HyperTextClass::Prov_r101_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simpl")))));
+      ValueExpr::New (StrValue::New ("email")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19652,7 +19806,7 @@ HyperTextClass::Prov_r101_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19677,7 +19831,7 @@ HyperTextClass::Prov_r101_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simpl")))));
+      ValueExpr::New (StrValue::New ("email")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -19725,7 +19879,7 @@ HyperTextClass::Prov_r102_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19750,7 +19904,7 @@ HyperTextClass::Prov_r102_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("fast")))));
+      ValueExpr::New (StrValue::New ("charact")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19798,7 +19952,7 @@ HyperTextClass::Prov_r102_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19823,7 +19977,7 @@ HyperTextClass::Prov_r102_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("fast")))));
+      ValueExpr::New (StrValue::New ("charact")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -19871,7 +20025,7 @@ HyperTextClass::Prov_r103_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19896,7 +20050,7 @@ HyperTextClass::Prov_r103_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("audio")))));
+      ValueExpr::New (StrValue::New ("emac")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -19944,7 +20098,7 @@ HyperTextClass::Prov_r103_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -19969,7 +20123,7 @@ HyperTextClass::Prov_r103_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("audio")))));
+      ValueExpr::New (StrValue::New ("emac")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20017,7 +20171,7 @@ HyperTextClass::Prov_r104_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20042,7 +20196,7 @@ HyperTextClass::Prov_r104_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wait")))));
+      ValueExpr::New (StrValue::New ("movi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20090,7 +20244,7 @@ HyperTextClass::Prov_r104_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20115,7 +20269,7 @@ HyperTextClass::Prov_r104_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wait")))));
+      ValueExpr::New (StrValue::New ("movi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20163,7 +20317,7 @@ HyperTextClass::Prov_r105_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20188,7 +20342,7 @@ HyperTextClass::Prov_r105_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("late")))));
+      ValueExpr::New (StrValue::New ("pointer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20236,7 +20390,7 @@ HyperTextClass::Prov_r105_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20261,7 +20415,7 @@ HyperTextClass::Prov_r105_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("late")))));
+      ValueExpr::New (StrValue::New ("pointer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20309,7 +20463,7 @@ HyperTextClass::Prov_r106_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20334,7 +20488,7 @@ HyperTextClass::Prov_r106_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("void")))));
+      ValueExpr::New (StrValue::New ("ieee")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20382,7 +20536,7 @@ HyperTextClass::Prov_r106_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20407,7 +20561,7 @@ HyperTextClass::Prov_r106_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("void")))));
+      ValueExpr::New (StrValue::New ("ieee")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20480,7 +20634,7 @@ HyperTextClass::Prov_r107_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("due")))));
+      ValueExpr::New (StrValue::New ("provid")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20553,7 +20707,7 @@ HyperTextClass::Prov_r107_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("due")))));
+      ValueExpr::New (StrValue::New ("provid")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20601,7 +20755,7 @@ HyperTextClass::Prov_r108_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20626,7 +20780,7 @@ HyperTextClass::Prov_r108_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("compani")))));
+      ValueExpr::New (StrValue::New ("independ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20674,7 +20828,7 @@ HyperTextClass::Prov_r108_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20699,7 +20853,7 @@ HyperTextClass::Prov_r108_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("compani")))));
+      ValueExpr::New (StrValue::New ("independ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20747,7 +20901,7 @@ HyperTextClass::Prov_r109_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20772,7 +20926,7 @@ HyperTextClass::Prov_r109_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("acm")))));
+      ValueExpr::New (StrValue::New ("educ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20820,7 +20974,7 @@ HyperTextClass::Prov_r109_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20845,7 +20999,7 @@ HyperTextClass::Prov_r109_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("acm")))));
+      ValueExpr::New (StrValue::New ("educ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -20893,7 +21047,7 @@ HyperTextClass::Prov_r110_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20918,7 +21072,7 @@ HyperTextClass::Prov_r110_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ii")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -20966,7 +21120,7 @@ HyperTextClass::Prov_r110_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -20991,7 +21145,7 @@ HyperTextClass::Prov_r110_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ii")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21039,7 +21193,7 @@ HyperTextClass::Prov_r111_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21064,7 +21218,7 @@ HyperTextClass::Prov_r111_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tuesdai")))));
+      ValueExpr::New (StrValue::New ("algebra")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21112,7 +21266,7 @@ HyperTextClass::Prov_r111_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21137,7 +21291,7 @@ HyperTextClass::Prov_r111_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tuesdai")))));
+      ValueExpr::New (StrValue::New ("algebra")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21185,7 +21339,7 @@ HyperTextClass::Prov_r112_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21210,7 +21364,7 @@ HyperTextClass::Prov_r112_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("arrai")))));
+      ValueExpr::New (StrValue::New ("apr")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21258,7 +21412,7 @@ HyperTextClass::Prov_r112_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21283,7 +21437,7 @@ HyperTextClass::Prov_r112_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("arrai")))));
+      ValueExpr::New (StrValue::New ("apr")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21331,7 +21485,7 @@ HyperTextClass::Prov_r113_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21356,7 +21510,7 @@ HyperTextClass::Prov_r113_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("algorithm")))));
+      ValueExpr::New (StrValue::New ("semant")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21404,7 +21558,7 @@ HyperTextClass::Prov_r113_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21429,7 +21583,7 @@ HyperTextClass::Prov_r113_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("algorithm")))));
+      ValueExpr::New (StrValue::New ("semant")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21477,7 +21631,7 @@ HyperTextClass::Prov_r114_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21502,7 +21656,7 @@ HyperTextClass::Prov_r114_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tx")))));
+      ValueExpr::New (StrValue::New ("algorithm")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21550,7 +21704,7 @@ HyperTextClass::Prov_r114_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21575,7 +21729,7 @@ HyperTextClass::Prov_r114_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tx")))));
+      ValueExpr::New (StrValue::New ("algorithm")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21623,7 +21777,7 @@ HyperTextClass::Prov_r115_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21648,7 +21802,7 @@ HyperTextClass::Prov_r115_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("individu")))));
+      ValueExpr::New (StrValue::New ("obtain")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21696,7 +21850,7 @@ HyperTextClass::Prov_r115_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21721,7 +21875,7 @@ HyperTextClass::Prov_r115_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("individu")))));
+      ValueExpr::New (StrValue::New ("obtain")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21769,7 +21923,7 @@ HyperTextClass::Prov_r116_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21794,7 +21948,7 @@ HyperTextClass::Prov_r116_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simpl")))));
+      ValueExpr::New (StrValue::New ("buffer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21842,7 +21996,7 @@ HyperTextClass::Prov_r116_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21867,7 +22021,7 @@ HyperTextClass::Prov_r116_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simpl")))));
+      ValueExpr::New (StrValue::New ("buffer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -21915,7 +22069,7 @@ HyperTextClass::Prov_r117_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -21940,7 +22094,7 @@ HyperTextClass::Prov_r117_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("domain")))));
+      ValueExpr::New (StrValue::New ("manipul")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -21988,7 +22142,7 @@ HyperTextClass::Prov_r117_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22013,7 +22167,7 @@ HyperTextClass::Prov_r117_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("domain")))));
+      ValueExpr::New (StrValue::New ("manipul")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22061,7 +22215,7 @@ HyperTextClass::Prov_r118_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22086,7 +22240,7 @@ HyperTextClass::Prov_r118_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ll")))));
+      ValueExpr::New (StrValue::New ("propos")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -22134,7 +22288,7 @@ HyperTextClass::Prov_r118_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22159,7 +22313,7 @@ HyperTextClass::Prov_r118_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ll")))));
+      ValueExpr::New (StrValue::New ("propos")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22207,7 +22361,7 @@ HyperTextClass::Prov_r119_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22232,7 +22386,7 @@ HyperTextClass::Prov_r119_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("click")))));
+      ValueExpr::New (StrValue::New ("aug")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -22280,7 +22434,7 @@ HyperTextClass::Prov_r119_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22305,7 +22459,7 @@ HyperTextClass::Prov_r119_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("click")))));
+      ValueExpr::New (StrValue::New ("aug")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22353,7 +22507,7 @@ HyperTextClass::Prov_r120_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22378,7 +22532,7 @@ HyperTextClass::Prov_r120_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("explor")))));
+      ValueExpr::New (StrValue::New ("partial")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -22426,7 +22580,7 @@ HyperTextClass::Prov_r120_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22451,7 +22605,7 @@ HyperTextClass::Prov_r120_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("explor")))));
+      ValueExpr::New (StrValue::New ("partial")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22499,7 +22653,7 @@ HyperTextClass::Prov_r121_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22524,7 +22678,7 @@ HyperTextClass::Prov_r121_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("length")))));
+      ValueExpr::New (StrValue::New ("institut")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -22572,7 +22726,7 @@ HyperTextClass::Prov_r121_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22597,7 +22751,7 @@ HyperTextClass::Prov_r121_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("length")))));
+      ValueExpr::New (StrValue::New ("institut")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22645,7 +22799,7 @@ HyperTextClass::Prov_r122_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22670,7 +22824,7 @@ HyperTextClass::Prov_r122_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("set")))));
+      ValueExpr::New (StrValue::New ("sundai")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -22718,7 +22872,7 @@ HyperTextClass::Prov_r122_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22743,7 +22897,7 @@ HyperTextClass::Prov_r122_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("set")))));
+      ValueExpr::New (StrValue::New ("sundai")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22791,7 +22945,7 @@ HyperTextClass::Prov_r123_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22816,7 +22970,7 @@ HyperTextClass::Prov_r123_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("statem")))));
+      ValueExpr::New (StrValue::New ("particl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -22864,7 +23018,7 @@ HyperTextClass::Prov_r123_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22889,7 +23043,7 @@ HyperTextClass::Prov_r123_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("statem")))));
+      ValueExpr::New (StrValue::New ("particl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -22937,7 +23091,7 @@ HyperTextClass::Prov_r124_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -22962,7 +23116,7 @@ HyperTextClass::Prov_r124_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mode")))));
+      ValueExpr::New (StrValue::New ("basic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23010,7 +23164,7 @@ HyperTextClass::Prov_r124_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23035,7 +23189,7 @@ HyperTextClass::Prov_r124_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mode")))));
+      ValueExpr::New (StrValue::New ("basic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23083,7 +23237,7 @@ HyperTextClass::Prov_r125_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23108,7 +23262,7 @@ HyperTextClass::Prov_r125_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("defin")))));
+      ValueExpr::New (StrValue::New ("equat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23156,7 +23310,7 @@ HyperTextClass::Prov_r125_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23181,7 +23335,7 @@ HyperTextClass::Prov_r125_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("defin")))));
+      ValueExpr::New (StrValue::New ("equat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23229,7 +23383,7 @@ HyperTextClass::Prov_r126_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23254,7 +23408,7 @@ HyperTextClass::Prov_r126_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("note")))));
+      ValueExpr::New (StrValue::New ("proceed")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23302,7 +23456,7 @@ HyperTextClass::Prov_r126_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23327,7 +23481,7 @@ HyperTextClass::Prov_r126_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("note")))));
+      ValueExpr::New (StrValue::New ("proceed")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23375,7 +23529,7 @@ HyperTextClass::Prov_r127_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23400,7 +23554,7 @@ HyperTextClass::Prov_r127_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("goal")))));
+      ValueExpr::New (StrValue::New ("fax")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23448,7 +23602,7 @@ HyperTextClass::Prov_r127_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23473,7 +23627,7 @@ HyperTextClass::Prov_r127_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("goal")))));
+      ValueExpr::New (StrValue::New ("fax")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23546,7 +23700,7 @@ HyperTextClass::Prov_r128_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("problem")))));
+      ValueExpr::New (StrValue::New ("utexa")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23619,7 +23773,7 @@ HyperTextClass::Prov_r128_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("problem")))));
+      ValueExpr::New (StrValue::New ("utexa")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23692,7 +23846,7 @@ HyperTextClass::Prov_r129_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("properti")))));
+      ValueExpr::New (StrValue::New ("begin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23765,7 +23919,7 @@ HyperTextClass::Prov_r129_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("properti")))));
+      ValueExpr::New (StrValue::New ("begin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23813,7 +23967,7 @@ HyperTextClass::Prov_r130_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23838,7 +23992,7 @@ HyperTextClass::Prov_r130_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ai")))));
+      ValueExpr::New (StrValue::New ("thesi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -23886,7 +24040,7 @@ HyperTextClass::Prov_r130_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23911,7 +24065,7 @@ HyperTextClass::Prov_r130_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ai")))));
+      ValueExpr::New (StrValue::New ("thesi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -23959,7 +24113,7 @@ HyperTextClass::Prov_r131_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -23984,7 +24138,7 @@ HyperTextClass::Prov_r131_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("written")))));
+      ValueExpr::New (StrValue::New ("ithaca")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24032,7 +24186,7 @@ HyperTextClass::Prov_r131_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24057,7 +24211,7 @@ HyperTextClass::Prov_r131_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("written")))));
+      ValueExpr::New (StrValue::New ("ithaca")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24105,7 +24259,7 @@ HyperTextClass::Prov_r132_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24130,7 +24284,7 @@ HyperTextClass::Prov_r132_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cse")))));
+      ValueExpr::New (StrValue::New ("grant")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24178,7 +24332,7 @@ HyperTextClass::Prov_r132_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24203,7 +24357,7 @@ HyperTextClass::Prov_r132_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cse")))));
+      ValueExpr::New (StrValue::New ("grant")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24251,7 +24405,7 @@ HyperTextClass::Prov_r133_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24276,7 +24430,7 @@ HyperTextClass::Prov_r133_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("coordin")))));
+      ValueExpr::New (StrValue::New ("queri")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24324,7 +24478,7 @@ HyperTextClass::Prov_r133_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24349,7 +24503,7 @@ HyperTextClass::Prov_r133_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("coordin")))));
+      ValueExpr::New (StrValue::New ("queri")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24397,7 +24551,7 @@ HyperTextClass::Prov_r134_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24422,7 +24576,7 @@ HyperTextClass::Prov_r134_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("elem")))));
+      ValueExpr::New (StrValue::New ("cpp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24470,7 +24624,7 @@ HyperTextClass::Prov_r134_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24495,7 +24649,7 @@ HyperTextClass::Prov_r134_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("elem")))));
+      ValueExpr::New (StrValue::New ("cpp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24543,7 +24697,7 @@ HyperTextClass::Prov_r135_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24568,7 +24722,7 @@ HyperTextClass::Prov_r135_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("continu")))));
+      ValueExpr::New (StrValue::New ("decision")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24616,7 +24770,7 @@ HyperTextClass::Prov_r135_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24641,7 +24795,7 @@ HyperTextClass::Prov_r135_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("continu")))));
+      ValueExpr::New (StrValue::New ("decision")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24689,7 +24843,7 @@ HyperTextClass::Prov_r136_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24714,7 +24868,7 @@ HyperTextClass::Prov_r136_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("publish")))));
+      ValueExpr::New (StrValue::New ("interest")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24762,7 +24916,7 @@ HyperTextClass::Prov_r136_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -24787,7 +24941,7 @@ HyperTextClass::Prov_r136_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("publish")))));
+      ValueExpr::New (StrValue::New ("interest")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24860,7 +25014,7 @@ HyperTextClass::Prov_r137_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("purpos")))));
+      ValueExpr::New (StrValue::New ("mathemat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -24933,7 +25087,7 @@ HyperTextClass::Prov_r137_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("purpos")))));
+      ValueExpr::New (StrValue::New ("mathemat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -24981,7 +25135,7 @@ HyperTextClass::Prov_r138_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25006,7 +25160,7 @@ HyperTextClass::Prov_r138_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("feb")))));
+      ValueExpr::New (StrValue::New ("appli")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25054,7 +25208,7 @@ HyperTextClass::Prov_r138_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25079,7 +25233,7 @@ HyperTextClass::Prov_r138_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("feb")))));
+      ValueExpr::New (StrValue::New ("appli")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -25127,7 +25281,7 @@ HyperTextClass::Prov_r139_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25152,7 +25306,7 @@ HyperTextClass::Prov_r139_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("avoid")))));
+      ValueExpr::New (StrValue::New ("hand")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25200,7 +25354,7 @@ HyperTextClass::Prov_r139_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25225,7 +25379,7 @@ HyperTextClass::Prov_r139_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("avoid")))));
+      ValueExpr::New (StrValue::New ("hand")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -25273,7 +25427,7 @@ HyperTextClass::Prov_r140_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25298,7 +25452,7 @@ HyperTextClass::Prov_r140_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cpu")))));
+      ValueExpr::New (StrValue::New ("main")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25346,7 +25500,7 @@ HyperTextClass::Prov_r140_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25371,7 +25525,7 @@ HyperTextClass::Prov_r140_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cpu")))));
+      ValueExpr::New (StrValue::New ("main")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -25419,7 +25573,7 @@ HyperTextClass::Prov_r141_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25444,7 +25598,7 @@ HyperTextClass::Prov_r141_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("valu")))));
+      ValueExpr::New (StrValue::New ("book")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25492,7 +25646,7 @@ HyperTextClass::Prov_r141_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25517,7 +25671,7 @@ HyperTextClass::Prov_r141_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("valu")))));
+      ValueExpr::New (StrValue::New ("book")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -25590,7 +25744,7 @@ HyperTextClass::Prov_r142_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("enter")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25663,7 +25817,7 @@ HyperTextClass::Prov_r142_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("enter")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -25711,7 +25865,7 @@ HyperTextClass::Prov_r143_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25736,7 +25890,7 @@ HyperTextClass::Prov_r143_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("engin")))));
+      ValueExpr::New (StrValue::New ("flow")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25784,7 +25938,7 @@ HyperTextClass::Prov_r143_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25809,7 +25963,7 @@ HyperTextClass::Prov_r143_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("engin")))));
+      ValueExpr::New (StrValue::New ("flow")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -25857,7 +26011,7 @@ HyperTextClass::Prov_r144_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25882,7 +26036,7 @@ HyperTextClass::Prov_r144_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("base")))));
+      ValueExpr::New (StrValue::New ("regist")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -25930,7 +26084,7 @@ HyperTextClass::Prov_r144_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -25955,7 +26109,7 @@ HyperTextClass::Prov_r144_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("base")))));
+      ValueExpr::New (StrValue::New ("regist")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26003,7 +26157,7 @@ HyperTextClass::Prov_r145_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26028,7 +26182,7 @@ HyperTextClass::Prov_r145_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("washington")))));
+      ValueExpr::New (StrValue::New ("accept")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26076,7 +26230,7 @@ HyperTextClass::Prov_r145_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26101,7 +26255,7 @@ HyperTextClass::Prov_r145_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("washington")))));
+      ValueExpr::New (StrValue::New ("accept")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26149,7 +26303,7 @@ HyperTextClass::Prov_r146_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26174,7 +26328,7 @@ HyperTextClass::Prov_r146_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("synchron")))));
+      ValueExpr::New (StrValue::New ("data")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26222,7 +26376,7 @@ HyperTextClass::Prov_r146_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26247,7 +26401,7 @@ HyperTextClass::Prov_r146_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("synchron")))));
+      ValueExpr::New (StrValue::New ("data")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26295,7 +26449,7 @@ HyperTextClass::Prov_r147_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26320,7 +26474,7 @@ HyperTextClass::Prov_r147_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sep")))));
+      ValueExpr::New (StrValue::New ("calcul")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26368,7 +26522,7 @@ HyperTextClass::Prov_r147_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26393,7 +26547,7 @@ HyperTextClass::Prov_r147_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sep")))));
+      ValueExpr::New (StrValue::New ("calcul")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26441,7 +26595,7 @@ HyperTextClass::Prov_r148_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26466,7 +26620,7 @@ HyperTextClass::Prov_r148_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("locat")))));
+      ValueExpr::New (StrValue::New ("wisc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26514,7 +26668,7 @@ HyperTextClass::Prov_r148_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26539,7 +26693,7 @@ HyperTextClass::Prov_r148_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("locat")))));
+      ValueExpr::New (StrValue::New ("wisc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26587,7 +26741,7 @@ HyperTextClass::Prov_r149_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26612,7 +26766,7 @@ HyperTextClass::Prov_r149_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wisconsin")))));
+      ValueExpr::New (StrValue::New ("network")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26660,7 +26814,7 @@ HyperTextClass::Prov_r149_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26685,7 +26839,7 @@ HyperTextClass::Prov_r149_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wisconsin")))));
+      ValueExpr::New (StrValue::New ("network")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26733,7 +26887,7 @@ HyperTextClass::Prov_r150_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26758,7 +26912,7 @@ HyperTextClass::Prov_r150_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("provid")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26806,7 +26960,7 @@ HyperTextClass::Prov_r150_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26831,7 +26985,7 @@ HyperTextClass::Prov_r150_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("provid")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -26879,7 +27033,7 @@ HyperTextClass::Prov_r151_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26904,7 +27058,7 @@ HyperTextClass::Prov_r151_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("microsoft")))));
+      ValueExpr::New (StrValue::New ("michael")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -26952,7 +27106,7 @@ HyperTextClass::Prov_r151_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -26977,7 +27131,7 @@ HyperTextClass::Prov_r151_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("microsoft")))));
+      ValueExpr::New (StrValue::New ("michael")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27025,7 +27179,7 @@ HyperTextClass::Prov_r152_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27050,7 +27204,7 @@ HyperTextClass::Prov_r152_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("direct")))));
+      ValueExpr::New (StrValue::New ("copi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27098,7 +27252,7 @@ HyperTextClass::Prov_r152_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27123,7 +27277,7 @@ HyperTextClass::Prov_r152_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("direct")))));
+      ValueExpr::New (StrValue::New ("copi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27171,7 +27325,7 @@ HyperTextClass::Prov_r153_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27196,7 +27350,7 @@ HyperTextClass::Prov_r153_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("master")))));
+      ValueExpr::New (StrValue::New ("packag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27244,7 +27398,7 @@ HyperTextClass::Prov_r153_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27269,7 +27423,7 @@ HyperTextClass::Prov_r153_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("master")))));
+      ValueExpr::New (StrValue::New ("packag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27317,7 +27471,7 @@ HyperTextClass::Prov_r154_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27342,7 +27496,7 @@ HyperTextClass::Prov_r154_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("failur")))));
+      ValueExpr::New (StrValue::New ("background")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27390,7 +27544,7 @@ HyperTextClass::Prov_r154_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27415,7 +27569,7 @@ HyperTextClass::Prov_r154_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("failur")))));
+      ValueExpr::New (StrValue::New ("background")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27463,7 +27617,7 @@ HyperTextClass::Prov_r155_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27488,7 +27642,7 @@ HyperTextClass::Prov_r155_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("linear")))));
+      ValueExpr::New (StrValue::New ("distribut")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27536,7 +27690,7 @@ HyperTextClass::Prov_r155_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27561,7 +27715,7 @@ HyperTextClass::Prov_r155_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("linear")))));
+      ValueExpr::New (StrValue::New ("distribut")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27609,7 +27763,7 @@ HyperTextClass::Prov_r156_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27634,7 +27788,7 @@ HyperTextClass::Prov_r156_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mon")))));
+      ValueExpr::New (StrValue::New ("import")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27682,7 +27836,7 @@ HyperTextClass::Prov_r156_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27707,7 +27861,7 @@ HyperTextClass::Prov_r156_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mon")))));
+      ValueExpr::New (StrValue::New ("import")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27755,7 +27909,7 @@ HyperTextClass::Prov_r157_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27780,7 +27934,7 @@ HyperTextClass::Prov_r157_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("appli")))));
+      ValueExpr::New (StrValue::New ("pictur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27828,7 +27982,7 @@ HyperTextClass::Prov_r157_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27853,7 +28007,7 @@ HyperTextClass::Prov_r157_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("appli")))));
+      ValueExpr::New (StrValue::New ("pictur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -27901,7 +28055,7 @@ HyperTextClass::Prov_r158_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27926,7 +28080,7 @@ HyperTextClass::Prov_r158_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("electr")))));
+      ValueExpr::New (StrValue::New ("log")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -27974,7 +28128,7 @@ HyperTextClass::Prov_r158_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -27999,7 +28153,7 @@ HyperTextClass::Prov_r158_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("electr")))));
+      ValueExpr::New (StrValue::New ("log")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28047,7 +28201,7 @@ HyperTextClass::Prov_r159_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28072,7 +28226,7 @@ HyperTextClass::Prov_r159_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("chapter")))));
+      ValueExpr::New (StrValue::New ("window")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28120,7 +28274,7 @@ HyperTextClass::Prov_r159_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28145,7 +28299,7 @@ HyperTextClass::Prov_r159_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("chapter")))));
+      ValueExpr::New (StrValue::New ("window")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28193,7 +28347,7 @@ HyperTextClass::Prov_r160_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28218,7 +28372,7 @@ HyperTextClass::Prov_r160_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("technologi")))));
+      ValueExpr::New (StrValue::New ("instruct")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28266,7 +28420,7 @@ HyperTextClass::Prov_r160_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28291,7 +28445,7 @@ HyperTextClass::Prov_r160_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("technologi")))));
+      ValueExpr::New (StrValue::New ("instruct")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28339,7 +28493,7 @@ HyperTextClass::Prov_r161_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28364,7 +28518,7 @@ HyperTextClass::Prov_r161_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("previou")))));
+      ValueExpr::New (StrValue::New ("symbol")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28412,7 +28566,7 @@ HyperTextClass::Prov_r161_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28437,7 +28591,7 @@ HyperTextClass::Prov_r161_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("previou")))));
+      ValueExpr::New (StrValue::New ("symbol")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28510,7 +28664,7 @@ HyperTextClass::Prov_r162_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("implem")))));
+      ValueExpr::New (StrValue::New ("compress")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28583,7 +28737,7 @@ HyperTextClass::Prov_r162_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("implem")))));
+      ValueExpr::New (StrValue::New ("compress")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28656,7 +28810,7 @@ HyperTextClass::Prov_r163_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thread")))));
+      ValueExpr::New (StrValue::New ("york")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28729,7 +28883,7 @@ HyperTextClass::Prov_r163_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thread")))));
+      ValueExpr::New (StrValue::New ("york")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28777,7 +28931,7 @@ HyperTextClass::Prov_r164_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28802,7 +28956,7 @@ HyperTextClass::Prov_r164_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("late")))));
+      ValueExpr::New (StrValue::New ("studi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28850,7 +29004,7 @@ HyperTextClass::Prov_r164_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28875,7 +29029,7 @@ HyperTextClass::Prov_r164_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("late")))));
+      ValueExpr::New (StrValue::New ("studi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -28923,7 +29077,7 @@ HyperTextClass::Prov_r165_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -28948,7 +29102,7 @@ HyperTextClass::Prov_r165_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("award")))));
+      ValueExpr::New (StrValue::New ("contact")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -28996,7 +29150,7 @@ HyperTextClass::Prov_r165_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29021,7 +29175,7 @@ HyperTextClass::Prov_r165_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("award")))));
+      ValueExpr::New (StrValue::New ("contact")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29069,7 +29223,7 @@ HyperTextClass::Prov_r166_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29094,7 +29248,7 @@ HyperTextClass::Prov_r166_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("info")))));
+      ValueExpr::New (StrValue::New ("present")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -29142,7 +29296,7 @@ HyperTextClass::Prov_r166_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29167,7 +29321,7 @@ HyperTextClass::Prov_r166_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("info")))));
+      ValueExpr::New (StrValue::New ("present")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29215,7 +29369,7 @@ HyperTextClass::Prov_r167_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29240,7 +29394,7 @@ HyperTextClass::Prov_r167_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("locat")))));
+      ValueExpr::New (StrValue::New ("cycl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -29288,7 +29442,7 @@ HyperTextClass::Prov_r167_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29313,7 +29467,7 @@ HyperTextClass::Prov_r167_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("locat")))));
+      ValueExpr::New (StrValue::New ("cycl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29361,7 +29515,7 @@ HyperTextClass::Prov_r168_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29386,7 +29540,7 @@ HyperTextClass::Prov_r168_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("read")))));
+      ValueExpr::New (StrValue::New ("proof")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -29434,7 +29588,7 @@ HyperTextClass::Prov_r168_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29459,7 +29613,7 @@ HyperTextClass::Prov_r168_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("read")))));
+      ValueExpr::New (StrValue::New ("proof")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29532,7 +29686,7 @@ HyperTextClass::Prov_r169_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("agent")))));
+      ValueExpr::New (StrValue::New ("discuss")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -29605,7 +29759,7 @@ HyperTextClass::Prov_r169_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("agent")))));
+      ValueExpr::New (StrValue::New ("discuss")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29653,7 +29807,7 @@ HyperTextClass::Prov_r170_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29678,7 +29832,7 @@ HyperTextClass::Prov_r170_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("count")))));
+      ValueExpr::New (StrValue::New ("machin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -29726,7 +29880,7 @@ HyperTextClass::Prov_r170_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29751,7 +29905,7 @@ HyperTextClass::Prov_r170_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("count")))));
+      ValueExpr::New (StrValue::New ("machin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29799,7 +29953,7 @@ HyperTextClass::Prov_r171_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29824,7 +29978,7 @@ HyperTextClass::Prov_r171_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("associ")))));
+      ValueExpr::New (StrValue::New ("match")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -29872,7 +30026,7 @@ HyperTextClass::Prov_r171_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29897,7 +30051,7 @@ HyperTextClass::Prov_r171_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("associ")))));
+      ValueExpr::New (StrValue::New ("match")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -29945,7 +30099,7 @@ HyperTextClass::Prov_r172_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -29970,7 +30124,7 @@ HyperTextClass::Prov_r172_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("check")))));
+      ValueExpr::New (StrValue::New ("product")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30018,7 +30172,7 @@ HyperTextClass::Prov_r172_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30043,7 +30197,7 @@ HyperTextClass::Prov_r172_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("check")))));
+      ValueExpr::New (StrValue::New ("product")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30116,7 +30270,7 @@ HyperTextClass::Prov_r173_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hw")))));
+      ValueExpr::New (StrValue::New ("digit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30189,7 +30343,7 @@ HyperTextClass::Prov_r173_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hw")))));
+      ValueExpr::New (StrValue::New ("digit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30237,7 +30391,7 @@ HyperTextClass::Prov_r174_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30262,7 +30416,7 @@ HyperTextClass::Prov_r174_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("offer")))));
+      ValueExpr::New (StrValue::New ("network")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30310,7 +30464,7 @@ HyperTextClass::Prov_r174_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30335,7 +30489,7 @@ HyperTextClass::Prov_r174_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("offer")))));
+      ValueExpr::New (StrValue::New ("network")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30383,7 +30537,7 @@ HyperTextClass::Prov_r175_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30408,7 +30562,7 @@ HyperTextClass::Prov_r175_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("texa")))));
+      ValueExpr::New (StrValue::New ("fall")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30456,7 +30610,7 @@ HyperTextClass::Prov_r175_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30481,7 +30635,7 @@ HyperTextClass::Prov_r175_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("texa")))));
+      ValueExpr::New (StrValue::New ("fall")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30529,7 +30683,7 @@ HyperTextClass::Prov_r176_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30554,7 +30708,7 @@ HyperTextClass::Prov_r176_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ta")))));
+      ValueExpr::New (StrValue::New ("begin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30602,7 +30756,7 @@ HyperTextClass::Prov_r176_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30627,7 +30781,7 @@ HyperTextClass::Prov_r176_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ta")))));
+      ValueExpr::New (StrValue::New ("begin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30675,7 +30829,7 @@ HyperTextClass::Prov_r177_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30700,7 +30854,7 @@ HyperTextClass::Prov_r177_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("select")))));
+      ValueExpr::New (StrValue::New ("goal")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30748,7 +30902,7 @@ HyperTextClass::Prov_r177_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30773,7 +30927,7 @@ HyperTextClass::Prov_r177_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("select")))));
+      ValueExpr::New (StrValue::New ("goal")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30846,7 +31000,7 @@ HyperTextClass::Prov_r178_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ca")))));
+      ValueExpr::New (StrValue::New ("circuit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -30919,7 +31073,7 @@ HyperTextClass::Prov_r178_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ca")))));
+      ValueExpr::New (StrValue::New ("circuit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -30967,7 +31121,7 @@ HyperTextClass::Prov_r179_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -30992,7 +31146,7 @@ HyperTextClass::Prov_r179_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("transfer")))));
+      ValueExpr::New (StrValue::New ("queue")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31040,7 +31194,7 @@ HyperTextClass::Prov_r179_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31065,7 +31219,7 @@ HyperTextClass::Prov_r179_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("transfer")))));
+      ValueExpr::New (StrValue::New ("queue")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31138,7 +31292,7 @@ HyperTextClass::Prov_r180_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("understand")))));
+      ValueExpr::New (StrValue::New ("size")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31211,7 +31365,7 @@ HyperTextClass::Prov_r180_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("understand")))));
+      ValueExpr::New (StrValue::New ("size")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31259,7 +31413,7 @@ HyperTextClass::Prov_r181_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31284,7 +31438,7 @@ HyperTextClass::Prov_r181_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wed")))));
+      ValueExpr::New (StrValue::New ("storag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31332,7 +31486,7 @@ HyperTextClass::Prov_r181_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31357,7 +31511,7 @@ HyperTextClass::Prov_r181_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wed")))));
+      ValueExpr::New (StrValue::New ("storag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31405,7 +31559,7 @@ HyperTextClass::Prov_r182_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31430,7 +31584,7 @@ HyperTextClass::Prov_r182_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("date")))));
+      ValueExpr::New (StrValue::New ("index")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31478,7 +31632,7 @@ HyperTextClass::Prov_r182_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31503,7 +31657,7 @@ HyperTextClass::Prov_r182_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("date")))));
+      ValueExpr::New (StrValue::New ("index")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31551,7 +31705,7 @@ HyperTextClass::Prov_r183_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31576,7 +31730,7 @@ HyperTextClass::Prov_r183_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("byte")))));
+      ValueExpr::New (StrValue::New ("differ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31624,7 +31778,7 @@ HyperTextClass::Prov_r183_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31649,7 +31803,7 @@ HyperTextClass::Prov_r183_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("byte")))));
+      ValueExpr::New (StrValue::New ("differ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31697,7 +31851,7 @@ HyperTextClass::Prov_r184_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31722,7 +31876,7 @@ HyperTextClass::Prov_r184_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("bug")))));
+      ValueExpr::New (StrValue::New ("job")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31770,7 +31924,7 @@ HyperTextClass::Prov_r184_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31795,7 +31949,7 @@ HyperTextClass::Prov_r184_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("bug")))));
+      ValueExpr::New (StrValue::New ("job")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31843,7 +31997,7 @@ HyperTextClass::Prov_r185_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31868,7 +32022,7 @@ HyperTextClass::Prov_r185_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("suggest")))));
+      ValueExpr::New (StrValue::New ("pp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -31916,7 +32070,7 @@ HyperTextClass::Prov_r185_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -31941,7 +32095,7 @@ HyperTextClass::Prov_r185_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("suggest")))));
+      ValueExpr::New (StrValue::New ("pp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -31989,7 +32143,7 @@ HyperTextClass::Prov_r186_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32014,7 +32168,7 @@ HyperTextClass::Prov_r186_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("appli")))));
+      ValueExpr::New (StrValue::New ("industri")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32062,7 +32216,7 @@ HyperTextClass::Prov_r186_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32087,7 +32241,7 @@ HyperTextClass::Prov_r186_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("appli")))));
+      ValueExpr::New (StrValue::New ("industri")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -32135,7 +32289,7 @@ HyperTextClass::Prov_r187_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32160,7 +32314,7 @@ HyperTextClass::Prov_r187_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("commun")))));
+      ValueExpr::New (StrValue::New ("order")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32208,7 +32362,7 @@ HyperTextClass::Prov_r187_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32233,7 +32387,7 @@ HyperTextClass::Prov_r187_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("commun")))));
+      ValueExpr::New (StrValue::New ("order")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -32281,7 +32435,7 @@ HyperTextClass::Prov_r188_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32306,7 +32460,7 @@ HyperTextClass::Prov_r188_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("short")))));
+      ValueExpr::New (StrValue::New ("learn")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32354,7 +32508,7 @@ HyperTextClass::Prov_r188_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32379,7 +32533,7 @@ HyperTextClass::Prov_r188_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("short")))));
+      ValueExpr::New (StrValue::New ("learn")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -32452,7 +32606,7 @@ HyperTextClass::Prov_r189_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("multimedia")))));
+      ValueExpr::New (StrValue::New ("combin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32525,7 +32679,7 @@ HyperTextClass::Prov_r189_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("multimedia")))));
+      ValueExpr::New (StrValue::New ("combin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -32598,7 +32752,7 @@ HyperTextClass::Prov_r190_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("school")))));
+      ValueExpr::New (StrValue::New ("board")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32671,7 +32825,7 @@ HyperTextClass::Prov_r190_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("school")))));
+      ValueExpr::New (StrValue::New ("board")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -32719,7 +32873,7 @@ HyperTextClass::Prov_r191_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32744,7 +32898,7 @@ HyperTextClass::Prov_r191_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("receiv")))));
+      ValueExpr::New (StrValue::New ("match")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32792,7 +32946,7 @@ HyperTextClass::Prov_r191_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32817,7 +32971,7 @@ HyperTextClass::Prov_r191_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("receiv")))));
+      ValueExpr::New (StrValue::New ("match")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -32865,7 +33019,7 @@ HyperTextClass::Prov_r192_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32890,7 +33044,7 @@ HyperTextClass::Prov_r192_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("elem")))));
+      ValueExpr::New (StrValue::New ("schedul")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -32938,7 +33092,7 @@ HyperTextClass::Prov_r192_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -32963,7 +33117,7 @@ HyperTextClass::Prov_r192_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("elem")))));
+      ValueExpr::New (StrValue::New ("schedul")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33011,7 +33165,7 @@ HyperTextClass::Prov_r193_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33036,7 +33190,7 @@ HyperTextClass::Prov_r193_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("retriev")))));
+      ValueExpr::New (StrValue::New ("futur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33084,7 +33238,7 @@ HyperTextClass::Prov_r193_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33109,7 +33263,7 @@ HyperTextClass::Prov_r193_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("retriev")))));
+      ValueExpr::New (StrValue::New ("futur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33157,7 +33311,7 @@ HyperTextClass::Prov_r194_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33182,7 +33336,7 @@ HyperTextClass::Prov_r194_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("modul")))));
+      ValueExpr::New (StrValue::New ("set")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33230,7 +33384,7 @@ HyperTextClass::Prov_r194_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33255,7 +33409,7 @@ HyperTextClass::Prov_r194_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("modul")))));
+      ValueExpr::New (StrValue::New ("set")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33303,7 +33457,7 @@ HyperTextClass::Prov_r195_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33328,7 +33482,7 @@ HyperTextClass::Prov_r195_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("prototyp")))));
+      ValueExpr::New (StrValue::New ("interpret")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33376,7 +33530,7 @@ HyperTextClass::Prov_r195_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33401,7 +33555,7 @@ HyperTextClass::Prov_r195_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("prototyp")))));
+      ValueExpr::New (StrValue::New ("interpret")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33449,7 +33603,7 @@ HyperTextClass::Prov_r196_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33474,7 +33628,7 @@ HyperTextClass::Prov_r196_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sens")))));
+      ValueExpr::New (StrValue::New ("comput")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33522,7 +33676,7 @@ HyperTextClass::Prov_r196_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33547,7 +33701,7 @@ HyperTextClass::Prov_r196_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sens")))));
+      ValueExpr::New (StrValue::New ("comput")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33595,7 +33749,7 @@ HyperTextClass::Prov_r197_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33620,7 +33774,7 @@ HyperTextClass::Prov_r197_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("multiprocessor")))));
+      ValueExpr::New (StrValue::New ("servic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33668,7 +33822,7 @@ HyperTextClass::Prov_r197_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33693,7 +33847,7 @@ HyperTextClass::Prov_r197_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("multiprocessor")))));
+      ValueExpr::New (StrValue::New ("servic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33766,7 +33920,7 @@ HyperTextClass::Prov_r198_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sourc")))));
+      ValueExpr::New (StrValue::New ("step")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33839,7 +33993,7 @@ HyperTextClass::Prov_r198_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sourc")))));
+      ValueExpr::New (StrValue::New ("step")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -33887,7 +34041,7 @@ HyperTextClass::Prov_r199_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33912,7 +34066,7 @@ HyperTextClass::Prov_r199_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("product")))));
+      ValueExpr::New (StrValue::New ("move")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -33960,7 +34114,7 @@ HyperTextClass::Prov_r199_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -33985,7 +34139,7 @@ HyperTextClass::Prov_r199_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("product")))));
+      ValueExpr::New (StrValue::New ("move")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34033,7 +34187,7 @@ HyperTextClass::Prov_r200_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34058,7 +34212,7 @@ HyperTextClass::Prov_r200_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("account")))));
+      ValueExpr::New (StrValue::New ("equat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34106,7 +34260,7 @@ HyperTextClass::Prov_r200_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34131,7 +34285,7 @@ HyperTextClass::Prov_r200_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("account")))));
+      ValueExpr::New (StrValue::New ("equat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34179,7 +34333,7 @@ HyperTextClass::Prov_r201_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34204,7 +34358,7 @@ HyperTextClass::Prov_r201_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("schedul")))));
+      ValueExpr::New (StrValue::New ("file")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34252,7 +34406,7 @@ HyperTextClass::Prov_r201_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34277,7 +34431,7 @@ HyperTextClass::Prov_r201_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("schedul")))));
+      ValueExpr::New (StrValue::New ("file")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34325,7 +34479,7 @@ HyperTextClass::Prov_r202_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34350,7 +34504,7 @@ HyperTextClass::Prov_r202_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("total")))));
+      ValueExpr::New (StrValue::New ("game")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34398,7 +34552,7 @@ HyperTextClass::Prov_r202_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34423,7 +34577,7 @@ HyperTextClass::Prov_r202_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("total")))));
+      ValueExpr::New (StrValue::New ("game")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34496,7 +34650,7 @@ HyperTextClass::Prov_r203_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dynam")))));
+      ValueExpr::New (StrValue::New ("modifi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34569,7 +34723,7 @@ HyperTextClass::Prov_r203_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dynam")))));
+      ValueExpr::New (StrValue::New ("modifi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34617,7 +34771,7 @@ HyperTextClass::Prov_r204_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34642,7 +34796,7 @@ HyperTextClass::Prov_r204_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("install")))));
+      ValueExpr::New (StrValue::New ("interest")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34690,7 +34844,7 @@ HyperTextClass::Prov_r204_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34715,7 +34869,7 @@ HyperTextClass::Prov_r204_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("install")))));
+      ValueExpr::New (StrValue::New ("interest")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34763,7 +34917,7 @@ HyperTextClass::Prov_r205_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34788,7 +34942,7 @@ HyperTextClass::Prov_r205_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("austin")))));
+      ValueExpr::New (StrValue::New ("annual")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34836,7 +34990,7 @@ HyperTextClass::Prov_r205_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34861,7 +35015,7 @@ HyperTextClass::Prov_r205_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("austin")))));
+      ValueExpr::New (StrValue::New ("annual")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -34909,7 +35063,7 @@ HyperTextClass::Prov_r206_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -34934,7 +35088,7 @@ HyperTextClass::Prov_r206_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("byte")))));
+      ValueExpr::New (StrValue::New ("thesi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -34982,7 +35136,7 @@ HyperTextClass::Prov_r206_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35007,7 +35161,7 @@ HyperTextClass::Prov_r206_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("byte")))));
+      ValueExpr::New (StrValue::New ("thesi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35055,7 +35209,7 @@ HyperTextClass::Prov_r207_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35080,7 +35234,7 @@ HyperTextClass::Prov_r207_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("detail")))));
+      ValueExpr::New (StrValue::New ("behavior")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -35128,7 +35282,7 @@ HyperTextClass::Prov_r207_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35153,7 +35307,7 @@ HyperTextClass::Prov_r207_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("detail")))));
+      ValueExpr::New (StrValue::New ("behavior")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35201,7 +35355,7 @@ HyperTextClass::Prov_r208_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35226,7 +35380,7 @@ HyperTextClass::Prov_r208_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("obtain")))));
+      ValueExpr::New (StrValue::New ("principl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -35274,7 +35428,7 @@ HyperTextClass::Prov_r208_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35299,7 +35453,7 @@ HyperTextClass::Prov_r208_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("obtain")))));
+      ValueExpr::New (StrValue::New ("principl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35347,7 +35501,7 @@ HyperTextClass::Prov_r209_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35372,7 +35526,7 @@ HyperTextClass::Prov_r209_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("professor")))));
+      ValueExpr::New (StrValue::New ("committe")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -35420,7 +35574,7 @@ HyperTextClass::Prov_r209_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35445,7 +35599,7 @@ HyperTextClass::Prov_r209_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("professor")))));
+      ValueExpr::New (StrValue::New ("committe")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35493,7 +35647,7 @@ HyperTextClass::Prov_r210_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35518,7 +35672,7 @@ HyperTextClass::Prov_r210_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hard")))));
+      ValueExpr::New (StrValue::New ("end")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -35566,7 +35720,7 @@ HyperTextClass::Prov_r210_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35591,7 +35745,7 @@ HyperTextClass::Prov_r210_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hard")))));
+      ValueExpr::New (StrValue::New ("end")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35639,7 +35793,7 @@ HyperTextClass::Prov_r211_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35664,7 +35818,7 @@ HyperTextClass::Prov_r211_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("devic")))));
+      ValueExpr::New (StrValue::New ("free")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -35712,7 +35866,7 @@ HyperTextClass::Prov_r211_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35737,7 +35891,7 @@ HyperTextClass::Prov_r211_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("devic")))));
+      ValueExpr::New (StrValue::New ("free")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35785,7 +35939,7 @@ HyperTextClass::Prov_r212_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35810,7 +35964,7 @@ HyperTextClass::Prov_r212_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("appoint")))));
+      ValueExpr::New (StrValue::New ("suggest")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -35858,7 +36012,7 @@ HyperTextClass::Prov_r212_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35883,7 +36037,7 @@ HyperTextClass::Prov_r212_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("appoint")))));
+      ValueExpr::New (StrValue::New ("suggest")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -35931,7 +36085,7 @@ HyperTextClass::Prov_r213_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -35956,7 +36110,7 @@ HyperTextClass::Prov_r213_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("order")))));
+      ValueExpr::New (StrValue::New ("stack")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36004,7 +36158,7 @@ HyperTextClass::Prov_r213_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36029,7 +36183,7 @@ HyperTextClass::Prov_r213_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("order")))));
+      ValueExpr::New (StrValue::New ("stack")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36077,7 +36231,7 @@ HyperTextClass::Prov_r214_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36102,7 +36256,7 @@ HyperTextClass::Prov_r214_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("increas")))));
+      ValueExpr::New (StrValue::New ("natur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36150,7 +36304,7 @@ HyperTextClass::Prov_r214_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36175,7 +36329,7 @@ HyperTextClass::Prov_r214_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("increas")))));
+      ValueExpr::New (StrValue::New ("natur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36223,7 +36377,7 @@ HyperTextClass::Prov_r215_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36248,7 +36402,7 @@ HyperTextClass::Prov_r215_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("home")))));
+      ValueExpr::New (StrValue::New ("grant")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36296,7 +36450,7 @@ HyperTextClass::Prov_r215_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36321,7 +36475,7 @@ HyperTextClass::Prov_r215_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("home")))));
+      ValueExpr::New (StrValue::New ("grant")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36369,7 +36523,7 @@ HyperTextClass::Prov_r216_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36394,7 +36548,7 @@ HyperTextClass::Prov_r216_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cours")))));
+      ValueExpr::New (StrValue::New ("anim")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36442,7 +36596,7 @@ HyperTextClass::Prov_r216_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36467,7 +36621,7 @@ HyperTextClass::Prov_r216_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cours")))));
+      ValueExpr::New (StrValue::New ("anim")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36515,7 +36669,7 @@ HyperTextClass::Prov_r217_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36540,7 +36694,7 @@ HyperTextClass::Prov_r217_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hardwar")))));
+      ValueExpr::New (StrValue::New ("side")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36588,7 +36742,7 @@ HyperTextClass::Prov_r217_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36613,7 +36767,7 @@ HyperTextClass::Prov_r217_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hardwar")))));
+      ValueExpr::New (StrValue::New ("side")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36661,7 +36815,7 @@ HyperTextClass::Prov_r218_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36686,7 +36840,7 @@ HyperTextClass::Prov_r218_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("india")))));
+      ValueExpr::New (StrValue::New ("friend")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36734,7 +36888,7 @@ HyperTextClass::Prov_r218_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36759,7 +36913,7 @@ HyperTextClass::Prov_r218_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("india")))));
+      ValueExpr::New (StrValue::New ("friend")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36807,7 +36961,7 @@ HyperTextClass::Prov_r219_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36832,7 +36986,7 @@ HyperTextClass::Prov_r219_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("softwar")))));
+      ValueExpr::New (StrValue::New ("ncsa")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -36880,7 +37034,7 @@ HyperTextClass::Prov_r219_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36905,7 +37059,7 @@ HyperTextClass::Prov_r219_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("softwar")))));
+      ValueExpr::New (StrValue::New ("ncsa")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -36953,7 +37107,7 @@ HyperTextClass::Prov_r220_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -36978,7 +37132,7 @@ HyperTextClass::Prov_r220_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("atm")))));
+      ValueExpr::New (StrValue::New ("resourc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37026,7 +37180,7 @@ HyperTextClass::Prov_r220_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37051,7 +37205,7 @@ HyperTextClass::Prov_r220_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("atm")))));
+      ValueExpr::New (StrValue::New ("resourc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37099,7 +37253,7 @@ HyperTextClass::Prov_r221_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37124,7 +37278,7 @@ HyperTextClass::Prov_r221_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("answer")))));
+      ValueExpr::New (StrValue::New ("written")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37172,7 +37326,7 @@ HyperTextClass::Prov_r221_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37197,7 +37351,7 @@ HyperTextClass::Prov_r221_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("answer")))));
+      ValueExpr::New (StrValue::New ("written")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37270,7 +37424,7 @@ HyperTextClass::Prov_r222_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("server")))));
+      ValueExpr::New (StrValue::New ("output")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37343,7 +37497,7 @@ HyperTextClass::Prov_r222_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("server")))));
+      ValueExpr::New (StrValue::New ("output")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37391,7 +37545,7 @@ HyperTextClass::Prov_r223_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37416,7 +37570,7 @@ HyperTextClass::Prov_r223_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mit")))));
+      ValueExpr::New (StrValue::New ("similar")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37464,7 +37618,7 @@ HyperTextClass::Prov_r223_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37489,7 +37643,7 @@ HyperTextClass::Prov_r223_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mit")))));
+      ValueExpr::New (StrValue::New ("similar")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37537,7 +37691,7 @@ HyperTextClass::Prov_r224_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37562,7 +37716,7 @@ HyperTextClass::Prov_r224_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("orient")))));
+      ValueExpr::New (StrValue::New ("contact")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37610,7 +37764,7 @@ HyperTextClass::Prov_r224_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37635,7 +37789,7 @@ HyperTextClass::Prov_r224_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("orient")))));
+      ValueExpr::New (StrValue::New ("contact")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37683,7 +37837,7 @@ HyperTextClass::Prov_r225_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37708,7 +37862,7 @@ HyperTextClass::Prov_r225_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("screen")))));
+      ValueExpr::New (StrValue::New ("dissert")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37756,7 +37910,7 @@ HyperTextClass::Prov_r225_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37781,7 +37935,7 @@ HyperTextClass::Prov_r225_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("screen")))));
+      ValueExpr::New (StrValue::New ("dissert")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37829,7 +37983,7 @@ HyperTextClass::Prov_r226_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37854,7 +38008,7 @@ HyperTextClass::Prov_r226_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ad")))));
+      ValueExpr::New (StrValue::New ("argum")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -37902,7 +38056,7 @@ HyperTextClass::Prov_r226_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -37927,7 +38081,7 @@ HyperTextClass::Prov_r226_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ad")))));
+      ValueExpr::New (StrValue::New ("argum")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -37975,7 +38129,7 @@ HyperTextClass::Prov_r227_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38000,7 +38154,7 @@ HyperTextClass::Prov_r227_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("state")))));
+      ValueExpr::New (StrValue::New ("articl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38048,7 +38202,7 @@ HyperTextClass::Prov_r227_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38073,7 +38227,7 @@ HyperTextClass::Prov_r227_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("state")))));
+      ValueExpr::New (StrValue::New ("articl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -38121,7 +38275,7 @@ HyperTextClass::Prov_r228_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38146,7 +38300,7 @@ HyperTextClass::Prov_r228_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assist")))));
+      ValueExpr::New (StrValue::New ("homework")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38194,7 +38348,7 @@ HyperTextClass::Prov_r228_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38219,7 +38373,7 @@ HyperTextClass::Prov_r228_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assist")))));
+      ValueExpr::New (StrValue::New ("homework")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -38267,7 +38421,7 @@ HyperTextClass::Prov_r229_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38292,7 +38446,7 @@ HyperTextClass::Prov_r229_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("inform")))));
+      ValueExpr::New (StrValue::New ("true")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38340,7 +38494,7 @@ HyperTextClass::Prov_r229_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38365,7 +38519,7 @@ HyperTextClass::Prov_r229_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("inform")))));
+      ValueExpr::New (StrValue::New ("true")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -38413,7 +38567,7 @@ HyperTextClass::Prov_r230_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38438,7 +38592,7 @@ HyperTextClass::Prov_r230_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("extens")))));
+      ValueExpr::New (StrValue::New ("condition")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38486,7 +38640,7 @@ HyperTextClass::Prov_r230_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38511,7 +38665,7 @@ HyperTextClass::Prov_r230_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("extens")))));
+      ValueExpr::New (StrValue::New ("condition")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -38559,7 +38713,7 @@ HyperTextClass::Prov_r231_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38584,7 +38738,7 @@ HyperTextClass::Prov_r231_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("iter")))));
+      ValueExpr::New (StrValue::New ("interfac")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38632,7 +38786,7 @@ HyperTextClass::Prov_r231_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38657,7 +38811,7 @@ HyperTextClass::Prov_r231_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("iter")))));
+      ValueExpr::New (StrValue::New ("interfac")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -38705,7 +38859,7 @@ HyperTextClass::Prov_r232_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38730,7 +38884,7 @@ HyperTextClass::Prov_r232_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("lectur")))));
+      ValueExpr::New (StrValue::New ("job")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38778,7 +38932,7 @@ HyperTextClass::Prov_r232_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38803,7 +38957,7 @@ HyperTextClass::Prov_r232_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("lectur")))));
+      ValueExpr::New (StrValue::New ("job")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -38851,7 +39005,7 @@ HyperTextClass::Prov_r233_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38876,7 +39030,7 @@ HyperTextClass::Prov_r233_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instructor")))));
+      ValueExpr::New (StrValue::New ("wisc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -38924,7 +39078,7 @@ HyperTextClass::Prov_r233_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -38949,7 +39103,7 @@ HyperTextClass::Prov_r233_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instructor")))));
+      ValueExpr::New (StrValue::New ("wisc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39022,7 +39176,7 @@ HyperTextClass::Prov_r234_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("place")))));
+      ValueExpr::New (StrValue::New ("plan")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39095,7 +39249,7 @@ HyperTextClass::Prov_r234_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("place")))));
+      ValueExpr::New (StrValue::New ("plan")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39143,7 +39297,7 @@ HyperTextClass::Prov_r235_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39168,7 +39322,7 @@ HyperTextClass::Prov_r235_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("journal")))));
+      ValueExpr::New (StrValue::New ("handl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39216,7 +39370,7 @@ HyperTextClass::Prov_r235_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39241,7 +39395,7 @@ HyperTextClass::Prov_r235_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("journal")))));
+      ValueExpr::New (StrValue::New ("handl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39289,7 +39443,7 @@ HyperTextClass::Prov_r236_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39314,7 +39468,7 @@ HyperTextClass::Prov_r236_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("friend")))));
+      ValueExpr::New (StrValue::New ("subject")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39362,7 +39516,7 @@ HyperTextClass::Prov_r236_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39387,7 +39541,7 @@ HyperTextClass::Prov_r236_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("friend")))));
+      ValueExpr::New (StrValue::New ("subject")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39435,7 +39589,7 @@ HyperTextClass::Prov_r237_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39460,7 +39614,7 @@ HyperTextClass::Prov_r237_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("data")))));
+      ValueExpr::New (StrValue::New ("ai")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39508,7 +39662,7 @@ HyperTextClass::Prov_r237_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39533,7 +39687,7 @@ HyperTextClass::Prov_r237_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("data")))));
+      ValueExpr::New (StrValue::New ("ai")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39581,7 +39735,7 @@ HyperTextClass::Prov_r238_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39606,7 +39760,7 @@ HyperTextClass::Prov_r238_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("receiv")))));
+      ValueExpr::New (StrValue::New ("danc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39654,7 +39808,7 @@ HyperTextClass::Prov_r238_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39679,7 +39833,7 @@ HyperTextClass::Prov_r238_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("receiv")))));
+      ValueExpr::New (StrValue::New ("danc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39727,7 +39881,7 @@ HyperTextClass::Prov_r239_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39752,7 +39906,7 @@ HyperTextClass::Prov_r239_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("introduct")))));
+      ValueExpr::New (StrValue::New ("separ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39800,7 +39954,7 @@ HyperTextClass::Prov_r239_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -39825,7 +39979,7 @@ HyperTextClass::Prov_r239_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("introduct")))));
+      ValueExpr::New (StrValue::New ("separ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -39898,7 +40052,7 @@ HyperTextClass::Prov_r240_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("frame")))));
+      ValueExpr::New (StrValue::New ("consult")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -39971,7 +40125,7 @@ HyperTextClass::Prov_r240_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("frame")))));
+      ValueExpr::New (StrValue::New ("consult")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40019,7 +40173,7 @@ HyperTextClass::Prov_r241_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40044,7 +40198,7 @@ HyperTextClass::Prov_r241_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("return")))));
+      ValueExpr::New (StrValue::New ("studi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40092,7 +40246,7 @@ HyperTextClass::Prov_r241_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40117,7 +40271,7 @@ HyperTextClass::Prov_r241_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("return")))));
+      ValueExpr::New (StrValue::New ("studi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40190,7 +40344,7 @@ HyperTextClass::Prov_r242_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("implement")))));
+      ValueExpr::New (StrValue::New ("quot")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40263,7 +40417,7 @@ HyperTextClass::Prov_r242_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("implement")))));
+      ValueExpr::New (StrValue::New ("quot")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40336,7 +40490,7 @@ HyperTextClass::Prov_r243_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("html")))));
+      ValueExpr::New (StrValue::New ("offic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40409,7 +40563,7 @@ HyperTextClass::Prov_r243_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("html")))));
+      ValueExpr::New (StrValue::New ("offic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40457,7 +40611,7 @@ HyperTextClass::Prov_r244_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40482,7 +40636,7 @@ HyperTextClass::Prov_r244_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pc")))));
+      ValueExpr::New (StrValue::New ("reduc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40530,7 +40684,7 @@ HyperTextClass::Prov_r244_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40555,7 +40709,7 @@ HyperTextClass::Prov_r244_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pc")))));
+      ValueExpr::New (StrValue::New ("reduc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40603,7 +40757,7 @@ HyperTextClass::Prov_r245_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40628,7 +40782,7 @@ HyperTextClass::Prov_r245_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hill")))));
+      ValueExpr::New (StrValue::New ("idea")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40676,7 +40830,7 @@ HyperTextClass::Prov_r245_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40701,7 +40855,7 @@ HyperTextClass::Prov_r245_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("hill")))));
+      ValueExpr::New (StrValue::New ("idea")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40749,7 +40903,7 @@ HyperTextClass::Prov_r246_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40774,7 +40928,7 @@ HyperTextClass::Prov_r246_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("scienc")))));
+      ValueExpr::New (StrValue::New ("person")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40822,7 +40976,7 @@ HyperTextClass::Prov_r246_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40847,7 +41001,7 @@ HyperTextClass::Prov_r246_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("scienc")))));
+      ValueExpr::New (StrValue::New ("person")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -40895,7 +41049,7 @@ HyperTextClass::Prov_r247_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40920,7 +41074,7 @@ HyperTextClass::Prov_r247_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("info")))));
+      ValueExpr::New (StrValue::New ("signal")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -40968,7 +41122,7 @@ HyperTextClass::Prov_r247_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -40993,7 +41147,7 @@ HyperTextClass::Prov_r247_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("info")))));
+      ValueExpr::New (StrValue::New ("signal")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41066,7 +41220,7 @@ HyperTextClass::Prov_r248_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("level")))));
+      ValueExpr::New (StrValue::New ("semest")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41139,7 +41293,7 @@ HyperTextClass::Prov_r248_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("level")))));
+      ValueExpr::New (StrValue::New ("semest")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41187,7 +41341,7 @@ HyperTextClass::Prov_r249_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41212,7 +41366,7 @@ HyperTextClass::Prov_r249_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mar")))));
+      ValueExpr::New (StrValue::New ("bug")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41260,7 +41414,7 @@ HyperTextClass::Prov_r249_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41285,7 +41439,7 @@ HyperTextClass::Prov_r249_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mar")))));
+      ValueExpr::New (StrValue::New ("bug")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41333,7 +41487,7 @@ HyperTextClass::Prov_r250_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41358,7 +41512,7 @@ HyperTextClass::Prov_r250_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("emac")))));
+      ValueExpr::New (StrValue::New ("workshop")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41406,7 +41560,7 @@ HyperTextClass::Prov_r250_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41431,7 +41585,7 @@ HyperTextClass::Prov_r250_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("emac")))));
+      ValueExpr::New (StrValue::New ("workshop")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41479,7 +41633,7 @@ HyperTextClass::Prov_r251_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41504,7 +41658,7 @@ HyperTextClass::Prov_r251_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("describ")))));
+      ValueExpr::New (StrValue::New ("finish")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41552,7 +41706,7 @@ HyperTextClass::Prov_r251_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41577,7 +41731,7 @@ HyperTextClass::Prov_r251_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("describ")))));
+      ValueExpr::New (StrValue::New ("finish")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41625,7 +41779,7 @@ HyperTextClass::Prov_r252_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41650,7 +41804,7 @@ HyperTextClass::Prov_r252_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("applic")))));
+      ValueExpr::New (StrValue::New ("featur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41698,7 +41852,7 @@ HyperTextClass::Prov_r252_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41723,7 +41877,7 @@ HyperTextClass::Prov_r252_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("applic")))));
+      ValueExpr::New (StrValue::New ("featur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41771,7 +41925,7 @@ HyperTextClass::Prov_r253_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41796,7 +41950,7 @@ HyperTextClass::Prov_r253_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("logic")))));
+      ValueExpr::New (StrValue::New ("workshop")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41844,7 +41998,7 @@ HyperTextClass::Prov_r253_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41869,7 +42023,7 @@ HyperTextClass::Prov_r253_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("logic")))));
+      ValueExpr::New (StrValue::New ("workshop")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -41917,7 +42071,7 @@ HyperTextClass::Prov_r254_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -41942,7 +42096,7 @@ HyperTextClass::Prov_r254_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("enter")))));
+      ValueExpr::New (StrValue::New ("van")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -41990,7 +42144,7 @@ HyperTextClass::Prov_r254_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42015,7 +42169,7 @@ HyperTextClass::Prov_r254_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("enter")))));
+      ValueExpr::New (StrValue::New ("van")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42088,7 +42242,7 @@ HyperTextClass::Prov_r255_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("memori")))));
+      ValueExpr::New (StrValue::New ("oper")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -42161,7 +42315,7 @@ HyperTextClass::Prov_r255_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("memori")))));
+      ValueExpr::New (StrValue::New ("oper")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42234,7 +42388,7 @@ HyperTextClass::Prov_r256_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("motion")))));
+      ValueExpr::New (StrValue::New ("process")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -42307,7 +42461,7 @@ HyperTextClass::Prov_r256_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("motion")))));
+      ValueExpr::New (StrValue::New ("process")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42355,7 +42509,7 @@ HyperTextClass::Prov_r257_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42380,7 +42534,7 @@ HyperTextClass::Prov_r257_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("directli")))));
+      ValueExpr::New (StrValue::New ("approxim")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -42428,7 +42582,7 @@ HyperTextClass::Prov_r257_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42453,7 +42607,7 @@ HyperTextClass::Prov_r257_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("directli")))));
+      ValueExpr::New (StrValue::New ("approxim")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42501,7 +42655,7 @@ HyperTextClass::Prov_r258_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42526,7 +42680,7 @@ HyperTextClass::Prov_r258_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("servic")))));
+      ValueExpr::New (StrValue::New ("programm")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -42574,7 +42728,7 @@ HyperTextClass::Prov_r258_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42599,7 +42753,7 @@ HyperTextClass::Prov_r258_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("servic")))));
+      ValueExpr::New (StrValue::New ("programm")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42647,7 +42801,7 @@ HyperTextClass::Prov_r259_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42672,7 +42826,7 @@ HyperTextClass::Prov_r259_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("interact")))));
+      ValueExpr::New (StrValue::New ("level")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -42720,7 +42874,7 @@ HyperTextClass::Prov_r259_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42745,7 +42899,7 @@ HyperTextClass::Prov_r259_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("interact")))));
+      ValueExpr::New (StrValue::New ("level")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42793,7 +42947,7 @@ HyperTextClass::Prov_r260_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42818,7 +42972,7 @@ HyperTextClass::Prov_r260_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("gener")))));
+      ValueExpr::New (StrValue::New ("group")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -42866,7 +43020,7 @@ HyperTextClass::Prov_r260_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42891,7 +43045,7 @@ HyperTextClass::Prov_r260_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("gener")))));
+      ValueExpr::New (StrValue::New ("group")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -42939,7 +43093,7 @@ HyperTextClass::Prov_r261_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -42964,7 +43118,7 @@ HyperTextClass::Prov_r261_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("valu")))));
+      ValueExpr::New (StrValue::New ("theori")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43012,7 +43166,7 @@ HyperTextClass::Prov_r261_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43037,7 +43191,7 @@ HyperTextClass::Prov_r261_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("valu")))));
+      ValueExpr::New (StrValue::New ("theori")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43085,7 +43239,7 @@ HyperTextClass::Prov_r262_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43110,7 +43264,7 @@ HyperTextClass::Prov_r262_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("modul")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43158,7 +43312,7 @@ HyperTextClass::Prov_r262_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43183,7 +43337,7 @@ HyperTextClass::Prov_r262_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("modul")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43231,7 +43385,7 @@ HyperTextClass::Prov_r263_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43256,7 +43410,7 @@ HyperTextClass::Prov_r263_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dissert")))));
+      ValueExpr::New (StrValue::New ("memori")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43304,7 +43458,7 @@ HyperTextClass::Prov_r263_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43329,7 +43483,7 @@ HyperTextClass::Prov_r263_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dissert")))));
+      ValueExpr::New (StrValue::New ("memori")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43377,7 +43531,7 @@ HyperTextClass::Prov_r264_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43402,7 +43556,7 @@ HyperTextClass::Prov_r264_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("respons")))));
+      ValueExpr::New (StrValue::New ("electron")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43450,7 +43604,7 @@ HyperTextClass::Prov_r264_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43475,7 +43629,7 @@ HyperTextClass::Prov_r264_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("respons")))));
+      ValueExpr::New (StrValue::New ("electron")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43523,7 +43677,7 @@ HyperTextClass::Prov_r265_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43548,7 +43702,7 @@ HyperTextClass::Prov_r265_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("add")))));
+      ValueExpr::New (StrValue::New ("print")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43596,7 +43750,7 @@ HyperTextClass::Prov_r265_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43621,7 +43775,7 @@ HyperTextClass::Prov_r265_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("add")))));
+      ValueExpr::New (StrValue::New ("print")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43669,7 +43823,7 @@ HyperTextClass::Prov_r266_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43694,7 +43848,7 @@ HyperTextClass::Prov_r266_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("construct")))));
+      ValueExpr::New (StrValue::New ("color")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43742,7 +43896,7 @@ HyperTextClass::Prov_r266_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43767,7 +43921,7 @@ HyperTextClass::Prov_r266_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("construct")))));
+      ValueExpr::New (StrValue::New ("color")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43815,7 +43969,7 @@ HyperTextClass::Prov_r267_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43840,7 +43994,7 @@ HyperTextClass::Prov_r267_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("failur")))));
+      ValueExpr::New (StrValue::New ("intern")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -43888,7 +44042,7 @@ HyperTextClass::Prov_r267_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43913,7 +44067,7 @@ HyperTextClass::Prov_r267_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("failur")))));
+      ValueExpr::New (StrValue::New ("intern")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -43961,7 +44115,7 @@ HyperTextClass::Prov_r268_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -43986,7 +44140,7 @@ HyperTextClass::Prov_r268_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("internet")))));
+      ValueExpr::New (StrValue::New ("failur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44034,7 +44188,7 @@ HyperTextClass::Prov_r268_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44059,7 +44213,7 @@ HyperTextClass::Prov_r268_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("internet")))));
+      ValueExpr::New (StrValue::New ("failur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -44107,7 +44261,7 @@ HyperTextClass::Prov_r269_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44132,7 +44286,7 @@ HyperTextClass::Prov_r269_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("techniqu")))));
+      ValueExpr::New (StrValue::New ("handl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44180,7 +44334,7 @@ HyperTextClass::Prov_r269_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44205,7 +44359,7 @@ HyperTextClass::Prov_r269_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("techniqu")))));
+      ValueExpr::New (StrValue::New ("handl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -44253,7 +44407,7 @@ HyperTextClass::Prov_r270_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44278,7 +44432,7 @@ HyperTextClass::Prov_r270_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44326,7 +44480,7 @@ HyperTextClass::Prov_r270_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44351,7 +44505,7 @@ HyperTextClass::Prov_r270_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -44399,7 +44553,7 @@ HyperTextClass::Prov_r271_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44424,7 +44578,7 @@ HyperTextClass::Prov_r271_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("procedur")))));
+      ValueExpr::New (StrValue::New ("pictur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44472,7 +44626,7 @@ HyperTextClass::Prov_r271_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44497,7 +44651,7 @@ HyperTextClass::Prov_r271_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("procedur")))));
+      ValueExpr::New (StrValue::New ("pictur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -44570,7 +44724,7 @@ HyperTextClass::Prov_r272_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("check")))));
+      ValueExpr::New (StrValue::New ("common")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44643,7 +44797,7 @@ HyperTextClass::Prov_r272_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("check")))));
+      ValueExpr::New (StrValue::New ("common")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -44691,7 +44845,7 @@ HyperTextClass::Prov_r273_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44716,7 +44870,7 @@ HyperTextClass::Prov_r273_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("qualit")))));
+      ValueExpr::New (StrValue::New ("answer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44764,7 +44918,7 @@ HyperTextClass::Prov_r273_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44789,7 +44943,7 @@ HyperTextClass::Prov_r273_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("qualit")))));
+      ValueExpr::New (StrValue::New ("answer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -44837,7 +44991,7 @@ HyperTextClass::Prov_r274_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44862,7 +45016,7 @@ HyperTextClass::Prov_r274_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("local")))));
+      ValueExpr::New (StrValue::New ("addition")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -44910,7 +45064,7 @@ HyperTextClass::Prov_r274_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -44935,7 +45089,7 @@ HyperTextClass::Prov_r274_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("local")))));
+      ValueExpr::New (StrValue::New ("addition")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45008,7 +45162,7 @@ HyperTextClass::Prov_r275_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("error")))));
+      ValueExpr::New (StrValue::New ("york")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45081,7 +45235,7 @@ HyperTextClass::Prov_r275_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("error")))));
+      ValueExpr::New (StrValue::New ("york")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45129,7 +45283,7 @@ HyperTextClass::Prov_r276_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45154,7 +45308,7 @@ HyperTextClass::Prov_r276_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cycl")))));
+      ValueExpr::New (StrValue::New ("term")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45202,7 +45356,7 @@ HyperTextClass::Prov_r276_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45227,7 +45381,7 @@ HyperTextClass::Prov_r276_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cycl")))));
+      ValueExpr::New (StrValue::New ("term")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45275,7 +45429,7 @@ HyperTextClass::Prov_r277_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45300,7 +45454,7 @@ HyperTextClass::Prov_r277_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("review")))));
+      ValueExpr::New (StrValue::New ("compil")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45348,7 +45502,7 @@ HyperTextClass::Prov_r277_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45373,7 +45527,7 @@ HyperTextClass::Prov_r277_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("review")))));
+      ValueExpr::New (StrValue::New ("compil")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45421,7 +45575,7 @@ HyperTextClass::Prov_r278_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45446,7 +45600,7 @@ HyperTextClass::Prov_r278_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("symposium")))));
+      ValueExpr::New (StrValue::New ("layer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45494,7 +45648,7 @@ HyperTextClass::Prov_r278_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45519,7 +45673,7 @@ HyperTextClass::Prov_r278_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("symposium")))));
+      ValueExpr::New (StrValue::New ("layer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45567,7 +45721,7 @@ HyperTextClass::Prov_r279_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45592,7 +45746,7 @@ HyperTextClass::Prov_r279_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wisconsin")))));
+      ValueExpr::New (StrValue::New ("languag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45640,7 +45794,7 @@ HyperTextClass::Prov_r279_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45665,7 +45819,7 @@ HyperTextClass::Prov_r279_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wisconsin")))));
+      ValueExpr::New (StrValue::New ("languag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45713,7 +45867,7 @@ HyperTextClass::Prov_r280_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45738,7 +45892,7 @@ HyperTextClass::Prov_r280_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("surfac")))));
+      ValueExpr::New (StrValue::New ("utexa")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45786,7 +45940,7 @@ HyperTextClass::Prov_r280_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45811,7 +45965,7 @@ HyperTextClass::Prov_r280_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("surfac")))));
+      ValueExpr::New (StrValue::New ("utexa")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -45859,7 +46013,7 @@ HyperTextClass::Prov_r281_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45884,7 +46038,7 @@ HyperTextClass::Prov_r281_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("experi")))));
+      ValueExpr::New (StrValue::New ("austin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -45932,7 +46086,7 @@ HyperTextClass::Prov_r281_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -45957,7 +46111,7 @@ HyperTextClass::Prov_r281_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("experi")))));
+      ValueExpr::New (StrValue::New ("austin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46005,7 +46159,7 @@ HyperTextClass::Prov_r282_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46030,7 +46184,7 @@ HyperTextClass::Prov_r282_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("learn")))));
+      ValueExpr::New (StrValue::New ("multi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46078,7 +46232,7 @@ HyperTextClass::Prov_r282_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46103,7 +46257,7 @@ HyperTextClass::Prov_r282_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("learn")))));
+      ValueExpr::New (StrValue::New ("multi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46151,7 +46305,7 @@ HyperTextClass::Prov_r283_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46176,7 +46330,7 @@ HyperTextClass::Prov_r283_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("read")))));
+      ValueExpr::New (StrValue::New ("increas")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46224,7 +46378,7 @@ HyperTextClass::Prov_r283_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46249,7 +46403,7 @@ HyperTextClass::Prov_r283_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("read")))));
+      ValueExpr::New (StrValue::New ("increas")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46297,7 +46451,7 @@ HyperTextClass::Prov_r284_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46322,7 +46476,7 @@ HyperTextClass::Prov_r284_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("room")))));
+      ValueExpr::New (StrValue::New ("qualit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46370,7 +46524,7 @@ HyperTextClass::Prov_r284_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46395,7 +46549,7 @@ HyperTextClass::Prov_r284_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("room")))));
+      ValueExpr::New (StrValue::New ("qualit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46443,7 +46597,7 @@ HyperTextClass::Prov_r285_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46468,7 +46622,7 @@ HyperTextClass::Prov_r285_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cach")))));
+      ValueExpr::New (StrValue::New ("doubl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46516,7 +46670,7 @@ HyperTextClass::Prov_r285_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46541,7 +46695,7 @@ HyperTextClass::Prov_r285_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cach")))));
+      ValueExpr::New (StrValue::New ("doubl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46589,7 +46743,7 @@ HyperTextClass::Prov_r286_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46614,7 +46768,7 @@ HyperTextClass::Prov_r286_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("approxim")))));
+      ValueExpr::New (StrValue::New ("street")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46662,7 +46816,7 @@ HyperTextClass::Prov_r286_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46687,7 +46841,7 @@ HyperTextClass::Prov_r286_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("approxim")))));
+      ValueExpr::New (StrValue::New ("street")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46735,7 +46889,7 @@ HyperTextClass::Prov_r287_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46760,7 +46914,7 @@ HyperTextClass::Prov_r287_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("output")))));
+      ValueExpr::New (StrValue::New ("short")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46808,7 +46962,7 @@ HyperTextClass::Prov_r287_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46833,7 +46987,7 @@ HyperTextClass::Prov_r287_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("output")))));
+      ValueExpr::New (StrValue::New ("short")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -46881,7 +47035,7 @@ HyperTextClass::Prov_r288_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46906,7 +47060,7 @@ HyperTextClass::Prov_r288_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("articl")))));
+      ValueExpr::New (StrValue::New ("sep")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -46954,7 +47108,7 @@ HyperTextClass::Prov_r288_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -46979,7 +47133,7 @@ HyperTextClass::Prov_r288_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("articl")))));
+      ValueExpr::New (StrValue::New ("sep")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47027,7 +47181,7 @@ HyperTextClass::Prov_r289_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47052,7 +47206,7 @@ HyperTextClass::Prov_r289_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sp")))));
+      ValueExpr::New (StrValue::New ("sequenc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47100,7 +47254,7 @@ HyperTextClass::Prov_r289_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47125,7 +47279,7 @@ HyperTextClass::Prov_r289_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sp")))));
+      ValueExpr::New (StrValue::New ("sequenc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47173,7 +47327,7 @@ HyperTextClass::Prov_r290_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47198,7 +47352,7 @@ HyperTextClass::Prov_r290_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cost")))));
+      ValueExpr::New (StrValue::New ("robert")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47246,7 +47400,7 @@ HyperTextClass::Prov_r290_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47271,7 +47425,7 @@ HyperTextClass::Prov_r290_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cost")))));
+      ValueExpr::New (StrValue::New ("robert")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47319,7 +47473,7 @@ HyperTextClass::Prov_r291_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47344,7 +47498,7 @@ HyperTextClass::Prov_r291_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("size")))));
+      ValueExpr::New (StrValue::New ("product")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47392,7 +47546,7 @@ HyperTextClass::Prov_r291_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47417,7 +47571,7 @@ HyperTextClass::Prov_r291_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("size")))));
+      ValueExpr::New (StrValue::New ("product")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47465,7 +47619,7 @@ HyperTextClass::Prov_r292_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47490,7 +47644,7 @@ HyperTextClass::Prov_r292_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("design")))));
+      ValueExpr::New (StrValue::New ("iter")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47538,7 +47692,7 @@ HyperTextClass::Prov_r292_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47563,7 +47717,7 @@ HyperTextClass::Prov_r292_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("design")))));
+      ValueExpr::New (StrValue::New ("iter")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47611,7 +47765,7 @@ HyperTextClass::Prov_r293_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47636,7 +47790,7 @@ HyperTextClass::Prov_r293_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("danc")))));
+      ValueExpr::New (StrValue::New ("node")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47684,7 +47838,7 @@ HyperTextClass::Prov_r293_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47709,7 +47863,7 @@ HyperTextClass::Prov_r293_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("danc")))));
+      ValueExpr::New (StrValue::New ("node")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47757,7 +47911,7 @@ HyperTextClass::Prov_r294_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47782,7 +47936,7 @@ HyperTextClass::Prov_r294_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("figur")))));
+      ValueExpr::New (StrValue::New ("start")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47830,7 +47984,7 @@ HyperTextClass::Prov_r294_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47855,7 +48009,7 @@ HyperTextClass::Prov_r294_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("figur")))));
+      ValueExpr::New (StrValue::New ("start")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -47903,7 +48057,7 @@ HyperTextClass::Prov_r295_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -47928,7 +48082,7 @@ HyperTextClass::Prov_r295_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("phone")))));
+      ValueExpr::New (StrValue::New ("version")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -47976,7 +48130,7 @@ HyperTextClass::Prov_r295_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48001,7 +48155,7 @@ HyperTextClass::Prov_r295_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("phone")))));
+      ValueExpr::New (StrValue::New ("version")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48049,7 +48203,7 @@ HyperTextClass::Prov_r296_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48074,7 +48228,7 @@ HyperTextClass::Prov_r296_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("const")))));
+      ValueExpr::New (StrValue::New ("commun")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48122,7 +48276,7 @@ HyperTextClass::Prov_r296_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48147,7 +48301,7 @@ HyperTextClass::Prov_r296_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("const")))));
+      ValueExpr::New (StrValue::New ("commun")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48195,7 +48349,7 @@ HyperTextClass::Prov_r297_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48220,7 +48374,7 @@ HyperTextClass::Prov_r297_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("share")))));
+      ValueExpr::New (StrValue::New ("press")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48268,7 +48422,7 @@ HyperTextClass::Prov_r297_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48293,7 +48447,7 @@ HyperTextClass::Prov_r297_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("share")))));
+      ValueExpr::New (StrValue::New ("press")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48341,7 +48495,7 @@ HyperTextClass::Prov_r298_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48366,7 +48520,7 @@ HyperTextClass::Prov_r298_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thing")))));
+      ValueExpr::New (StrValue::New ("make")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48414,7 +48568,7 @@ HyperTextClass::Prov_r298_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48439,7 +48593,7 @@ HyperTextClass::Prov_r298_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thing")))));
+      ValueExpr::New (StrValue::New ("make")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48487,7 +48641,7 @@ HyperTextClass::Prov_r299_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48512,7 +48666,7 @@ HyperTextClass::Prov_r299_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("list")))));
+      ValueExpr::New (StrValue::New ("west")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48560,7 +48714,7 @@ HyperTextClass::Prov_r299_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48585,7 +48739,7 @@ HyperTextClass::Prov_r299_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("list")))));
+      ValueExpr::New (StrValue::New ("west")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48633,7 +48787,7 @@ HyperTextClass::Prov_r300_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48658,7 +48812,7 @@ HyperTextClass::Prov_r300_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("studi")))));
+      ValueExpr::New (StrValue::New ("proc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48706,7 +48860,7 @@ HyperTextClass::Prov_r300_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48731,7 +48885,7 @@ HyperTextClass::Prov_r300_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("studi")))));
+      ValueExpr::New (StrValue::New ("proc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48779,7 +48933,7 @@ HyperTextClass::Prov_r301_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48804,7 +48958,7 @@ HyperTextClass::Prov_r301_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("symbol")))));
+      ValueExpr::New (StrValue::New ("miss")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48852,7 +49006,7 @@ HyperTextClass::Prov_r301_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48877,7 +49031,7 @@ HyperTextClass::Prov_r301_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("symbol")))));
+      ValueExpr::New (StrValue::New ("miss")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -48925,7 +49079,7 @@ HyperTextClass::Prov_r302_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -48950,7 +49104,7 @@ HyperTextClass::Prov_r302_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tcl")))));
+      ValueExpr::New (StrValue::New ("kernel")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -48998,7 +49152,7 @@ HyperTextClass::Prov_r302_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49023,7 +49177,7 @@ HyperTextClass::Prov_r302_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tcl")))));
+      ValueExpr::New (StrValue::New ("kernel")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49071,7 +49225,7 @@ HyperTextClass::Prov_r303_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49096,7 +49250,7 @@ HyperTextClass::Prov_r303_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("compon")))));
+      ValueExpr::New (StrValue::New ("block")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -49144,7 +49298,7 @@ HyperTextClass::Prov_r303_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49169,7 +49323,7 @@ HyperTextClass::Prov_r303_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("compon")))));
+      ValueExpr::New (StrValue::New ("block")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49217,7 +49371,7 @@ HyperTextClass::Prov_r304_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49242,7 +49396,7 @@ HyperTextClass::Prov_r304_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("run")))));
+      ValueExpr::New (StrValue::New ("result")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -49290,7 +49444,7 @@ HyperTextClass::Prov_r304_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49315,7 +49469,7 @@ HyperTextClass::Prov_r304_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("run")))));
+      ValueExpr::New (StrValue::New ("result")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49363,7 +49517,7 @@ HyperTextClass::Prov_r305_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49388,7 +49542,7 @@ HyperTextClass::Prov_r305_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("origin")))));
+      ValueExpr::New (StrValue::New ("netscap")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -49436,7 +49590,7 @@ HyperTextClass::Prov_r305_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49461,7 +49615,7 @@ HyperTextClass::Prov_r305_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("origin")))));
+      ValueExpr::New (StrValue::New ("netscap")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49509,7 +49663,7 @@ HyperTextClass::Prov_r306_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49534,7 +49688,7 @@ HyperTextClass::Prov_r306_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("robert")))));
+      ValueExpr::New (StrValue::New ("state")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -49582,7 +49736,7 @@ HyperTextClass::Prov_r306_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49607,7 +49761,7 @@ HyperTextClass::Prov_r306_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("robert")))));
+      ValueExpr::New (StrValue::New ("state")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49655,7 +49809,7 @@ HyperTextClass::Prov_r307_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49680,7 +49834,7 @@ HyperTextClass::Prov_r307_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("effect")))));
+      ValueExpr::New (StrValue::New ("updat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -49728,7 +49882,7 @@ HyperTextClass::Prov_r307_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49753,7 +49907,7 @@ HyperTextClass::Prov_r307_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("effect")))));
+      ValueExpr::New (StrValue::New ("updat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49801,7 +49955,7 @@ HyperTextClass::Prov_r308_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49826,7 +49980,7 @@ HyperTextClass::Prov_r308_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assign")))));
+      ValueExpr::New (StrValue::New ("cpp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -49874,7 +50028,7 @@ HyperTextClass::Prov_r308_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49899,7 +50053,7 @@ HyperTextClass::Prov_r308_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assign")))));
+      ValueExpr::New (StrValue::New ("cpp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -49947,7 +50101,7 @@ HyperTextClass::Prov_r309_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -49972,7 +50126,7 @@ HyperTextClass::Prov_r309_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("meet")))));
+      ValueExpr::New (StrValue::New ("refin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50020,7 +50174,7 @@ HyperTextClass::Prov_r309_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50045,7 +50199,7 @@ HyperTextClass::Prov_r309_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("meet")))));
+      ValueExpr::New (StrValue::New ("refin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50118,7 +50272,7 @@ HyperTextClass::Prov_r310_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sequenc")))));
+      ValueExpr::New (StrValue::New ("advanc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50191,7 +50345,7 @@ HyperTextClass::Prov_r310_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sequenc")))));
+      ValueExpr::New (StrValue::New ("advanc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50239,7 +50393,7 @@ HyperTextClass::Prov_r311_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50264,7 +50418,7 @@ HyperTextClass::Prov_r311_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("rule")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50312,7 +50466,7 @@ HyperTextClass::Prov_r311_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50337,7 +50491,7 @@ HyperTextClass::Prov_r311_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("rule")))));
+      ValueExpr::New (StrValue::New ("statem")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50385,7 +50539,7 @@ HyperTextClass::Prov_r312_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50410,7 +50564,7 @@ HyperTextClass::Prov_r312_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("question")))));
+      ValueExpr::New (StrValue::New ("column")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50458,7 +50612,7 @@ HyperTextClass::Prov_r312_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50483,7 +50637,7 @@ HyperTextClass::Prov_r312_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("question")))));
+      ValueExpr::New (StrValue::New ("column")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50556,7 +50710,7 @@ HyperTextClass::Prov_r313_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("workshop")))));
+      ValueExpr::New (StrValue::New ("regist")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50629,7 +50783,7 @@ HyperTextClass::Prov_r313_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("workshop")))));
+      ValueExpr::New (StrValue::New ("regist")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50677,7 +50831,7 @@ HyperTextClass::Prov_r314_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50702,7 +50856,7 @@ HyperTextClass::Prov_r314_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("record")))));
+      ValueExpr::New (StrValue::New ("rang")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50750,7 +50904,7 @@ HyperTextClass::Prov_r314_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50775,7 +50929,7 @@ HyperTextClass::Prov_r314_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("record")))));
+      ValueExpr::New (StrValue::New ("rang")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50848,7 +51002,7 @@ HyperTextClass::Prov_r315_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("human")))));
+      ValueExpr::New (StrValue::New ("postscript")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -50921,7 +51075,7 @@ HyperTextClass::Prov_r315_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("human")))));
+      ValueExpr::New (StrValue::New ("postscript")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -50969,7 +51123,7 @@ HyperTextClass::Prov_r316_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -50994,7 +51148,7 @@ HyperTextClass::Prov_r316_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("improv")))));
+      ValueExpr::New (StrValue::New ("content")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51042,7 +51196,7 @@ HyperTextClass::Prov_r316_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51067,7 +51221,7 @@ HyperTextClass::Prov_r316_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("improv")))));
+      ValueExpr::New (StrValue::New ("content")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51115,7 +51269,7 @@ HyperTextClass::Prov_r317_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51140,7 +51294,7 @@ HyperTextClass::Prov_r317_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("command")))));
+      ValueExpr::New (StrValue::New ("char")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51188,7 +51342,7 @@ HyperTextClass::Prov_r317_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51213,7 +51367,7 @@ HyperTextClass::Prov_r317_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("command")))));
+      ValueExpr::New (StrValue::New ("char")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51261,7 +51415,7 @@ HyperTextClass::Prov_r318_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51286,7 +51440,7 @@ HyperTextClass::Prov_r318_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("individu")))));
+      ValueExpr::New (StrValue::New ("past")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51334,7 +51488,7 @@ HyperTextClass::Prov_r318_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51359,7 +51513,7 @@ HyperTextClass::Prov_r318_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("individu")))));
+      ValueExpr::New (StrValue::New ("past")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51407,7 +51561,7 @@ HyperTextClass::Prov_r319_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51432,7 +51586,7 @@ HyperTextClass::Prov_r319_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("statist")))));
+      ValueExpr::New (StrValue::New ("variabl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51480,7 +51634,7 @@ HyperTextClass::Prov_r319_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51505,7 +51659,7 @@ HyperTextClass::Prov_r319_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("statist")))));
+      ValueExpr::New (StrValue::New ("variabl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51553,7 +51707,7 @@ HyperTextClass::Prov_r320_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51578,7 +51732,7 @@ HyperTextClass::Prov_r320_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("shore")))));
+      ValueExpr::New (StrValue::New ("standard")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51626,7 +51780,7 @@ HyperTextClass::Prov_r320_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51651,7 +51805,7 @@ HyperTextClass::Prov_r320_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("shore")))));
+      ValueExpr::New (StrValue::New ("standard")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51699,7 +51853,7 @@ HyperTextClass::Prov_r321_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51724,7 +51878,7 @@ HyperTextClass::Prov_r321_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ident")))));
+      ValueExpr::New (StrValue::New ("long")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51772,7 +51926,7 @@ HyperTextClass::Prov_r321_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51797,7 +51951,7 @@ HyperTextClass::Prov_r321_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ident")))));
+      ValueExpr::New (StrValue::New ("long")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51845,7 +51999,7 @@ HyperTextClass::Prov_r322_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51870,7 +52024,7 @@ HyperTextClass::Prov_r322_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cpp")))));
+      ValueExpr::New (StrValue::New ("rate")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -51918,7 +52072,7 @@ HyperTextClass::Prov_r322_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -51943,7 +52097,7 @@ HyperTextClass::Prov_r322_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cpp")))));
+      ValueExpr::New (StrValue::New ("rate")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -51991,7 +52145,7 @@ HyperTextClass::Prov_r323_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52016,7 +52170,7 @@ HyperTextClass::Prov_r323_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("end")))));
+      ValueExpr::New (StrValue::New ("thread")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52064,7 +52218,7 @@ HyperTextClass::Prov_r323_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52089,7 +52243,7 @@ HyperTextClass::Prov_r323_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("end")))));
+      ValueExpr::New (StrValue::New ("thread")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -52137,7 +52291,7 @@ HyperTextClass::Prov_r324_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52162,7 +52316,7 @@ HyperTextClass::Prov_r324_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("knowledg")))));
+      ValueExpr::New (StrValue::New ("life")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52210,7 +52364,7 @@ HyperTextClass::Prov_r324_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52235,7 +52389,7 @@ HyperTextClass::Prov_r324_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("knowledg")))));
+      ValueExpr::New (StrValue::New ("life")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -52283,7 +52437,7 @@ HyperTextClass::Prov_r325_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52308,7 +52462,7 @@ HyperTextClass::Prov_r325_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("materi")))));
+      ValueExpr::New (StrValue::New ("danc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52356,7 +52510,7 @@ HyperTextClass::Prov_r325_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52381,7 +52535,7 @@ HyperTextClass::Prov_r325_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("materi")))));
+      ValueExpr::New (StrValue::New ("danc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -52429,7 +52583,7 @@ HyperTextClass::Prov_r326_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52454,7 +52608,7 @@ HyperTextClass::Prov_r326_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("principl")))));
+      ValueExpr::New (StrValue::New ("laboratori")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52502,7 +52656,7 @@ HyperTextClass::Prov_r326_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52527,7 +52681,7 @@ HyperTextClass::Prov_r326_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("principl")))));
+      ValueExpr::New (StrValue::New ("laboratori")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -52575,7 +52729,7 @@ HyperTextClass::Prov_r327_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52600,7 +52754,7 @@ HyperTextClass::Prov_r327_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dr")))));
+      ValueExpr::New (StrValue::New ("discuss")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52648,7 +52802,7 @@ HyperTextClass::Prov_r327_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52673,7 +52827,7 @@ HyperTextClass::Prov_r327_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dr")))));
+      ValueExpr::New (StrValue::New ("discuss")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -52721,7 +52875,7 @@ HyperTextClass::Prov_r328_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52746,7 +52900,7 @@ HyperTextClass::Prov_r328_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("handl")))));
+      ValueExpr::New (StrValue::New ("credit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52794,7 +52948,7 @@ HyperTextClass::Prov_r328_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -52819,7 +52973,7 @@ HyperTextClass::Prov_r328_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("handl")))));
+      ValueExpr::New (StrValue::New ("credit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -52892,7 +53046,7 @@ HyperTextClass::Prov_r329_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("import")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -52965,7 +53119,7 @@ HyperTextClass::Prov_r329_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("import")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53013,7 +53167,7 @@ HyperTextClass::Prov_r330_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53038,7 +53192,7 @@ HyperTextClass::Prov_r330_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("examin")))));
+      ValueExpr::New (StrValue::New ("present")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53086,7 +53240,7 @@ HyperTextClass::Prov_r330_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53111,7 +53265,7 @@ HyperTextClass::Prov_r330_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("examin")))));
+      ValueExpr::New (StrValue::New ("present")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53159,7 +53313,7 @@ HyperTextClass::Prov_r331_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53184,7 +53338,7 @@ HyperTextClass::Prov_r331_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("code")))));
+      ValueExpr::New (StrValue::New ("danc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53232,7 +53386,7 @@ HyperTextClass::Prov_r331_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53257,7 +53411,7 @@ HyperTextClass::Prov_r331_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("code")))));
+      ValueExpr::New (StrValue::New ("danc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53330,7 +53484,7 @@ HyperTextClass::Prov_r332_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("stack")))));
+      ValueExpr::New (StrValue::New ("account")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53403,7 +53557,7 @@ HyperTextClass::Prov_r332_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("stack")))));
+      ValueExpr::New (StrValue::New ("account")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53451,7 +53605,7 @@ HyperTextClass::Prov_r333_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53476,7 +53630,7 @@ HyperTextClass::Prov_r333_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("jame")))));
+      ValueExpr::New (StrValue::New ("home")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53524,7 +53678,7 @@ HyperTextClass::Prov_r333_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53549,7 +53703,7 @@ HyperTextClass::Prov_r333_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("jame")))));
+      ValueExpr::New (StrValue::New ("home")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53622,7 +53776,7 @@ HyperTextClass::Prov_r334_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("processor")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53695,7 +53849,7 @@ HyperTextClass::Prov_r334_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("menu")))));
+      ValueExpr::New (StrValue::New ("processor")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53743,7 +53897,7 @@ HyperTextClass::Prov_r335_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53768,7 +53922,7 @@ HyperTextClass::Prov_r335_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("singl")))));
+      ValueExpr::New (StrValue::New ("peopl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53816,7 +53970,7 @@ HyperTextClass::Prov_r335_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53841,7 +53995,7 @@ HyperTextClass::Prov_r335_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("singl")))));
+      ValueExpr::New (StrValue::New ("peopl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -53889,7 +54043,7 @@ HyperTextClass::Prov_r336_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53914,7 +54068,7 @@ HyperTextClass::Prov_r336_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("combin")))));
+      ValueExpr::New (StrValue::New ("import")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -53962,7 +54116,7 @@ HyperTextClass::Prov_r336_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -53987,7 +54141,7 @@ HyperTextClass::Prov_r336_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("combin")))));
+      ValueExpr::New (StrValue::New ("import")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54035,7 +54189,7 @@ HyperTextClass::Prov_r337_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54060,7 +54214,7 @@ HyperTextClass::Prov_r337_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("construct")))));
+      ValueExpr::New (StrValue::New ("nbsp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54108,7 +54262,7 @@ HyperTextClass::Prov_r337_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54133,7 +54287,7 @@ HyperTextClass::Prov_r337_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("construct")))));
+      ValueExpr::New (StrValue::New ("nbsp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54181,7 +54335,7 @@ HyperTextClass::Prov_r338_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54206,7 +54360,7 @@ HyperTextClass::Prov_r338_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pictur")))));
+      ValueExpr::New (StrValue::New ("differ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54254,7 +54408,7 @@ HyperTextClass::Prov_r338_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54279,7 +54433,7 @@ HyperTextClass::Prov_r338_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("pictur")))));
+      ValueExpr::New (StrValue::New ("differ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54327,7 +54481,7 @@ HyperTextClass::Prov_r339_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54352,7 +54506,7 @@ HyperTextClass::Prov_r339_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("featur")))));
+      ValueExpr::New (StrValue::New ("member")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54400,7 +54554,7 @@ HyperTextClass::Prov_r339_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54425,7 +54579,7 @@ HyperTextClass::Prov_r339_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("featur")))));
+      ValueExpr::New (StrValue::New ("member")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54473,7 +54627,7 @@ HyperTextClass::Prov_r340_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54498,7 +54652,7 @@ HyperTextClass::Prov_r340_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("goal")))));
+      ValueExpr::New (StrValue::New ("mail")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54546,7 +54700,7 @@ HyperTextClass::Prov_r340_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54571,7 +54725,7 @@ HyperTextClass::Prov_r340_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("goal")))));
+      ValueExpr::New (StrValue::New ("mail")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54619,7 +54773,7 @@ HyperTextClass::Prov_r341_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54644,7 +54798,7 @@ HyperTextClass::Prov_r341_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("product")))));
+      ValueExpr::New (StrValue::New ("seattl")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54692,7 +54846,7 @@ HyperTextClass::Prov_r341_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54717,7 +54871,7 @@ HyperTextClass::Prov_r341_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("product")))));
+      ValueExpr::New (StrValue::New ("seattl")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54765,7 +54919,7 @@ HyperTextClass::Prov_r342_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54790,7 +54944,7 @@ HyperTextClass::Prov_r342_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("letter")))));
+      ValueExpr::New (StrValue::New ("vector")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54838,7 +54992,7 @@ HyperTextClass::Prov_r342_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54863,7 +55017,7 @@ HyperTextClass::Prov_r342_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("letter")))));
+      ValueExpr::New (StrValue::New ("vector")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -54911,7 +55065,7 @@ HyperTextClass::Prov_r343_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -54936,7 +55090,7 @@ HyperTextClass::Prov_r343_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("correct")))));
+      ValueExpr::New (StrValue::New ("summari")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -54984,7 +55138,7 @@ HyperTextClass::Prov_r343_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55009,7 +55163,7 @@ HyperTextClass::Prov_r343_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("correct")))));
+      ValueExpr::New (StrValue::New ("summari")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55057,7 +55211,7 @@ HyperTextClass::Prov_r344_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55082,7 +55236,7 @@ HyperTextClass::Prov_r344_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("word")))));
+      ValueExpr::New (StrValue::New ("lab")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -55130,7 +55284,7 @@ HyperTextClass::Prov_r344_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55155,7 +55309,7 @@ HyperTextClass::Prov_r344_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("word")))));
+      ValueExpr::New (StrValue::New ("lab")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55203,7 +55357,7 @@ HyperTextClass::Prov_r345_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55228,7 +55382,7 @@ HyperTextClass::Prov_r345_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("futur")))));
+      ValueExpr::New (StrValue::New ("menu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -55276,7 +55430,7 @@ HyperTextClass::Prov_r345_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55301,7 +55455,7 @@ HyperTextClass::Prov_r345_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("futur")))));
+      ValueExpr::New (StrValue::New ("menu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55349,7 +55503,7 @@ HyperTextClass::Prov_r346_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55374,7 +55528,7 @@ HyperTextClass::Prov_r346_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("structur")))));
+      ValueExpr::New (StrValue::New ("repres")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -55422,7 +55576,7 @@ HyperTextClass::Prov_r346_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55447,7 +55601,7 @@ HyperTextClass::Prov_r346_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("structur")))));
+      ValueExpr::New (StrValue::New ("repres")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55495,7 +55649,7 @@ HyperTextClass::Prov_r347_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55520,7 +55674,7 @@ HyperTextClass::Prov_r347_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wednesdai")))));
+      ValueExpr::New (StrValue::New ("tuesdai")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -55568,7 +55722,7 @@ HyperTextClass::Prov_r347_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55593,7 +55747,7 @@ HyperTextClass::Prov_r347_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wednesdai")))));
+      ValueExpr::New (StrValue::New ("tuesdai")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55641,7 +55795,7 @@ HyperTextClass::Prov_r348_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55666,7 +55820,7 @@ HyperTextClass::Prov_r348_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("audio")))));
+      ValueExpr::New (StrValue::New ("movi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -55714,7 +55868,7 @@ HyperTextClass::Prov_r348_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55739,7 +55893,7 @@ HyperTextClass::Prov_r348_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("audio")))));
+      ValueExpr::New (StrValue::New ("movi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55787,7 +55941,7 @@ HyperTextClass::Prov_r349_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55812,7 +55966,7 @@ HyperTextClass::Prov_r349_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("period")))));
+      ValueExpr::New (StrValue::New ("input")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -55860,7 +56014,7 @@ HyperTextClass::Prov_r349_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -55885,7 +56039,7 @@ HyperTextClass::Prov_r349_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("period")))));
+      ValueExpr::New (StrValue::New ("input")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -55958,7 +56112,7 @@ HyperTextClass::Prov_r350_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("paper")))));
+      ValueExpr::New (StrValue::New ("world")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56031,7 +56185,7 @@ HyperTextClass::Prov_r350_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("paper")))));
+      ValueExpr::New (StrValue::New ("world")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56079,7 +56233,7 @@ HyperTextClass::Prov_r351_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56104,7 +56258,7 @@ HyperTextClass::Prov_r351_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("string")))));
+      ValueExpr::New (StrValue::New ("updat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56152,7 +56306,7 @@ HyperTextClass::Prov_r351_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56177,7 +56331,7 @@ HyperTextClass::Prov_r351_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("string")))));
+      ValueExpr::New (StrValue::New ("updat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56225,7 +56379,7 @@ HyperTextClass::Prov_r352_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56250,7 +56404,7 @@ HyperTextClass::Prov_r352_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("st")))));
+      ValueExpr::New (StrValue::New ("finish")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56298,7 +56452,7 @@ HyperTextClass::Prov_r352_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56323,7 +56477,7 @@ HyperTextClass::Prov_r352_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("st")))));
+      ValueExpr::New (StrValue::New ("finish")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56396,7 +56550,7 @@ HyperTextClass::Prov_r353_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("microsoft")))));
+      ValueExpr::New (StrValue::New ("fall")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56469,7 +56623,7 @@ HyperTextClass::Prov_r353_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("microsoft")))));
+      ValueExpr::New (StrValue::New ("fall")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56517,7 +56671,7 @@ HyperTextClass::Prov_r354_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56542,7 +56696,7 @@ HyperTextClass::Prov_r354_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("share")))));
+      ValueExpr::New (StrValue::New ("induct")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56590,7 +56744,7 @@ HyperTextClass::Prov_r354_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56615,7 +56769,7 @@ HyperTextClass::Prov_r354_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("share")))));
+      ValueExpr::New (StrValue::New ("induct")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56688,7 +56842,7 @@ HyperTextClass::Prov_r355_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assist")))));
+      ValueExpr::New (StrValue::New ("apr")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56761,7 +56915,7 @@ HyperTextClass::Prov_r355_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assist")))));
+      ValueExpr::New (StrValue::New ("apr")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56809,7 +56963,7 @@ HyperTextClass::Prov_r356_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56834,7 +56988,7 @@ HyperTextClass::Prov_r356_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("februari")))));
+      ValueExpr::New (StrValue::New ("directori")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -56882,7 +57036,7 @@ HyperTextClass::Prov_r356_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56907,7 +57061,7 @@ HyperTextClass::Prov_r356_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("februari")))));
+      ValueExpr::New (StrValue::New ("directori")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -56955,7 +57109,7 @@ HyperTextClass::Prov_r357_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -56980,7 +57134,7 @@ HyperTextClass::Prov_r357_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("aug")))));
+      ValueExpr::New (StrValue::New ("cluster")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57028,7 +57182,7 @@ HyperTextClass::Prov_r357_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57053,7 +57207,7 @@ HyperTextClass::Prov_r357_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("aug")))));
+      ValueExpr::New (StrValue::New ("cluster")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57101,7 +57255,7 @@ HyperTextClass::Prov_r358_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57126,7 +57280,7 @@ HyperTextClass::Prov_r358_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("bound")))));
+      ValueExpr::New (StrValue::New ("prove")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57174,7 +57328,7 @@ HyperTextClass::Prov_r358_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57199,7 +57353,7 @@ HyperTextClass::Prov_r358_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("bound")))));
+      ValueExpr::New (StrValue::New ("prove")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57247,7 +57401,7 @@ HyperTextClass::Prov_r359_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57272,7 +57426,7 @@ HyperTextClass::Prov_r359_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tue")))));
+      ValueExpr::New (StrValue::New ("activ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57320,7 +57474,7 @@ HyperTextClass::Prov_r359_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57345,7 +57499,7 @@ HyperTextClass::Prov_r359_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tue")))));
+      ValueExpr::New (StrValue::New ("activ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57393,7 +57547,7 @@ HyperTextClass::Prov_r360_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57418,7 +57572,7 @@ HyperTextClass::Prov_r360_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("talk")))));
+      ValueExpr::New (StrValue::New ("apr")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57466,7 +57620,7 @@ HyperTextClass::Prov_r360_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57491,7 +57645,7 @@ HyperTextClass::Prov_r360_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("talk")))));
+      ValueExpr::New (StrValue::New ("apr")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57539,7 +57693,7 @@ HyperTextClass::Prov_r361_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57564,7 +57718,7 @@ HyperTextClass::Prov_r361_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ftp")))));
+      ValueExpr::New (StrValue::New ("audio")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57612,7 +57766,7 @@ HyperTextClass::Prov_r361_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57637,7 +57791,7 @@ HyperTextClass::Prov_r361_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ftp")))));
+      ValueExpr::New (StrValue::New ("audio")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57685,7 +57839,7 @@ HyperTextClass::Prov_r362_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57710,7 +57864,7 @@ HyperTextClass::Prov_r362_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("log")))));
+      ValueExpr::New (StrValue::New ("leav")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57758,7 +57912,7 @@ HyperTextClass::Prov_r362_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57783,7 +57937,7 @@ HyperTextClass::Prov_r362_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("log")))));
+      ValueExpr::New (StrValue::New ("leav")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57831,7 +57985,7 @@ HyperTextClass::Prov_r363_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57856,7 +58010,7 @@ HyperTextClass::Prov_r363_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("number")))));
+      ValueExpr::New (StrValue::New ("screen")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -57904,7 +58058,7 @@ HyperTextClass::Prov_r363_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -57929,7 +58083,7 @@ HyperTextClass::Prov_r363_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("number")))));
+      ValueExpr::New (StrValue::New ("screen")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -57977,7 +58131,7 @@ HyperTextClass::Prov_r364_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58002,7 +58156,7 @@ HyperTextClass::Prov_r364_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("manual")))));
+      ValueExpr::New (StrValue::New ("menu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58050,7 +58204,7 @@ HyperTextClass::Prov_r364_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58075,7 +58229,7 @@ HyperTextClass::Prov_r364_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("manual")))));
+      ValueExpr::New (StrValue::New ("menu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58123,7 +58277,7 @@ HyperTextClass::Prov_r365_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58148,7 +58302,7 @@ HyperTextClass::Prov_r365_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("vision")))));
+      ValueExpr::New (StrValue::New ("physic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58196,7 +58350,7 @@ HyperTextClass::Prov_r365_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58221,7 +58375,7 @@ HyperTextClass::Prov_r365_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("vision")))));
+      ValueExpr::New (StrValue::New ("physic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58269,7 +58423,7 @@ HyperTextClass::Prov_r366_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58294,7 +58448,7 @@ HyperTextClass::Prov_r366_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("check")))));
+      ValueExpr::New (StrValue::New ("ident")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58342,7 +58496,7 @@ HyperTextClass::Prov_r366_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58367,7 +58521,7 @@ HyperTextClass::Prov_r366_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("check")))));
+      ValueExpr::New (StrValue::New ("ident")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58415,7 +58569,7 @@ HyperTextClass::Prov_r367_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58440,7 +58594,7 @@ HyperTextClass::Prov_r367_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("locat")))));
+      ValueExpr::New (StrValue::New ("partial")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58488,7 +58642,7 @@ HyperTextClass::Prov_r367_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58513,7 +58667,7 @@ HyperTextClass::Prov_r367_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("locat")))));
+      ValueExpr::New (StrValue::New ("partial")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58561,7 +58715,7 @@ HyperTextClass::Prov_r368_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58586,7 +58740,7 @@ HyperTextClass::Prov_r368_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("semest")))));
+      ValueExpr::New (StrValue::New ("signal")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58634,7 +58788,7 @@ HyperTextClass::Prov_r368_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58659,7 +58813,7 @@ HyperTextClass::Prov_r368_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("semest")))));
+      ValueExpr::New (StrValue::New ("signal")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58707,7 +58861,7 @@ HyperTextClass::Prov_r369_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58732,7 +58886,7 @@ HyperTextClass::Prov_r369_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dissert")))));
+      ValueExpr::New (StrValue::New ("secur")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58780,7 +58934,7 @@ HyperTextClass::Prov_r369_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58805,7 +58959,7 @@ HyperTextClass::Prov_r369_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("dissert")))));
+      ValueExpr::New (StrValue::New ("secur")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58853,7 +59007,7 @@ HyperTextClass::Prov_r370_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58878,7 +59032,7 @@ HyperTextClass::Prov_r370_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("feb")))));
+      ValueExpr::New (StrValue::New ("reason")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -58926,7 +59080,7 @@ HyperTextClass::Prov_r370_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -58951,7 +59105,7 @@ HyperTextClass::Prov_r370_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("feb")))));
+      ValueExpr::New (StrValue::New ("reason")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -58999,7 +59153,7 @@ HyperTextClass::Prov_r371_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59024,7 +59178,7 @@ HyperTextClass::Prov_r371_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("scientif")))));
+      ValueExpr::New (StrValue::New ("number")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59072,7 +59226,7 @@ HyperTextClass::Prov_r371_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59097,7 +59251,7 @@ HyperTextClass::Prov_r371_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("scientif")))));
+      ValueExpr::New (StrValue::New ("number")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -59145,7 +59299,7 @@ HyperTextClass::Prov_r372_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59170,7 +59324,7 @@ HyperTextClass::Prov_r372_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("activ")))));
+      ValueExpr::New (StrValue::New ("hand")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59218,7 +59372,7 @@ HyperTextClass::Prov_r372_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59243,7 +59397,7 @@ HyperTextClass::Prov_r372_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("activ")))));
+      ValueExpr::New (StrValue::New ("hand")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -59291,7 +59445,7 @@ HyperTextClass::Prov_r373_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59316,7 +59470,7 @@ HyperTextClass::Prov_r373_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("low")))));
+      ValueExpr::New (StrValue::New ("parallel")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59364,7 +59518,7 @@ HyperTextClass::Prov_r373_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59389,7 +59543,7 @@ HyperTextClass::Prov_r373_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("low")))));
+      ValueExpr::New (StrValue::New ("parallel")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -59437,7 +59591,7 @@ HyperTextClass::Prov_r374_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59462,7 +59616,7 @@ HyperTextClass::Prov_r374_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("complet")))));
+      ValueExpr::New (StrValue::New ("creat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59510,7 +59664,7 @@ HyperTextClass::Prov_r374_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59535,7 +59689,7 @@ HyperTextClass::Prov_r374_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("complet")))));
+      ValueExpr::New (StrValue::New ("creat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -59583,7 +59737,7 @@ HyperTextClass::Prov_r375_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59608,7 +59762,7 @@ HyperTextClass::Prov_r375_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("averag")))));
+      ValueExpr::New (StrValue::New ("machin")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59656,7 +59810,7 @@ HyperTextClass::Prov_r375_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59681,7 +59835,7 @@ HyperTextClass::Prov_r375_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("averag")))));
+      ValueExpr::New (StrValue::New ("machin")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -59729,7 +59883,7 @@ HyperTextClass::Prov_r376_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59754,7 +59908,7 @@ HyperTextClass::Prov_r376_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("faq")))));
+      ValueExpr::New (StrValue::New ("societi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59802,7 +59956,7 @@ HyperTextClass::Prov_r376_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -59827,7 +59981,7 @@ HyperTextClass::Prov_r376_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("faq")))));
+      ValueExpr::New (StrValue::New ("societi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -59900,7 +60054,7 @@ HyperTextClass::Prov_r377_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("creat")))));
+      ValueExpr::New (StrValue::New ("break")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -59973,7 +60127,7 @@ HyperTextClass::Prov_r377_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("creat")))));
+      ValueExpr::New (StrValue::New ("break")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60021,7 +60175,7 @@ HyperTextClass::Prov_r378_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60046,7 +60200,7 @@ HyperTextClass::Prov_r378_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simul")))));
+      ValueExpr::New (StrValue::New ("connect")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60094,7 +60248,7 @@ HyperTextClass::Prov_r378_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60119,7 +60273,7 @@ HyperTextClass::Prov_r378_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simul")))));
+      ValueExpr::New (StrValue::New ("connect")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60167,7 +60321,7 @@ HyperTextClass::Prov_r379_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60192,7 +60346,7 @@ HyperTextClass::Prov_r379_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mondai")))));
+      ValueExpr::New (StrValue::New ("schedul")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60240,7 +60394,7 @@ HyperTextClass::Prov_r379_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60265,7 +60419,7 @@ HyperTextClass::Prov_r379_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mondai")))));
+      ValueExpr::New (StrValue::New ("schedul")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60338,7 +60492,7 @@ HyperTextClass::Prov_r380_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("low")))));
+      ValueExpr::New (StrValue::New ("format")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60411,7 +60565,7 @@ HyperTextClass::Prov_r380_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("low")))));
+      ValueExpr::New (StrValue::New ("format")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60459,7 +60613,7 @@ HyperTextClass::Prov_r381_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60484,7 +60638,7 @@ HyperTextClass::Prov_r381_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("session")))));
+      ValueExpr::New (StrValue::New ("map")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60532,7 +60686,7 @@ HyperTextClass::Prov_r381_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60557,7 +60711,7 @@ HyperTextClass::Prov_r381_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("session")))));
+      ValueExpr::New (StrValue::New ("map")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60605,7 +60759,7 @@ HyperTextClass::Prov_r382_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60630,7 +60784,7 @@ HyperTextClass::Prov_r382_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("head")))));
+      ValueExpr::New (StrValue::New ("link")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60678,7 +60832,7 @@ HyperTextClass::Prov_r382_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60703,7 +60857,7 @@ HyperTextClass::Prov_r382_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("head")))));
+      ValueExpr::New (StrValue::New ("link")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60751,7 +60905,7 @@ HyperTextClass::Prov_r383_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60776,7 +60930,7 @@ HyperTextClass::Prov_r383_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("perform")))));
+      ValueExpr::New (StrValue::New ("program")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60824,7 +60978,7 @@ HyperTextClass::Prov_r383_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60849,7 +61003,7 @@ HyperTextClass::Prov_r383_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("perform")))));
+      ValueExpr::New (StrValue::New ("program")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -60897,7 +61051,7 @@ HyperTextClass::Prov_r384_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60922,7 +61076,7 @@ HyperTextClass::Prov_r384_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("low")))));
+      ValueExpr::New (StrValue::New ("year")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -60970,7 +61124,7 @@ HyperTextClass::Prov_r384_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -60995,7 +61149,7 @@ HyperTextClass::Prov_r384_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("low")))));
+      ValueExpr::New (StrValue::New ("year")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61043,7 +61197,7 @@ HyperTextClass::Prov_r385_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61068,7 +61222,7 @@ HyperTextClass::Prov_r385_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ph")))));
+      ValueExpr::New (StrValue::New ("wait")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61116,7 +61270,7 @@ HyperTextClass::Prov_r385_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61141,7 +61295,7 @@ HyperTextClass::Prov_r385_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ph")))));
+      ValueExpr::New (StrValue::New ("wait")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61189,7 +61343,7 @@ HyperTextClass::Prov_r386_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61214,7 +61368,7 @@ HyperTextClass::Prov_r386_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ithaca")))));
+      ValueExpr::New (StrValue::New ("shore")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61262,7 +61416,7 @@ HyperTextClass::Prov_r386_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61287,7 +61441,7 @@ HyperTextClass::Prov_r386_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("ithaca")))));
+      ValueExpr::New (StrValue::New ("shore")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61335,7 +61489,7 @@ HyperTextClass::Prov_r387_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61360,7 +61514,7 @@ HyperTextClass::Prov_r387_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cpp")))));
+      ValueExpr::New (StrValue::New ("html")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61408,7 +61562,7 @@ HyperTextClass::Prov_r387_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61433,7 +61587,7 @@ HyperTextClass::Prov_r387_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cpp")))));
+      ValueExpr::New (StrValue::New ("html")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61481,7 +61635,7 @@ HyperTextClass::Prov_r388_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61506,7 +61660,7 @@ HyperTextClass::Prov_r388_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("fault")))));
+      ValueExpr::New (StrValue::New ("call")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61554,7 +61708,7 @@ HyperTextClass::Prov_r388_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61579,7 +61733,7 @@ HyperTextClass::Prov_r388_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("fault")))));
+      ValueExpr::New (StrValue::New ("call")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61627,7 +61781,7 @@ HyperTextClass::Prov_r389_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61652,7 +61806,7 @@ HyperTextClass::Prov_r389_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("translat")))));
+      ValueExpr::New (StrValue::New ("submit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61700,7 +61854,7 @@ HyperTextClass::Prov_r389_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61725,7 +61879,7 @@ HyperTextClass::Prov_r389_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("translat")))));
+      ValueExpr::New (StrValue::New ("submit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61773,7 +61927,7 @@ HyperTextClass::Prov_r390_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61798,7 +61952,7 @@ HyperTextClass::Prov_r390_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("step")))));
+      ValueExpr::New (StrValue::New ("develop")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61846,7 +62000,7 @@ HyperTextClass::Prov_r390_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61871,7 +62025,7 @@ HyperTextClass::Prov_r390_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("step")))));
+      ValueExpr::New (StrValue::New ("develop")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -61919,7 +62073,7 @@ HyperTextClass::Prov_r391_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -61944,7 +62098,7 @@ HyperTextClass::Prov_r391_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("editor")))));
+      ValueExpr::New (StrValue::New ("travel")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -61992,7 +62146,7 @@ HyperTextClass::Prov_r391_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62017,7 +62171,7 @@ HyperTextClass::Prov_r391_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("editor")))));
+      ValueExpr::New (StrValue::New ("travel")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62065,7 +62219,7 @@ HyperTextClass::Prov_r392_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62090,7 +62244,7 @@ HyperTextClass::Prov_r392_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("view")))));
+      ValueExpr::New (StrValue::New ("automat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -62138,7 +62292,7 @@ HyperTextClass::Prov_r392_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62163,7 +62317,7 @@ HyperTextClass::Prov_r392_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("view")))));
+      ValueExpr::New (StrValue::New ("automat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62211,7 +62365,7 @@ HyperTextClass::Prov_r393_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62236,7 +62390,7 @@ HyperTextClass::Prov_r393_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("experi")))));
+      ValueExpr::New (StrValue::New ("send")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -62284,7 +62438,7 @@ HyperTextClass::Prov_r393_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62309,7 +62463,7 @@ HyperTextClass::Prov_r393_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("experi")))));
+      ValueExpr::New (StrValue::New ("send")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62357,7 +62511,7 @@ HyperTextClass::Prov_r394_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62382,7 +62536,7 @@ HyperTextClass::Prov_r394_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("grade")))));
+      ValueExpr::New (StrValue::New ("improv")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -62430,7 +62584,7 @@ HyperTextClass::Prov_r394_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62455,7 +62609,7 @@ HyperTextClass::Prov_r394_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("grade")))));
+      ValueExpr::New (StrValue::New ("improv")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62503,7 +62657,7 @@ HyperTextClass::Prov_r395_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62528,7 +62682,7 @@ HyperTextClass::Prov_r395_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simul")))));
+      ValueExpr::New (StrValue::New ("memori")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -62576,7 +62730,7 @@ HyperTextClass::Prov_r395_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62601,7 +62755,7 @@ HyperTextClass::Prov_r395_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("simul")))));
+      ValueExpr::New (StrValue::New ("memori")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62649,7 +62803,7 @@ HyperTextClass::Prov_r396_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62674,7 +62828,7 @@ HyperTextClass::Prov_r396_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assign")))));
+      ValueExpr::New (StrValue::New ("creat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -62722,7 +62876,7 @@ HyperTextClass::Prov_r396_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62747,7 +62901,7 @@ HyperTextClass::Prov_r396_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assign")))));
+      ValueExpr::New (StrValue::New ("creat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62795,7 +62949,7 @@ HyperTextClass::Prov_r397_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62820,7 +62974,7 @@ HyperTextClass::Prov_r397_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("background")))));
+      ValueExpr::New (StrValue::New ("manual")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -62868,7 +63022,7 @@ HyperTextClass::Prov_r397_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62893,7 +63047,7 @@ HyperTextClass::Prov_r397_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("background")))));
+      ValueExpr::New (StrValue::New ("manual")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -62941,7 +63095,7 @@ HyperTextClass::Prov_r398_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -62966,7 +63120,7 @@ HyperTextClass::Prov_r398_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("signal")))));
+      ValueExpr::New (StrValue::New ("acm")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63014,7 +63168,7 @@ HyperTextClass::Prov_r398_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63039,7 +63193,7 @@ HyperTextClass::Prov_r398_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("signal")))));
+      ValueExpr::New (StrValue::New ("acm")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63112,7 +63266,7 @@ HyperTextClass::Prov_r399_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("frame")))));
+      ValueExpr::New (StrValue::New ("talk")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63185,7 +63339,7 @@ HyperTextClass::Prov_r399_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("frame")))));
+      ValueExpr::New (StrValue::New ("talk")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63233,7 +63387,7 @@ HyperTextClass::Prov_r400_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63258,7 +63412,7 @@ HyperTextClass::Prov_r400_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tx")))));
+      ValueExpr::New (StrValue::New ("depend")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63306,7 +63460,7 @@ HyperTextClass::Prov_r400_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63331,7 +63485,7 @@ HyperTextClass::Prov_r400_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("tx")))));
+      ValueExpr::New (StrValue::New ("depend")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63379,7 +63533,7 @@ HyperTextClass::Prov_r401_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63404,7 +63558,7 @@ HyperTextClass::Prov_r401_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("van")))));
+      ValueExpr::New (StrValue::New ("oper")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63452,7 +63606,7 @@ HyperTextClass::Prov_r401_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63477,7 +63631,7 @@ HyperTextClass::Prov_r401_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("van")))));
+      ValueExpr::New (StrValue::New ("oper")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63525,7 +63679,7 @@ HyperTextClass::Prov_r402_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63550,7 +63704,7 @@ HyperTextClass::Prov_r402_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("error")))));
+      ValueExpr::New (StrValue::New ("step")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63598,7 +63752,7 @@ HyperTextClass::Prov_r402_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63623,7 +63777,7 @@ HyperTextClass::Prov_r402_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("error")))));
+      ValueExpr::New (StrValue::New ("step")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63671,7 +63825,7 @@ HyperTextClass::Prov_r403_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63696,7 +63850,7 @@ HyperTextClass::Prov_r403_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("synchron")))));
+      ValueExpr::New (StrValue::New ("approxim")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63744,7 +63898,7 @@ HyperTextClass::Prov_r403_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63769,7 +63923,7 @@ HyperTextClass::Prov_r403_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("synchron")))));
+      ValueExpr::New (StrValue::New ("approxim")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63817,7 +63971,7 @@ HyperTextClass::Prov_r404_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63842,7 +63996,7 @@ HyperTextClass::Prov_r404_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("oper")))));
+      ValueExpr::New (StrValue::New ("devic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -63890,7 +64044,7 @@ HyperTextClass::Prov_r404_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63915,7 +64069,7 @@ HyperTextClass::Prov_r404_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("oper")))));
+      ValueExpr::New (StrValue::New ("devic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -63963,7 +64117,7 @@ HyperTextClass::Prov_r405_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -63988,7 +64142,7 @@ HyperTextClass::Prov_r405_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("visit")))));
+      ValueExpr::New (StrValue::New ("read")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64036,7 +64190,7 @@ HyperTextClass::Prov_r405_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64061,7 +64215,7 @@ HyperTextClass::Prov_r405_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("visit")))));
+      ValueExpr::New (StrValue::New ("read")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64109,7 +64263,7 @@ HyperTextClass::Prov_r406_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64134,7 +64288,7 @@ HyperTextClass::Prov_r406_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("quarter")))));
+      ValueExpr::New (StrValue::New ("homework")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64182,7 +64336,7 @@ HyperTextClass::Prov_r406_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64207,7 +64361,7 @@ HyperTextClass::Prov_r406_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("quarter")))));
+      ValueExpr::New (StrValue::New ("homework")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64255,7 +64409,7 @@ HyperTextClass::Prov_r407_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64280,7 +64434,7 @@ HyperTextClass::Prov_r407_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("remov")))));
+      ValueExpr::New (StrValue::New ("repres")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64328,7 +64482,7 @@ HyperTextClass::Prov_r407_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64353,7 +64507,7 @@ HyperTextClass::Prov_r407_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("remov")))));
+      ValueExpr::New (StrValue::New ("repres")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64401,7 +64555,7 @@ HyperTextClass::Prov_r408_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64426,7 +64580,7 @@ HyperTextClass::Prov_r408_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("consist")))));
+      ValueExpr::New (StrValue::New ("improv")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64474,7 +64628,7 @@ HyperTextClass::Prov_r408_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64499,7 +64653,7 @@ HyperTextClass::Prov_r408_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("consist")))));
+      ValueExpr::New (StrValue::New ("improv")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64547,7 +64701,7 @@ HyperTextClass::Prov_r409_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64572,7 +64726,7 @@ HyperTextClass::Prov_r409_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("job")))));
+      ValueExpr::New (StrValue::New ("involv")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64620,7 +64774,7 @@ HyperTextClass::Prov_r409_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64645,7 +64799,7 @@ HyperTextClass::Prov_r409_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("job")))));
+      ValueExpr::New (StrValue::New ("involv")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64693,7 +64847,7 @@ HyperTextClass::Prov_r410_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64718,7 +64872,7 @@ HyperTextClass::Prov_r410_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("produc")))));
+      ValueExpr::New (StrValue::New ("remov")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64766,7 +64920,7 @@ HyperTextClass::Prov_r410_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64791,7 +64945,7 @@ HyperTextClass::Prov_r410_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("produc")))));
+      ValueExpr::New (StrValue::New ("remov")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64839,7 +64993,7 @@ HyperTextClass::Prov_r411_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64864,7 +65018,7 @@ HyperTextClass::Prov_r411_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("list")))));
+      ValueExpr::New (StrValue::New ("flow")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -64912,7 +65066,7 @@ HyperTextClass::Prov_r411_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -64937,7 +65091,7 @@ HyperTextClass::Prov_r411_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("list")))));
+      ValueExpr::New (StrValue::New ("flow")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -64985,7 +65139,7 @@ HyperTextClass::Prov_r412_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65010,7 +65164,7 @@ HyperTextClass::Prov_r412_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("copi")))));
+      ValueExpr::New (StrValue::New ("todai")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65058,7 +65212,7 @@ HyperTextClass::Prov_r412_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65083,7 +65237,7 @@ HyperTextClass::Prov_r412_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("copi")))));
+      ValueExpr::New (StrValue::New ("todai")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -65131,7 +65285,7 @@ HyperTextClass::Prov_r413_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65156,7 +65310,7 @@ HyperTextClass::Prov_r413_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("creat")))));
+      ValueExpr::New (StrValue::New ("pointer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65204,7 +65358,7 @@ HyperTextClass::Prov_r413_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65229,7 +65383,7 @@ HyperTextClass::Prov_r413_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("creat")))));
+      ValueExpr::New (StrValue::New ("pointer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -65302,7 +65456,7 @@ HyperTextClass::Prov_r414_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("laboratori")))));
+      ValueExpr::New (StrValue::New ("commun")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65375,7 +65529,7 @@ HyperTextClass::Prov_r414_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("laboratori")))));
+      ValueExpr::New (StrValue::New ("commun")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -65423,7 +65577,7 @@ HyperTextClass::Prov_r415_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65448,7 +65602,7 @@ HyperTextClass::Prov_r415_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("quiz")))));
+      ValueExpr::New (StrValue::New ("publish")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65496,7 +65650,7 @@ HyperTextClass::Prov_r415_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65521,7 +65675,7 @@ HyperTextClass::Prov_r415_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("quiz")))));
+      ValueExpr::New (StrValue::New ("publish")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -65569,7 +65723,7 @@ HyperTextClass::Prov_r416_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65594,7 +65748,7 @@ HyperTextClass::Prov_r416_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("doesn")))));
+      ValueExpr::New (StrValue::New ("electr")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65642,7 +65796,7 @@ HyperTextClass::Prov_r416_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65667,7 +65821,7 @@ HyperTextClass::Prov_r416_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("doesn")))));
+      ValueExpr::New (StrValue::New ("electr")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -65715,7 +65869,7 @@ HyperTextClass::Prov_r417_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65740,7 +65894,7 @@ HyperTextClass::Prov_r417_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sept")))));
+      ValueExpr::New (StrValue::New ("electron")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65788,7 +65942,7 @@ HyperTextClass::Prov_r417_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65813,7 +65967,7 @@ HyperTextClass::Prov_r417_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sept")))));
+      ValueExpr::New (StrValue::New ("electron")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -65861,7 +66015,7 @@ HyperTextClass::Prov_r418_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65886,7 +66040,7 @@ HyperTextClass::Prov_r418_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wide")))));
+      ValueExpr::New (StrValue::New ("handout")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -65934,7 +66088,7 @@ HyperTextClass::Prov_r418_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -65959,7 +66113,7 @@ HyperTextClass::Prov_r418_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("wide")))));
+      ValueExpr::New (StrValue::New ("handout")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66032,7 +66186,7 @@ HyperTextClass::Prov_r419_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("standard")))));
+      ValueExpr::New (StrValue::New ("recent")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66105,7 +66259,7 @@ HyperTextClass::Prov_r419_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("standard")))));
+      ValueExpr::New (StrValue::New ("recent")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66153,7 +66307,7 @@ HyperTextClass::Prov_r420_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66178,7 +66332,7 @@ HyperTextClass::Prov_r420_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("open")))));
+      ValueExpr::New (StrValue::New ("letter")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66226,7 +66380,7 @@ HyperTextClass::Prov_r420_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66251,7 +66405,7 @@ HyperTextClass::Prov_r420_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("open")))));
+      ValueExpr::New (StrValue::New ("letter")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66299,7 +66453,7 @@ HyperTextClass::Prov_r421_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66324,7 +66478,7 @@ HyperTextClass::Prov_r421_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("job")))));
+      ValueExpr::New (StrValue::New ("india")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66372,7 +66526,7 @@ HyperTextClass::Prov_r421_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66397,7 +66551,7 @@ HyperTextClass::Prov_r421_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("job")))));
+      ValueExpr::New (StrValue::New ("india")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66445,7 +66599,7 @@ HyperTextClass::Prov_r422_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66470,7 +66624,7 @@ HyperTextClass::Prov_r422_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("visit")))));
+      ValueExpr::New (StrValue::New ("main")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66518,7 +66672,7 @@ HyperTextClass::Prov_r422_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66543,7 +66697,7 @@ HyperTextClass::Prov_r422_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("visit")))));
+      ValueExpr::New (StrValue::New ("main")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66591,7 +66745,7 @@ HyperTextClass::Prov_r423_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66616,7 +66770,7 @@ HyperTextClass::Prov_r423_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("distribut")))));
+      ValueExpr::New (StrValue::New ("oct")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66664,7 +66818,7 @@ HyperTextClass::Prov_r423_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66689,7 +66843,7 @@ HyperTextClass::Prov_r423_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("distribut")))));
+      ValueExpr::New (StrValue::New ("oct")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66737,7 +66891,7 @@ HyperTextClass::Prov_r424_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66762,7 +66916,7 @@ HyperTextClass::Prov_r424_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("studi")))));
+      ValueExpr::New (StrValue::New ("master")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66810,7 +66964,7 @@ HyperTextClass::Prov_r424_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66835,7 +66989,7 @@ HyperTextClass::Prov_r424_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("studi")))));
+      ValueExpr::New (StrValue::New ("master")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -66883,7 +67037,7 @@ HyperTextClass::Prov_r425_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66908,7 +67062,7 @@ HyperTextClass::Prov_r425_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("summer")))));
+      ValueExpr::New (StrValue::New ("nov")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -66956,7 +67110,7 @@ HyperTextClass::Prov_r425_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -66981,7 +67135,7 @@ HyperTextClass::Prov_r425_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("summer")))));
+      ValueExpr::New (StrValue::New ("nov")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67029,7 +67183,7 @@ HyperTextClass::Prov_r426_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67054,7 +67208,7 @@ HyperTextClass::Prov_r426_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("averag")))));
+      ValueExpr::New (StrValue::New ("world")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67102,7 +67256,7 @@ HyperTextClass::Prov_r426_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67127,7 +67281,7 @@ HyperTextClass::Prov_r426_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("averag")))));
+      ValueExpr::New (StrValue::New ("world")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67175,7 +67329,7 @@ HyperTextClass::Prov_r427_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67200,7 +67354,7 @@ HyperTextClass::Prov_r427_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("messag")))));
+      ValueExpr::New (StrValue::New ("vector")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67248,7 +67402,7 @@ HyperTextClass::Prov_r427_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67273,7 +67427,7 @@ HyperTextClass::Prov_r427_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("messag")))));
+      ValueExpr::New (StrValue::New ("vector")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67321,7 +67475,7 @@ HyperTextClass::Prov_r428_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67346,7 +67500,7 @@ HyperTextClass::Prov_r428_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("electron")))));
+      ValueExpr::New (StrValue::New ("ca")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67394,7 +67548,7 @@ HyperTextClass::Prov_r428_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67419,7 +67573,7 @@ HyperTextClass::Prov_r428_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("electron")))));
+      ValueExpr::New (StrValue::New ("ca")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67492,7 +67646,7 @@ HyperTextClass::Prov_r429_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instruct")))));
+      ValueExpr::New (StrValue::New ("geometri")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67565,7 +67719,7 @@ HyperTextClass::Prov_r429_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("instruct")))));
+      ValueExpr::New (StrValue::New ("geometri")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67613,7 +67767,7 @@ HyperTextClass::Prov_r430_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67638,7 +67792,7 @@ HyperTextClass::Prov_r430_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thread")))));
+      ValueExpr::New (StrValue::New ("circuit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67686,7 +67840,7 @@ HyperTextClass::Prov_r430_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67711,7 +67865,7 @@ HyperTextClass::Prov_r430_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thread")))));
+      ValueExpr::New (StrValue::New ("circuit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67759,7 +67913,7 @@ HyperTextClass::Prov_r431_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67784,7 +67938,7 @@ HyperTextClass::Prov_r431_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("procedur")))));
+      ValueExpr::New (StrValue::New ("const")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67832,7 +67986,7 @@ HyperTextClass::Prov_r431_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67857,7 +68011,7 @@ HyperTextClass::Prov_r431_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("procedur")))));
+      ValueExpr::New (StrValue::New ("const")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -67905,7 +68059,7 @@ HyperTextClass::Prov_r432_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -67930,7 +68084,7 @@ HyperTextClass::Prov_r432_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("orient")))));
+      ValueExpr::New (StrValue::New ("java")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -67978,7 +68132,7 @@ HyperTextClass::Prov_r432_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68003,7 +68157,7 @@ HyperTextClass::Prov_r432_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("orient")))));
+      ValueExpr::New (StrValue::New ("java")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68051,7 +68205,7 @@ HyperTextClass::Prov_r433_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68076,7 +68230,7 @@ HyperTextClass::Prov_r433_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sept")))));
+      ValueExpr::New (StrValue::New ("practic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -68124,7 +68278,7 @@ HyperTextClass::Prov_r433_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68149,7 +68303,7 @@ HyperTextClass::Prov_r433_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sept")))));
+      ValueExpr::New (StrValue::New ("practic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68197,7 +68351,7 @@ HyperTextClass::Prov_r434_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68222,7 +68376,7 @@ HyperTextClass::Prov_r434_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("place")))));
+      ValueExpr::New (StrValue::New ("quiz")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -68270,7 +68424,7 @@ HyperTextClass::Prov_r434_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68295,7 +68449,7 @@ HyperTextClass::Prov_r434_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("place")))));
+      ValueExpr::New (StrValue::New ("quiz")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68343,7 +68497,7 @@ HyperTextClass::Prov_r435_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68368,7 +68522,7 @@ HyperTextClass::Prov_r435_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("info")))));
+      ValueExpr::New (StrValue::New ("graphic")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -68416,7 +68570,7 @@ HyperTextClass::Prov_r435_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68441,7 +68595,7 @@ HyperTextClass::Prov_r435_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("info")))));
+      ValueExpr::New (StrValue::New ("graphic")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68489,7 +68643,7 @@ HyperTextClass::Prov_r436_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68514,7 +68668,7 @@ HyperTextClass::Prov_r436_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("expect")))));
+      ValueExpr::New (StrValue::New ("workstat")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -68562,7 +68716,7 @@ HyperTextClass::Prov_r436_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -68587,7 +68741,7 @@ HyperTextClass::Prov_r436_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("expect")))));
+      ValueExpr::New (StrValue::New ("workstat")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68660,7 +68814,7 @@ HyperTextClass::Prov_r437_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("leav")))));
+      ValueExpr::New (StrValue::New ("associ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -68733,7 +68887,7 @@ HyperTextClass::Prov_r437_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("leav")))));
+      ValueExpr::New (StrValue::New ("associ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68806,7 +68960,7 @@ HyperTextClass::Prov_r438_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("copi")))));
+      ValueExpr::New (StrValue::New ("test")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -68879,7 +69033,7 @@ HyperTextClass::Prov_r438_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("copi")))));
+      ValueExpr::New (StrValue::New ("test")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -68952,7 +69106,7 @@ HyperTextClass::Prov_r439_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("separ")))));
+      ValueExpr::New (StrValue::New ("mit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69025,7 +69179,7 @@ HyperTextClass::Prov_r439_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("separ")))));
+      ValueExpr::New (StrValue::New ("mit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69073,7 +69227,7 @@ HyperTextClass::Prov_r440_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69098,7 +69252,7 @@ HyperTextClass::Prov_r440_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("investig")))));
+      ValueExpr::New (StrValue::New ("tree")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69146,7 +69300,7 @@ HyperTextClass::Prov_r440_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69171,7 +69325,7 @@ HyperTextClass::Prov_r440_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("investig")))));
+      ValueExpr::New (StrValue::New ("tree")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69219,7 +69373,7 @@ HyperTextClass::Prov_r441_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69244,7 +69398,7 @@ HyperTextClass::Prov_r441_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("cover")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69292,7 +69446,7 @@ HyperTextClass::Prov_r441_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69317,7 +69471,7 @@ HyperTextClass::Prov_r441_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("part")))));
+      ValueExpr::New (StrValue::New ("cover")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69365,7 +69519,7 @@ HyperTextClass::Prov_r442_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69390,7 +69544,7 @@ HyperTextClass::Prov_r442_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cover")))));
+      ValueExpr::New (StrValue::New ("confer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69438,7 +69592,7 @@ HyperTextClass::Prov_r442_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69463,7 +69617,7 @@ HyperTextClass::Prov_r442_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cover")))));
+      ValueExpr::New (StrValue::New ("confer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69536,7 +69690,7 @@ HyperTextClass::Prov_r443_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("matlab")))));
+      ValueExpr::New (StrValue::New ("workshop")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69609,7 +69763,7 @@ HyperTextClass::Prov_r443_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("matlab")))));
+      ValueExpr::New (StrValue::New ("workshop")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69657,7 +69811,7 @@ HyperTextClass::Prov_r444_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69682,7 +69836,7 @@ HyperTextClass::Prov_r444_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sept")))));
+      ValueExpr::New (StrValue::New ("press")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69730,7 +69884,7 @@ HyperTextClass::Prov_r444_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69755,7 +69909,7 @@ HyperTextClass::Prov_r444_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sept")))));
+      ValueExpr::New (StrValue::New ("press")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69803,7 +69957,7 @@ HyperTextClass::Prov_r445_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69828,7 +69982,7 @@ HyperTextClass::Prov_r445_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("track")))));
+      ValueExpr::New (StrValue::New ("choos")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -69876,7 +70030,7 @@ HyperTextClass::Prov_r445_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69901,7 +70055,7 @@ HyperTextClass::Prov_r445_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("track")))));
+      ValueExpr::New (StrValue::New ("choos")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -69949,7 +70103,7 @@ HyperTextClass::Prov_r446_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -69974,7 +70128,7 @@ HyperTextClass::Prov_r446_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("algebra")))));
+      ValueExpr::New (StrValue::New ("rout")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70022,7 +70176,7 @@ HyperTextClass::Prov_r446_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70047,7 +70201,7 @@ HyperTextClass::Prov_r446_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("algebra")))));
+      ValueExpr::New (StrValue::New ("rout")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70095,7 +70249,7 @@ HyperTextClass::Prov_r447_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70120,7 +70274,7 @@ HyperTextClass::Prov_r447_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("variabl")))));
+      ValueExpr::New (StrValue::New ("wa")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70168,7 +70322,7 @@ HyperTextClass::Prov_r447_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70193,7 +70347,7 @@ HyperTextClass::Prov_r447_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("variabl")))));
+      ValueExpr::New (StrValue::New ("wa")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70266,7 +70420,7 @@ HyperTextClass::Prov_r448_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thu")))));
+      ValueExpr::New (StrValue::New ("robot")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70339,7 +70493,7 @@ HyperTextClass::Prov_r448_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("thu")))));
+      ValueExpr::New (StrValue::New ("robot")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70387,7 +70541,7 @@ HyperTextClass::Prov_r449_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70412,7 +70566,7 @@ HyperTextClass::Prov_r449_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("homepag")))));
+      ValueExpr::New (StrValue::New ("fax")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70460,7 +70614,7 @@ HyperTextClass::Prov_r449_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70485,7 +70639,7 @@ HyperTextClass::Prov_r449_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("homepag")))));
+      ValueExpr::New (StrValue::New ("fax")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70533,7 +70687,7 @@ HyperTextClass::Prov_r450_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70558,7 +70712,7 @@ HyperTextClass::Prov_r450_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("improv")))));
+      ValueExpr::New (StrValue::New ("displai")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70606,7 +70760,7 @@ HyperTextClass::Prov_r450_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70631,7 +70785,7 @@ HyperTextClass::Prov_r450_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("improv")))));
+      ValueExpr::New (StrValue::New ("displai")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70679,7 +70833,7 @@ HyperTextClass::Prov_r451_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70704,7 +70858,7 @@ HyperTextClass::Prov_r451_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("access")))));
+      ValueExpr::New (StrValue::New ("confer")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70752,7 +70906,7 @@ HyperTextClass::Prov_r451_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70777,7 +70931,7 @@ HyperTextClass::Prov_r451_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("access")))));
+      ValueExpr::New (StrValue::New ("confer")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70825,7 +70979,7 @@ HyperTextClass::Prov_r452_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70850,7 +71004,7 @@ HyperTextClass::Prov_r452_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("center")))));
+      ValueExpr::New (StrValue::New ("valu")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -70898,7 +71052,7 @@ HyperTextClass::Prov_r452_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70923,7 +71077,7 @@ HyperTextClass::Prov_r452_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("center")))));
+      ValueExpr::New (StrValue::New ("valu")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -70971,7 +71125,7 @@ HyperTextClass::Prov_r453_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -70996,7 +71150,7 @@ HyperTextClass::Prov_r453_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sourc")))));
+      ValueExpr::New (StrValue::New ("void")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71044,7 +71198,7 @@ HyperTextClass::Prov_r453_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71069,7 +71223,7 @@ HyperTextClass::Prov_r453_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("sourc")))));
+      ValueExpr::New (StrValue::New ("void")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -71142,7 +71296,7 @@ HyperTextClass::Prov_r454_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("level")))));
+      ValueExpr::New (StrValue::New ("http")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71215,7 +71369,7 @@ HyperTextClass::Prov_r454_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("level")))));
+      ValueExpr::New (StrValue::New ("http")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -71263,7 +71417,7 @@ HyperTextClass::Prov_r455_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71288,7 +71442,7 @@ HyperTextClass::Prov_r455_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("circuit")))));
+      ValueExpr::New (StrValue::New ("fortran")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71336,7 +71490,7 @@ HyperTextClass::Prov_r455_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71361,7 +71515,7 @@ HyperTextClass::Prov_r455_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("circuit")))));
+      ValueExpr::New (StrValue::New ("fortran")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -71409,7 +71563,7 @@ HyperTextClass::Prov_r456_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71434,7 +71588,7 @@ HyperTextClass::Prov_r456_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("express")))));
+      ValueExpr::New (StrValue::New ("appli")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71482,7 +71636,7 @@ HyperTextClass::Prov_r456_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71507,7 +71661,7 @@ HyperTextClass::Prov_r456_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("express")))));
+      ValueExpr::New (StrValue::New ("appli")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -71555,7 +71709,7 @@ HyperTextClass::Prov_r457_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71580,7 +71734,7 @@ HyperTextClass::Prov_r457_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("iter")))));
+      ValueExpr::New (StrValue::New ("low")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71628,7 +71782,7 @@ HyperTextClass::Prov_r457_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71653,7 +71807,7 @@ HyperTextClass::Prov_r457_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("iter")))));
+      ValueExpr::New (StrValue::New ("low")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -71701,7 +71855,7 @@ HyperTextClass::Prov_r458_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71726,7 +71880,7 @@ HyperTextClass::Prov_r458_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("format")))));
+      ValueExpr::New (StrValue::New ("sp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71774,7 +71928,7 @@ HyperTextClass::Prov_r458_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71799,7 +71953,7 @@ HyperTextClass::Prov_r458_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("format")))));
+      ValueExpr::New (StrValue::New ("sp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -71847,7 +72001,7 @@ HyperTextClass::Prov_r459_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71872,7 +72026,7 @@ HyperTextClass::Prov_r459_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("present")))));
+      ValueExpr::New (StrValue::New ("overview")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -71920,7 +72074,7 @@ HyperTextClass::Prov_r459_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -71945,7 +72099,7 @@ HyperTextClass::Prov_r459_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("present")))));
+      ValueExpr::New (StrValue::New ("overview")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72018,7 +72172,7 @@ HyperTextClass::Prov_r460_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("memori")))));
+      ValueExpr::New (StrValue::New ("rout")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72091,7 +72245,7 @@ HyperTextClass::Prov_r460_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("memori")))));
+      ValueExpr::New (StrValue::New ("rout")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72139,7 +72293,7 @@ HyperTextClass::Prov_r461_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72164,7 +72318,7 @@ HyperTextClass::Prov_r461_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("term")))));
+      ValueExpr::New (StrValue::New ("receiv")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72212,7 +72366,7 @@ HyperTextClass::Prov_r461_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72237,7 +72391,7 @@ HyperTextClass::Prov_r461_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("term")))));
+      ValueExpr::New (StrValue::New ("receiv")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72285,7 +72439,7 @@ HyperTextClass::Prov_r462_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72310,7 +72464,7 @@ HyperTextClass::Prov_r462_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("robot")))));
+      ValueExpr::New (StrValue::New ("result")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72358,7 +72512,7 @@ HyperTextClass::Prov_r462_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72383,7 +72537,7 @@ HyperTextClass::Prov_r462_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("robot")))));
+      ValueExpr::New (StrValue::New ("result")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72431,7 +72585,7 @@ HyperTextClass::Prov_r463_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72456,7 +72610,7 @@ HyperTextClass::Prov_r463_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("void")))));
+      ValueExpr::New (StrValue::New ("india")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72504,7 +72658,7 @@ HyperTextClass::Prov_r463_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72529,7 +72683,7 @@ HyperTextClass::Prov_r463_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("void")))));
+      ValueExpr::New (StrValue::New ("india")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72577,7 +72731,7 @@ HyperTextClass::Prov_r464_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72602,7 +72756,7 @@ HyperTextClass::Prov_r464_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("effici")))));
+      ValueExpr::New (StrValue::New ("model")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72650,7 +72804,7 @@ HyperTextClass::Prov_r464_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72675,7 +72829,7 @@ HyperTextClass::Prov_r464_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("effici")))));
+      ValueExpr::New (StrValue::New ("model")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72723,7 +72877,7 @@ HyperTextClass::Prov_r465_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72748,7 +72902,7 @@ HyperTextClass::Prov_r465_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("includ")))));
+      ValueExpr::New (StrValue::New ("start")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72796,7 +72950,7 @@ HyperTextClass::Prov_r465_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72821,7 +72975,7 @@ HyperTextClass::Prov_r465_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("includ")))));
+      ValueExpr::New (StrValue::New ("start")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -72869,7 +73023,7 @@ HyperTextClass::Prov_r466_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72894,7 +73048,7 @@ HyperTextClass::Prov_r466_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("link")))));
+      ValueExpr::New (StrValue::New ("cc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -72942,7 +73096,7 @@ HyperTextClass::Prov_r466_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -72967,7 +73121,7 @@ HyperTextClass::Prov_r466_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("link")))));
+      ValueExpr::New (StrValue::New ("cc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73040,7 +73194,7 @@ HyperTextClass::Prov_r467_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("made")))));
+      ValueExpr::New (StrValue::New ("ta")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73113,7 +73267,7 @@ HyperTextClass::Prov_r467_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("made")))));
+      ValueExpr::New (StrValue::New ("ta")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73161,7 +73315,7 @@ HyperTextClass::Prov_r468_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73186,7 +73340,7 @@ HyperTextClass::Prov_r468_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("retriev")))));
+      ValueExpr::New (StrValue::New ("const")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73234,7 +73388,7 @@ HyperTextClass::Prov_r468_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73259,7 +73413,7 @@ HyperTextClass::Prov_r468_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("retriev")))));
+      ValueExpr::New (StrValue::New ("const")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73307,7 +73461,7 @@ HyperTextClass::Prov_r469_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73332,7 +73486,7 @@ HyperTextClass::Prov_r469_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mechan")))));
+      ValueExpr::New (StrValue::New ("ftp")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73380,7 +73534,7 @@ HyperTextClass::Prov_r469_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73405,7 +73559,7 @@ HyperTextClass::Prov_r469_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mechan")))));
+      ValueExpr::New (StrValue::New ("ftp")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73453,7 +73607,7 @@ HyperTextClass::Prov_r470_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73478,7 +73632,7 @@ HyperTextClass::Prov_r470_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assist")))));
+      ValueExpr::New (StrValue::New ("fact")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73526,7 +73680,7 @@ HyperTextClass::Prov_r470_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Course"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73551,7 +73705,7 @@ HyperTextClass::Prov_r470_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("assist")))));
+      ValueExpr::New (StrValue::New ("fact")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73624,7 +73778,7 @@ HyperTextClass::Prov_r471_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("netscap")))));
+      ValueExpr::New (StrValue::New ("return")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73697,7 +73851,7 @@ HyperTextClass::Prov_r471_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("netscap")))));
+      ValueExpr::New (StrValue::New ("return")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73745,7 +73899,7 @@ HyperTextClass::Prov_r472_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73770,7 +73924,7 @@ HyperTextClass::Prov_r472_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("descript")))));
+      ValueExpr::New (StrValue::New ("make")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73818,7 +73972,7 @@ HyperTextClass::Prov_r472_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73843,7 +73997,7 @@ HyperTextClass::Prov_r472_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("descript")))));
+      ValueExpr::New (StrValue::New ("make")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -73891,7 +74045,7 @@ HyperTextClass::Prov_r473_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73916,7 +74070,7 @@ HyperTextClass::Prov_r473_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("vol")))));
+      ValueExpr::New (StrValue::New ("april")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -73964,7 +74118,7 @@ HyperTextClass::Prov_r473_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -73989,7 +74143,7 @@ HyperTextClass::Prov_r473_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("vol")))));
+      ValueExpr::New (StrValue::New ("april")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74037,7 +74191,7 @@ HyperTextClass::Prov_r474_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74062,7 +74216,7 @@ HyperTextClass::Prov_r474_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("consist")))));
+      ValueExpr::New (StrValue::New ("quiz")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -74110,7 +74264,7 @@ HyperTextClass::Prov_r474_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74135,7 +74289,7 @@ HyperTextClass::Prov_r474_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("consist")))));
+      ValueExpr::New (StrValue::New ("quiz")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74183,7 +74337,7 @@ HyperTextClass::Prov_r475_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74208,7 +74362,7 @@ HyperTextClass::Prov_r475_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("approxim")))));
+      ValueExpr::New (StrValue::New ("long")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -74256,7 +74410,7 @@ HyperTextClass::Prov_r475_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74281,7 +74435,7 @@ HyperTextClass::Prov_r475_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("approxim")))));
+      ValueExpr::New (StrValue::New ("long")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74329,7 +74483,7 @@ HyperTextClass::Prov_r476_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74354,7 +74508,7 @@ HyperTextClass::Prov_r476_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("introduct")))));
+      ValueExpr::New (StrValue::New ("usa")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -74402,7 +74556,7 @@ HyperTextClass::Prov_r476_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74427,7 +74581,7 @@ HyperTextClass::Prov_r476_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("introduct")))));
+      ValueExpr::New (StrValue::New ("usa")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74475,7 +74629,7 @@ HyperTextClass::Prov_r477_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74500,7 +74654,7 @@ HyperTextClass::Prov_r477_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("layer")))));
+      ValueExpr::New (StrValue::New ("imag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -74548,7 +74702,7 @@ HyperTextClass::Prov_r477_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("ResearchProject"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74573,7 +74727,7 @@ HyperTextClass::Prov_r477_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("layer")))));
+      ValueExpr::New (StrValue::New ("imag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74621,7 +74775,7 @@ HyperTextClass::Prov_r478_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74646,7 +74800,7 @@ HyperTextClass::Prov_r478_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cach")))));
+      ValueExpr::New (StrValue::New ("represent")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -74694,7 +74848,7 @@ HyperTextClass::Prov_r478_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74719,7 +74873,7 @@ HyperTextClass::Prov_r478_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("cach")))));
+      ValueExpr::New (StrValue::New ("represent")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74767,7 +74921,7 @@ HyperTextClass::Prov_r479_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74792,7 +74946,7 @@ HyperTextClass::Prov_r479_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("larg")))));
+      ValueExpr::New (StrValue::New ("nation")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -74840,7 +74994,7 @@ HyperTextClass::Prov_r479_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -74865,7 +75019,7 @@ HyperTextClass::Prov_r479_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("larg")))));
+      ValueExpr::New (StrValue::New ("nation")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -74938,7 +75092,7 @@ HyperTextClass::Prov_r480_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("internet")))));
+      ValueExpr::New (StrValue::New ("enter")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75011,7 +75165,7 @@ HyperTextClass::Prov_r480_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("internet")))));
+      ValueExpr::New (StrValue::New ("enter")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75059,7 +75213,7 @@ HyperTextClass::Prov_r481_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75084,7 +75238,7 @@ HyperTextClass::Prov_r481_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("world")))));
+      ValueExpr::New (StrValue::New ("organ")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75132,7 +75286,7 @@ HyperTextClass::Prov_r481_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Student"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75157,7 +75311,7 @@ HyperTextClass::Prov_r481_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("world")))));
+      ValueExpr::New (StrValue::New ("organ")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75230,7 +75384,7 @@ HyperTextClass::Prov_r482_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("citi")))));
+      ValueExpr::New (StrValue::New ("identifi")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75303,7 +75457,7 @@ HyperTextClass::Prov_r482_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("citi")))));
+      ValueExpr::New (StrValue::New ("identifi")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75351,7 +75505,7 @@ HyperTextClass::Prov_r483_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75376,7 +75530,7 @@ HyperTextClass::Prov_r483_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("form")))));
+      ValueExpr::New (StrValue::New ("homepag")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75424,7 +75578,7 @@ HyperTextClass::Prov_r483_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75449,7 +75603,7 @@ HyperTextClass::Prov_r483_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("form")))));
+      ValueExpr::New (StrValue::New ("homepag")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75497,7 +75651,7 @@ HyperTextClass::Prov_r484_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75522,7 +75676,7 @@ HyperTextClass::Prov_r484_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("base")))));
+      ValueExpr::New (StrValue::New ("color")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75570,7 +75724,7 @@ HyperTextClass::Prov_r484_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75595,7 +75749,7 @@ HyperTextClass::Prov_r484_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("base")))));
+      ValueExpr::New (StrValue::New ("color")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75643,7 +75797,7 @@ HyperTextClass::Prov_r485_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75668,7 +75822,7 @@ HyperTextClass::Prov_r485_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("program")))));
+      ValueExpr::New (StrValue::New ("short")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75716,7 +75870,7 @@ HyperTextClass::Prov_r485_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Staff"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75741,7 +75895,7 @@ HyperTextClass::Prov_r485_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("program")))));
+      ValueExpr::New (StrValue::New ("short")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75789,7 +75943,7 @@ HyperTextClass::Prov_r486_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75814,7 +75968,7 @@ HyperTextClass::Prov_r486_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("iter")))));
+      ValueExpr::New (StrValue::New ("paper")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -75862,7 +76016,7 @@ HyperTextClass::Prov_r486_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75887,7 +76041,7 @@ HyperTextClass::Prov_r486_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("iter")))));
+      ValueExpr::New (StrValue::New ("paper")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -75935,7 +76089,7 @@ HyperTextClass::Prov_r487_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -75960,7 +76114,7 @@ HyperTextClass::Prov_r487_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("call")))));
+      ValueExpr::New (StrValue::New ("mon")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76008,7 +76162,7 @@ HyperTextClass::Prov_r487_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76033,7 +76187,7 @@ HyperTextClass::Prov_r487_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("call")))));
+      ValueExpr::New (StrValue::New ("mon")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76106,7 +76260,7 @@ HyperTextClass::Prov_r488_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("degre")))));
+      ValueExpr::New (StrValue::New ("binari")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76179,7 +76333,7 @@ HyperTextClass::Prov_r488_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("degre")))));
+      ValueExpr::New (StrValue::New ("binari")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76252,7 +76406,7 @@ HyperTextClass::Prov_r489_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("travel")))));
+      ValueExpr::New (StrValue::New ("view")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76325,7 +76479,7 @@ HyperTextClass::Prov_r489_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("travel")))));
+      ValueExpr::New (StrValue::New ("view")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76373,7 +76527,7 @@ HyperTextClass::Prov_r490_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76398,7 +76552,7 @@ HyperTextClass::Prov_r490_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("retriev")))));
+      ValueExpr::New (StrValue::New ("interfac")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76446,7 +76600,7 @@ HyperTextClass::Prov_r490_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Department"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76471,7 +76625,7 @@ HyperTextClass::Prov_r490_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("retriev")))));
+      ValueExpr::New (StrValue::New ("interfac")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76544,7 +76698,7 @@ HyperTextClass::Prov_r491_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("put")))));
+      ValueExpr::New (StrValue::New ("alloc")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76617,7 +76771,7 @@ HyperTextClass::Prov_r491_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("put")))));
+      ValueExpr::New (StrValue::New ("alloc")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76665,7 +76819,7 @@ HyperTextClass::Prov_r492_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76690,7 +76844,7 @@ HyperTextClass::Prov_r492_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("decision")))));
+      ValueExpr::New (StrValue::New ("schedul")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76738,7 +76892,7 @@ HyperTextClass::Prov_r492_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Course"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76763,7 +76917,7 @@ HyperTextClass::Prov_r492_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("decision")))));
+      ValueExpr::New (StrValue::New ("schedul")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76811,7 +76965,7 @@ HyperTextClass::Prov_r493_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76836,7 +76990,7 @@ HyperTextClass::Prov_r493_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("finish")))));
+      ValueExpr::New (StrValue::New ("task")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -76884,7 +77038,7 @@ HyperTextClass::Prov_r493_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Faculty"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76909,7 +77063,7 @@ HyperTextClass::Prov_r493_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("finish")))));
+      ValueExpr::New (StrValue::New ("task")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -76957,7 +77111,7 @@ HyperTextClass::Prov_r494_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -76982,7 +77136,7 @@ HyperTextClass::Prov_r494_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("interfac")))));
+      ValueExpr::New (StrValue::New ("search")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -77030,7 +77184,7 @@ HyperTextClass::Prov_r494_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77055,7 +77209,7 @@ HyperTextClass::Prov_r494_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("interfac")))));
+      ValueExpr::New (StrValue::New ("search")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -77103,7 +77257,7 @@ HyperTextClass::Prov_r495_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77128,7 +77282,7 @@ HyperTextClass::Prov_r495_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("academ")))));
+      ValueExpr::New (StrValue::New ("netscap")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -77176,7 +77330,7 @@ HyperTextClass::Prov_r495_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Person"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77201,7 +77355,7 @@ HyperTextClass::Prov_r495_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("academ")))));
+      ValueExpr::New (StrValue::New ("netscap")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -77249,7 +77403,7 @@ HyperTextClass::Prov_r496_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77274,7 +77428,7 @@ HyperTextClass::Prov_r496_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mit")))));
+      ValueExpr::New (StrValue::New ("edit")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -77322,7 +77476,7 @@ HyperTextClass::Prov_r496_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("ResearchProject"))));
+    ValueExpr::New (StrValue::New ("Person"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77347,7 +77501,7 @@ HyperTextClass::Prov_r496_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("mit")))));
+      ValueExpr::New (StrValue::New ("edit")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -77395,7 +77549,7 @@ HyperTextClass::Prov_r497_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77420,7 +77574,7 @@ HyperTextClass::Prov_r497_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("danc")))));
+      ValueExpr::New (StrValue::New ("search")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -77468,7 +77622,7 @@ HyperTextClass::Prov_r497_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Student"))));
+    ValueExpr::New (StrValue::New ("Department"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77493,7 +77647,7 @@ HyperTextClass::Prov_r497_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("danc")))));
+      ValueExpr::New (StrValue::New ("search")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -77566,7 +77720,7 @@ HyperTextClass::Prov_r498_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("count")))));
+      ValueExpr::New (StrValue::New ("give")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -77639,7 +77793,7 @@ HyperTextClass::Prov_r498_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("count")))));
+      ValueExpr::New (StrValue::New ("give")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,
@@ -77687,7 +77841,7 @@ HyperTextClass::Prov_r499_1Eca0Ins (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77712,7 +77866,7 @@ HyperTextClass::Prov_r499_1Eca0Ins (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("goal")))));
+      ValueExpr::New (StrValue::New ("number")))));
 
   result = result->Project (
     ETOPICTEMP,
@@ -77760,7 +77914,7 @@ HyperTextClass::Prov_r499_1Eca0Del (Ptr<Tuple> hasword)
       VarExpr::New ("PID1"))));
 
   result->Assign (Assignor::New ("T",
-    ValueExpr::New (StrValue::New ("Staff"))));
+    ValueExpr::New (StrValue::New ("Faculty"))));
 
   result->Assign (Assignor::New ("RLOC",
     VarExpr::New ("hasword_attr1")));
@@ -77785,7 +77939,7 @@ HyperTextClass::Prov_r499_1Eca0Del (Ptr<Tuple> hasword)
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
       VarExpr::New ("hasword_attr2"),
-      ValueExpr::New (StrValue::New ("goal")))));
+      ValueExpr::New (StrValue::New ("number")))));
 
   result = result->Project (
     ETOPICTEMPDELETE,

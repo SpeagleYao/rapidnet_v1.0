@@ -34,64 +34,64 @@
 
 
 #define HyperTextClassTest1 \
-"./data/hyper-text-class/sample3/sample31.db"
+"./data/hyper-text-class/sample4/sample41.db"
 
 #define HyperTextClassTest2 \
-"./data/hyper-text-class/sample3/sample32.db"
+"./data/hyper-text-class/sample4/sample42.db"
 
 #define HyperTextClassTest3 \
-"./data/hyper-text-class/sample3/sample33.db"
+"./data/hyper-text-class/sample4/sample43.db"
 
 #define HyperTextClassTest4 \
-"./data/hyper-text-class/sample3/sample34.db"
+"./data/hyper-text-class/sample4/sample44.db"
 
 #define HyperTextClassTest5 \
-"./data/hyper-text-class/sample3/sample35.db"
+"./data/hyper-text-class/sample4/sample45.db"
 
 #define HyperTextClassTest6 \
-"./data/hyper-text-class/sample3/sample36.db"
+"./data/hyper-text-class/sample4/sample46.db"
 
 #define HyperTextClassTest7 \
-"./data/hyper-text-class/sample3/sample37.db"
+"./data/hyper-text-class/sample4/sample47.db"
 
 #define HyperTextClassTest8 \
-"./data/hyper-text-class/sample3/sample38.db"
+"./data/hyper-text-class/sample4/sample48.db"
 
 #define HyperTextClassTest9 \
-"./data/hyper-text-class/sample3/sample39.db"
+"./data/hyper-text-class/sample4/sample49.db"
 
 #define HyperTextClassTest10 \
-"./data/hyper-text-class/sample3/sample310.db"
+"./data/hyper-text-class/sample4/sample410.db"
 
 #define HyperTextClassTest11 \
-"./data/hyper-text-class/sample3/sample311.db"
+"./data/hyper-text-class/sample4/sample411.db"
 
 #define HyperTextClassTest12 \
-"./data/hyper-text-class/sample3/sample312.db"
+"./data/hyper-text-class/sample4/sample412.db"
 
 #define HyperTextClassTest13 \
-"./data/hyper-text-class/sample3/sample313.db"
+"./data/hyper-text-class/sample4/sample413.db"
 
 #define HyperTextClassTest14 \
-"./data/hyper-text-class/sample3/sample314.db"
+"./data/hyper-text-class/sample4/sample414.db"
 
 #define HyperTextClassTest15 \
-"./data/hyper-text-class/sample3/sample315.db"
+"./data/hyper-text-class/sample4/sample415.db"
 
 #define HyperTextClassTest16 \
-"./data/hyper-text-class/sample3/sample316.db"
+"./data/hyper-text-class/sample4/sample416.db"
 
 #define HyperTextClassTest17 \
-"./data/hyper-text-class/sample3/sample317.db"
+"./data/hyper-text-class/sample4/sample417.db"
 
 #define HyperTextClassTest18 \
-"./data/hyper-text-class/sample3/sample318.db"
+"./data/hyper-text-class/sample4/sample418.db"
 
 #define HyperTextClassTest19 \
-"./data/hyper-text-class/sample3/sample319.db"
+"./data/hyper-text-class/sample4/sample419.db"
 
 #define HyperTextClassTest20 \
-"./data/hyper-text-class/sample3/sample320.db"
+"./data/hyper-text-class/sample4/sample420.db"
 
 #define hasword(local, word, address) \
 tuple (HyperTextClass::HASWORD, \
@@ -204,7 +204,7 @@ void parseLine(const string& line) {
 
 
 void train() {
-  ifstream fp(HyperTextClassTest15);
+  ifstream fp(HyperTextClassTest8);
   string line;
 
   while (getline(fp, line)) {
@@ -226,8 +226,8 @@ void train() {
 void Print() {
   // PrintRelation(apps, HyperTextClass::HASWORD);
   // PrintRelation(apps, HyperTextClass::LINKS);
-  PrintRelation(apps, HyperTextClass::TOPIC);
-  PrintRelation(queryapps, HyperTextClassQuery::TUPLE);
+  // PrintRelation(apps, HyperTextClass::TOPIC);
+  // PrintRelation(queryapps, HyperTextClassQuery::TUPLE);
   PrintRelation(queryapps, HyperTextClassQuery::RECORDS);
 }
 
@@ -246,7 +246,7 @@ void TupleToQuery() {
 
 void TupleToQueryLoop() {
   Ptr<RapidNetApplicationBase> queryNode = queryapps.Get(0)->GetObject<RapidNetApplicationBase>();
-  inserttuple(1, "topic", 1, g_topics[g_i], 1);
+  inserttuple(1, "topic", 1, g_topics[g_i], 8);
   g_i++;
 }
 
@@ -254,6 +254,12 @@ void TupleToQueryLoop() {
 void TupleToQueryLoopV2() {
   Ptr<RapidNetApplicationBase> queryNode = queryapps.Get(0)->GetObject<RapidNetApplicationBase>();
   inserttuple(1, "topic", 1, "Student", g_i);
+  inserttuple(1, "topic", 1, "Faculty", g_i);
+  inserttuple(1, "topic", 1, "Staff", g_i);
+  inserttuple(1, "topic", 1, "ResearchProject", g_i);
+  inserttuple(1, "topic", 1, "Course", g_i);
+  inserttuple(1, "topic", 1, "Department", g_i);
+  inserttuple(1, "topic", 1, "Person", g_i);
   g_i++;
 }
 
@@ -283,6 +289,7 @@ int main(int argc, char *argv[]){
 
 int main(int argc, char *argv[]){
   clock_t t1 = clock();  
+  cout << t1 << endl;
   initApps();
 
   for (int i=0; i<g_topics.size(); i++) {
@@ -300,9 +307,9 @@ int main(int argc, char *argv[]){
   // schedule (i+2.0, TupleToQueryLoop);
   // }
 
-  // for (int i=0; i<100; i++) {
-  // schedule (i+1.0, TupleToQueryLoopV2);
-  // }
+  for (int i=0; i<500; i++) {
+  schedule (i+1.0, TupleToQueryLoopV2);
+  }
 
   // schedule  (g_i*5.0+3, TupleToQueryLoop);
   // schedule  (g_i*5.0+3, TupleToQueryLoop);

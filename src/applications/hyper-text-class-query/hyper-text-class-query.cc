@@ -108,6 +108,8 @@ HyperTextClassQuery::DemuxRecv (Ptr<Tuple> tuple)
 void
 HyperTextClassQuery::Q1Eca0Ins (Ptr<Tuple> tuple)
 {
+  clock_t t1 = clock();
+  cout << t1 << endl;
   RAPIDNET_LOG_INFO ("Q1Eca0Ins triggered");
 
   Ptr<Tuple> result = tuple;
