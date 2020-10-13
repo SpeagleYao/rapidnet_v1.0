@@ -34,64 +34,64 @@
 
 
 #define HyperTextClassTest1 \
-"./data/hyper-text-class/sample4/sample41.db"
+"./data/hyper-text-class/sample9/sample1.db"
 
 #define HyperTextClassTest2 \
-"./data/hyper-text-class/sample4/sample42.db"
+"./data/hyper-text-class/sample9/sample2.db"
 
 #define HyperTextClassTest3 \
-"./data/hyper-text-class/sample4/sample43.db"
+"./data/hyper-text-class/sample9/sample3.db"
 
 #define HyperTextClassTest4 \
-"./data/hyper-text-class/sample4/sample44.db"
+"./data/hyper-text-class/sample9/sample4.db"
 
 #define HyperTextClassTest5 \
-"./data/hyper-text-class/sample4/sample45.db"
+"./data/hyper-text-class/sample9/sample5.db"
 
 #define HyperTextClassTest6 \
-"./data/hyper-text-class/sample4/sample46.db"
+"./data/hyper-text-class/sample9/sample6.db"
 
 #define HyperTextClassTest7 \
-"./data/hyper-text-class/sample4/sample47.db"
+"./data/hyper-text-class/sample9/sample7.db"
 
 #define HyperTextClassTest8 \
-"./data/hyper-text-class/sample4/sample48.db"
+"./data/hyper-text-class/sample9/sample8.db"
 
 #define HyperTextClassTest9 \
-"./data/hyper-text-class/sample4/sample49.db"
+"./data/hyper-text-class/sample9/sample9.db"
 
 #define HyperTextClassTest10 \
-"./data/hyper-text-class/sample4/sample410.db"
+"./data/hyper-text-class/sample9/sample10.db"
 
 #define HyperTextClassTest11 \
-"./data/hyper-text-class/sample4/sample411.db"
+"./data/hyper-text-class/sample9/sample11.db"
 
 #define HyperTextClassTest12 \
-"./data/hyper-text-class/sample4/sample412.db"
+"./data/hyper-text-class/sample9/sample12.db"
 
 #define HyperTextClassTest13 \
-"./data/hyper-text-class/sample4/sample413.db"
+"./data/hyper-text-class/sample9/sample13.db"
 
 #define HyperTextClassTest14 \
-"./data/hyper-text-class/sample4/sample414.db"
+"./data/hyper-text-class/sample9/sample14.db"
 
 #define HyperTextClassTest15 \
-"./data/hyper-text-class/sample4/sample415.db"
+"./data/hyper-text-class/sample9/sample15.db"
 
 #define HyperTextClassTest16 \
-"./data/hyper-text-class/sample4/sample416.db"
+"./data/hyper-text-class/sample9/sample16.db"
 
 #define HyperTextClassTest17 \
-"./data/hyper-text-class/sample4/sample417.db"
+"./data/hyper-text-class/sample9/sample17.db"
 
 #define HyperTextClassTest18 \
-"./data/hyper-text-class/sample4/sample418.db"
+"./data/hyper-text-class/sample9/sample18.db"
 
 #define HyperTextClassTest19 \
-"./data/hyper-text-class/sample4/sample419.db"
+"./data/hyper-text-class/sample9/sample19.db"
 
 #define HyperTextClassTest20 \
-"./data/hyper-text-class/sample4/sample420.db"
+"./data/hyper-text-class/sample9/sample20.db"
 
 #define hasword(local, word, address) \
 tuple (HyperTextClass::HASWORD, \
@@ -204,7 +204,7 @@ void parseLine(const string& line) {
 
 
 void train() {
-  ifstream fp(HyperTextClassTest8);
+  ifstream fp(HyperTextClassTest1);
   string line;
 
   while (getline(fp, line)) {
@@ -307,7 +307,7 @@ int main(int argc, char *argv[]){
   // schedule (i+2.0, TupleToQueryLoop);
   // }
 
-  for (int i=0; i<500; i++) {
+  for (int i=0; i<100; i++) {
   schedule (i+1.0, TupleToQueryLoopV2);
   }
 
