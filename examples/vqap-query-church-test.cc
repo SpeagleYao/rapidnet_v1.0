@@ -44,13 +44,7 @@
 "./data/vqa/church/sim_obs.txt"
 
 #define AnsTar \
-"./data/vqa/church/ans_targets.txt"
-
-#define CandidateTar \
-"./data/vqa/church/candidate_targets.txt"
-
-#define HasImgAnsTar \
-"./data/vqa/church/hasimgans_targets.txt"
+"./data/vqa/church/ans_target.txt"
 
 
 #define word(local, object) \
@@ -221,7 +215,7 @@ parse(vector<string> word_obs, vector<string> hasImg_obs, vector<string> hasQ_ob
 	for(int i = 0; i < word_obs.size(); i++){
 		string line = word_obs[i];
 		if(line.size() == 0) continue;
-		vector<string> tokens = split(line, '\t');
+		vector<string> tokens = split(line, ' ');
 		double p = atof(tokens.back().c_str());
 		insertword(1, tokens[0]);
 	}	
@@ -234,7 +228,7 @@ parse(vector<string> word_obs, vector<string> hasImg_obs, vector<string> hasQ_ob
 		vector<string> tokens;
 		stringstream ss(line);      
     	string intermediate;
-		while(getline(ss, intermediate, '	')) 
+		while(getline(ss, intermediate, ' ')) 
     	{ 
         	tokens.push_back(intermediate); 
     	}
@@ -258,7 +252,7 @@ parse(vector<string> word_obs, vector<string> hasImg_obs, vector<string> hasQ_ob
 	for(int i = 0; i < sim_obs.size(); i++){
 		string line = sim_obs[i];
 		if(line.size()==0) continue;
-		vector<string> tokens = split(line, '	');
+		vector<string> tokens = split(line, ' ');
 		double p = atof(tokens.back().c_str());
 		insertsim(1, tokens[0], tokens[1]);	
 	}
@@ -291,7 +285,7 @@ TupleToQuery ()
 void
 SingleTupleToQuery () {
   Ptr<RapidNetApplicationBase> queryNode = queryapps.Get(0)->GetObject<RapidNetApplicationBase>();
-  inserttuple(1, "ans", 1, "horse");
+  inserttuple(1, "ans", 1, "church");
 }
 
 
@@ -329,10 +323,10 @@ main(int argc, char *argv[]){
   queryapps.Stop (Seconds (100.0));
 
 	schedule (2.0, Train);
-  for (int i=0; i<answers.size()-1; i++) {
-  schedule (5.0+i, TupleToQuery);
-  }
-  // schedule (5.0, SingleTupleToQuery);
+  // for (int i=0; i<answers.size()-1; i++) {
+  //   schedule (5.0+i, TupleToQuery);
+  // }
+  schedule (5.0, SingleTupleToQuery);
 	schedule (90.0, Print);
 
 	Simulator::Run ();
