@@ -37,22 +37,19 @@ materialize(friends, infinity, infinity, keys(1, 2:int32, 3:int32)).
 materialize(shaResult, infinity, infinity, keys(1, 2:cid, 3:str)).
 materialize(edge, infinity, infinity, keys(1, 2, 3, 4:int32)).
 materialize(prov, infinity, infinity, keys(1, 2, 3)).
-// materialize(maxedge, infinity, infinity, keys(1, 2, 3)).
+materialize(maxedge, infinity, infinity, keys(1, 2, 3)).
 r1_1 ecancer(@Local, P, RID, BVID, HVID) :- smoke(@Local, P), RID := f_sha1("r1"+Local), BVID := f_sha1("smoke"+Local+P), HVID := f_sha1("cancer"+Local+P).
 r1_2 cancer(@Local, P) :- ecancer(@Local, P, RID, BVID, HVID).
 r1_3 prov(@Local, HVID, RID) :- ecancer(@Local, P, RID, BVID, HVID).
 r1_4 insertedge(@Local, RID1, RID2) :- ecancer(@Local, P, RID1, BVID, HVID), prov(@Local, BVID, RID2).
 r2_1 esmoke(@Local, A, RID, BVID, HVID) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), smoke(@Local, B), BVID := f_sha1("smoke"+Local+B), RID := f_sha1("r2"+Local+PID), HVID := f_sha1("smoke"+Local+A).
 r2_2 smoke(@Local, A) :- esmoke(@Local, A, RID, BVID, HVID).
-r2_3 insertedge(@Local, RID1, RID2) :- esmoke(@Local, A, RID1, BVID, HVID), prov(@Local, BVID, RID2).
-r2_4 prov(@Local, HVID, RID) :- esmoke(@Local, A, RID, BVID, HVID).
+r2_3 prov(@Local, HVID, RID) :- esmoke(@Local, A, RID, BVID, HVID).
+r2_4 insertedge(@Local, RID1, RID2) :- esmoke(@Local, A, RID1, BVID, HVID), prov(@Local, BVID, RID2).
 r3_1 esmoke(@Local, B, RID, BVID, HVID) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), smoke(@Local, A), BVID := f_sha1("smoke"+Local+A), RID := f_sha1("r3"+Local+PID), HVID := f_sha1("smoke"+Local+B).
-re_1 edgeCount(@Local, RID1, RID2, a_COUNT<*>) :- insertedge(@Local, RID1, RID2), edge(@Local, RID1, RID2, N).
-re_2 edge(@Local, RID1, RID2, N) :- edgeCount(@Local, RID1, RID2, C), C == 0, N := 1.
-re_3 edge(@Local, RID1, RID2, N1) :- edgeCount(@Local, RID1, RID2, C), edge(@Local, RID1, RID2, N), C > 0, N1 := N+1.
-// re_1 edge(@Local, RID1, RID2, N) :- insertedge(@Local, RID1, RID2), N := 1.
-// re_2 edge(@Local, RID1, RID2, N1) :- maxedge(@Local, RID1, RID2, N), insertedge(@Local, RID1, RID2), N1 := N+1.
-// re_3 maxedge(@Local, RID1, RID2, a_MAX<N>) :- edge(@Local, RID1, RID2, N).
+re_1 edge(@Local, RID1, RID2, N) :- insertedge(@Local, RID1, RID2), N := 1.
+re_2 edge(@Local, RID1, RID2, N1) :- maxedge(@Local, RID1, RID2, N), insertedge(@Local, RID1, RID2), N1 := N+1.
+re_3 maxedge(@Local, RID1, RID2, a_MAX<N>) :- edge(@Local, RID1, RID2, N).
 r11 shaResult(@Local, VID, Content) :- smoke(@Local, P), VID:=f_sha1("smoke"+Local+P), Name:="smoke", Content:=Name+"_"+P.
 r12 shaResult(@Local, VID, Content) :- cancer(@Local, P), VID:=f_sha1("cancer"+Local+P), Name:="cancer", Content:=Name+"_"+P.
 r13 shaResult(@Local, VID, Content) :- friends(@Local, A, B), VID:=f_sha1("friends"+Local+A+B), Name:="friends", Content:=Name+"_"+A+"_"+B.

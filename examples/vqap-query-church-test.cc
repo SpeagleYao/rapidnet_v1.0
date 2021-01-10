@@ -314,6 +314,7 @@ main(int argc, char *argv[]){
 	//LogComponentEnable("Vqap", LOG_LEVEL_INFO);
   	//LogComponentEnable("VqapQuery", LOG_LEVEL_INFO);
   	//LogComponentEnable("RapidNetApplicationBase", LOG_LEVEL_INFO);
+	cout << "start" << endl;
 
   	initApps();
 

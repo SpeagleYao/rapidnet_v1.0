@@ -5,13 +5,14 @@ ECA Rule r1_4_eca ACTION_LOCAL_SEND<insertedge(@Local, RID1, RID2)> :- EVENT_REC
 ECA Rule r2_1Eca0Ins ACTION_LOCAL_SEND<esmoke(@Local, A, RID, BVID, HVID)> :- EVENT_INSERT<friends(@Local, A, B)>, smoke(@Local, B), PID := f_sha1(((friends+ Local)+ A)+ B), BVID := f_sha1((smoke+ Local)+ B), RID := f_sha1((r2+ Local)+ PID), HVID := f_sha1((smoke+ Local)+ A).
 ECA Rule r2_1Eca2Ins ACTION_LOCAL_SEND<esmoke(@Local, A, RID, BVID, HVID)> :- EVENT_INSERT<smoke(@Local, B)>, friends(@Local, A, B), PID := f_sha1(((friends+ Local)+ A)+ B), BVID := f_sha1((smoke+ Local)+ B), RID := f_sha1((r2+ Local)+ PID), HVID := f_sha1((smoke+ Local)+ A).
 ECA Rule r2_2_eca ACTION_ADD<smoke(@Local, A)> :- EVENT_RECV<esmoke(@Local, A, RID, BVID, HVID)>.
-ECA Rule r2_3_eca ACTION_LOCAL_SEND<insertedge(@Local, RID1, RID2)> :- EVENT_RECV<esmoke(@Local, A, RID1, BVID, HVID)>, prov(@Local, BVID, RID2).
-ECA Rule r2_4_eca ACTION_ADD<prov(@Local, HVID, RID)> :- EVENT_RECV<esmoke(@Local, A, RID, BVID, HVID)>.
+ECA Rule r2_3_eca ACTION_ADD<prov(@Local, HVID, RID)> :- EVENT_RECV<esmoke(@Local, A, RID, BVID, HVID)>.
+ECA Rule r2_4_eca ACTION_LOCAL_SEND<insertedge(@Local, RID1, RID2)> :- EVENT_RECV<esmoke(@Local, A, RID1, BVID, HVID)>, prov(@Local, BVID, RID2).
 ECA Rule r3_1Eca0Ins ACTION_LOCAL_SEND<esmoke(@Local, B, RID, BVID, HVID)> :- EVENT_INSERT<friends(@Local, A, B)>, smoke(@Local, A), PID := f_sha1(((friends+ Local)+ A)+ B), BVID := f_sha1((smoke+ Local)+ A), RID := f_sha1((r3+ Local)+ PID), HVID := f_sha1((smoke+ Local)+ B).
 ECA Rule r3_1Eca2Ins ACTION_LOCAL_SEND<esmoke(@Local, B, RID, BVID, HVID)> :- EVENT_INSERT<smoke(@Local, A)>, friends(@Local, A, B), PID := f_sha1(((friends+ Local)+ A)+ B), BVID := f_sha1((smoke+ Local)+ A), RID := f_sha1((r3+ Local)+ PID), HVID := f_sha1((smoke+ Local)+ B).
-ECA Rule re_1_eca ACTION_LOCAL_SEND<edgeCount(@Local, RID1, RID2, COUNT< * >)> :- EVENT_RECV<insertedge(@Local, RID1, RID2)>, edge(@Local, RID1, RID2, N).
-ECA Rule re_2_eca ACTION_ADD<edge(@Local, RID1, RID2, N)> :- EVENT_RECV<edgeCount(@Local, RID1, RID2, C)>, C == 0, N := 1.
-ECA Rule re_3_eca ACTION_ADD<edge(@Local, RID1, RID2, N1)> :- EVENT_RECV<edgeCount(@Local, RID1, RID2, C)>, edge(@Local, RID1, RID2, N), C > 0, N1 := N+ 1.
+ECA Rule re_1_eca ACTION_ADD<edge(@Local, RID1, RID2, N)> :- EVENT_RECV<insertedge(@Local, RID1, RID2)>, N := 1.
+ECA Rule re_2_eca ACTION_ADD<edge(@Local, RID1, RID2, N1)> :- EVENT_RECV<insertedge(@Local, RID1, RID2)>, maxedge(@Local, RID1, RID2, N), N1 := N+ 1.
+ECA Rule re_3eca ACTION_ADD<maxedge(@Local, RID1, RID2, MAX< N >)> :- EVENT_INSERT<edge(@Local, RID1, RID2, N)>.
+ECA Rule re_3eca2 ACTION_DELETE<maxedge(@Local, RID1, RID2, MAX< N >)> :- EVENT_DELETE<edge(@Local, RID1, RID2, N)>.
 ECA Rule r11Eca0Ins ACTION_ADD<shaResult(@Local, VID, Content)> :- EVENT_INSERT<smoke(@Local, P)>, VID := f_sha1((smoke+ Local)+ P), Name := smoke, Content := (Name+ _)+ P.
 ECA Rule r11Eca0Del ACTION_DELETE<shaResult(@Local, VID, Content)> :- EVENT_DELETE<smoke(@Local, P)>, VID := f_sha1((smoke+ Local)+ P), Name := smoke, Content := (Name+ _)+ P.
 ECA Rule r12Eca0Ins ACTION_ADD<shaResult(@Local, VID, Content)> :- EVENT_INSERT<cancer(@Local, P)>, VID := f_sha1((cancer+ Local)+ P), Name := cancer, Content := (Name+ _)+ P.

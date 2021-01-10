@@ -10,7 +10,7 @@ materialize(maxedge, infinity, infinity, keys(1, 2, 3)).
 materialize(esmoke, infinity, infinity, keys(1, 2, 3, 4)).
 materialize(ecancer, infinity, infinity, keys(1, 2, 3, 4)).
 
-r1_1 ecancer(@Local, P, NRID1, NRID2) :- smoke(@Local, P), NRID1 := f_sha1("r1"+Local), NRID2 := f_sha1("smoke1"+Local+P).
+r1_1 ecancer(@Local, P, NRID1, NRID2) :- smoke(@Local, P), NRID1 := f_sha1("r1"+Local), NRID2 := f_sha1("smoke"+Local+P).
 r1_2 ecancer(@Local, P, NRID1, NRID2) :- esmoke(@Local, P, RID1, RID2), NRID1 := f_sha1("r1"+Local), NRID2 := RID1.
 r1_3 cancer(@Local, P) :- ecancer(@Local, P, RID1, RID2).
 r1_4 insertedge(@Local, RID1, RID2) :- ecancer(@Local, P, RID1, RID2).

@@ -19,10 +19,10 @@ using namespace ns3::rapidnet::smoke;
 const string Smoke::CANCER = "cancer";
 const string Smoke::ECANCER = "ecancer";
 const string Smoke::EDGE = "edge";
-const string Smoke::EDGECOUNT = "edgeCount";
 const string Smoke::ESMOKE = "esmoke";
 const string Smoke::FRIENDS = "friends";
 const string Smoke::INSERTEDGE = "insertedge";
+const string Smoke::MAXEDGE = "maxedge";
 const string Smoke::PROV = "prov";
 const string Smoke::SHARESULT = "shaResult";
 const string Smoke::SMOKE = "smoke";
@@ -96,6 +96,11 @@ Smoke::InitDatabase ()
     attrdef ("friends_attr2", INT32),
     attrdef ("friends_attr3", INT32)));
 
+  AddRelationWithKeys (MAXEDGE, attrdeflist (
+    attrdef ("maxedge_attr1", IPV4),
+    attrdef ("maxedge_attr2", IPV4),
+    attrdef ("maxedge_attr3", IPV4)));
+
   AddRelationWithKeys (PROV, attrdeflist (
     attrdef ("prov_attr1", IPV4),
     attrdef ("prov_attr2", IPV4),
@@ -109,6 +114,15 @@ Smoke::InitDatabase ()
   AddRelationWithKeys (SMOKE, attrdeflist (
     attrdef ("smoke_attr1", IPV4),
     attrdef ("smoke_attr2", INT32)));
+
+  m_aggr_maxedgeMaxN = AggrMax::New (MAXEDGE,
+    this,
+    attrdeflist (
+      attrdeftype ("maxedge_attr1", ANYTYPE),
+      attrdeftype ("maxedge_attr2", ANYTYPE),
+      attrdeftype ("maxedge_attr3", ANYTYPE),
+      attrdeftype ("maxedge_attr4", ANYTYPE)),
+    4);
 
 }
 
@@ -165,13 +179,17 @@ Smoke::DemuxRecv (Ptr<Tuple> tuple)
     {
       Re_1_eca (tuple);
     }
-  if (IsRecvEvent (tuple, EDGECOUNT))
+  if (IsRecvEvent (tuple, INSERTEDGE))
     {
       Re_2_eca (tuple);
     }
-  if (IsRecvEvent (tuple, EDGECOUNT))
+  if (IsInsertEvent (tuple, EDGE))
     {
-      Re_3_eca (tuple);
+      Re_3eca (tuple);
+    }
+  if (IsDeleteEvent (tuple, EDGE))
+    {
+      Re_3eca2 (tuple);
     }
   if (IsInsertEvent (tuple, SMOKE))
     {
@@ -471,6 +489,28 @@ Smoke::R2_3_eca (Ptr<Tuple> esmoke)
 {
   RAPIDNET_LOG_INFO ("R2_3_eca triggered");
 
+  Ptr<Tuple> result = esmoke;
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+  result = result->Project (
+    PROV,
+    strlist ("Local",
+      "esmoke_attr5",
+      "esmoke_attr3"),
+    strlist ("prov_attr1",
+      "prov_attr2",
+      "prov_attr3"));
+
+  Insert (result);
+}
+
+void
+Smoke::R2_4_eca (Ptr<Tuple> esmoke)
+{
+  RAPIDNET_LOG_INFO ("R2_4_eca triggered");
+
   Ptr<RelationBase> result;
 
   result = GetRelation (PROV)->Join (
@@ -491,28 +531,6 @@ Smoke::R2_3_eca (Ptr<Tuple> esmoke)
       "insertedge_attr3"));
 
   SendLocal (result);
-}
-
-void
-Smoke::R2_4_eca (Ptr<Tuple> esmoke)
-{
-  RAPIDNET_LOG_INFO ("R2_4_eca triggered");
-
-  Ptr<Tuple> result = esmoke;
-
-  result->Assign (Assignor::New ("Local",
-    LOCAL_ADDRESS));
-
-  result = result->Project (
-    PROV,
-    strlist ("Local",
-      "esmoke_attr5",
-      "esmoke_attr3"),
-    strlist ("prov_attr1",
-      "prov_attr2",
-      "prov_attr3"));
-
-  Insert (result);
 }
 
 void
@@ -649,46 +667,8 @@ void
 Smoke::Re_1_eca (Ptr<Tuple> insertedge)
 {
   RAPIDNET_LOG_INFO ("Re_1_eca triggered");
-  cout << "re1 triggered" << endl;
-  cout << insertedge << endl;
 
-  Ptr<RelationBase> result;
-
-  result = GetRelation (EDGE)->Join (
-    insertedge,
-    strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
-    strlist ("insertedge_attr1", "insertedge_attr2", "insertedge_attr3"));
-
-  result->PrintAllTuples(cout);
-
-
-  // result->Assign (Assignor::New ("Local",
-  //   LOCAL_ADDRESS));
-
-  result = AggWrapCount::New ()->Compute (result, insertedge);
-
-  result = result->Project (
-    EDGECOUNT,
-    strlist ("insertedge_attr1",
-      "insertedge_attr2",
-      "insertedge_attr3",
-      "count"),
-    strlist ("edgeCount_attr1",
-      "edgeCount_attr2",
-      "edgeCount_attr3",
-      "edgeCount_attr4"));
-
-  cout << "project success" << endl;
-
-  SendLocal (result);
-}
-
-void
-Smoke::Re_2_eca (Ptr<Tuple> edgeCount)
-{
-  RAPIDNET_LOG_INFO ("Re_2_eca triggered");
-
-  Ptr<Tuple> result = edgeCount;
+  Ptr<Tuple> result = insertedge;
 
   result->Assign (Assignor::New ("N",
     ValueExpr::New (Int32Value::New (1))));
@@ -696,16 +676,11 @@ Smoke::Re_2_eca (Ptr<Tuple> edgeCount)
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
 
-  result = result->Select (Selector::New (
-    Operation::New (RN_EQ,
-      VarExpr::New ("edgeCount_attr4"),
-      ValueExpr::New (Int32Value::New (0)))));
-
   result = result->Project (
     EDGE,
     strlist ("Local",
-      "edgeCount_attr2",
-      "edgeCount_attr3",
+      "insertedge_attr2",
+      "insertedge_attr3",
       "N"),
     strlist ("edge_attr1",
       "edge_attr2",
@@ -716,35 +691,30 @@ Smoke::Re_2_eca (Ptr<Tuple> edgeCount)
 }
 
 void
-Smoke::Re_3_eca (Ptr<Tuple> edgeCount)
+Smoke::Re_2_eca (Ptr<Tuple> insertedge)
 {
-  RAPIDNET_LOG_INFO ("Re_3_eca triggered");
+  RAPIDNET_LOG_INFO ("Re_2_eca triggered");
 
   Ptr<RelationBase> result;
 
-  result = GetRelation (EDGE)->Join (
-    edgeCount,
-    strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
-    strlist ("edgeCount_attr1", "edgeCount_attr2", "edgeCount_attr3"));
+  result = GetRelation (MAXEDGE)->Join (
+    insertedge,
+    strlist ("maxedge_attr1", "maxedge_attr2", "maxedge_attr3"),
+    strlist ("insertedge_attr1", "insertedge_attr2", "insertedge_attr3"));
 
   result->Assign (Assignor::New ("N1",
     Operation::New (RN_PLUS,
-      VarExpr::New ("edge_attr4"),
+      VarExpr::New ("maxedge_attr4"),
       ValueExpr::New (Int32Value::New (1)))));
 
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
 
-  result = result->Select (Selector::New (
-    Operation::New (RN_GT,
-      VarExpr::New ("edgeCount_attr4"),
-      ValueExpr::New (Int32Value::New (0)))));
-
   result = result->Project (
     EDGE,
     strlist ("Local",
-      "edgeCount_attr2",
-      "edgeCount_attr3",
+      "insertedge_attr2",
+      "insertedge_attr3",
       "N1"),
     strlist ("edge_attr1",
       "edge_attr2",
@@ -752,6 +722,54 @@ Smoke::Re_3_eca (Ptr<Tuple> edgeCount)
       "edge_attr4"));
 
   Insert (result);
+}
+
+void
+Smoke::Re_3eca (Ptr<Tuple> edge)
+{
+  RAPIDNET_LOG_INFO ("Re_3eca triggered");
+
+  Ptr<Tuple> result = edge;
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+  result = result->Project (
+    MAXEDGE,
+    strlist ("Local",
+      "edge_attr2",
+      "edge_attr3",
+      "edge_attr4"),
+    strlist ("maxedge_attr1",
+      "maxedge_attr2",
+      "maxedge_attr3",
+      "maxedge_attr4"));
+
+  m_aggr_maxedgeMaxN->Insert (result);
+}
+
+void
+Smoke::Re_3eca2 (Ptr<Tuple> edge)
+{
+  RAPIDNET_LOG_INFO ("Re_3eca2 triggered");
+
+  Ptr<Tuple> result = edge;
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+  result = result->Project (
+    MAXEDGE,
+    strlist ("Local",
+      "edge_attr2",
+      "edge_attr3",
+      "edge_attr4"),
+    strlist ("maxedge_attr1",
+      "maxedge_attr2",
+      "maxedge_attr3",
+      "maxedge_attr4"));
+
+  m_aggr_maxedgeMaxN->Delete (result);
 }
 
 void

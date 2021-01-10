@@ -16,8 +16,8 @@ r1_4 insertedge(@Local, RID1, RID2) :- ecancer(@Local, P, RID1, BVID, HVID), pro
 
 r2_1 esmoke(@Local, A, RID, BVID, HVID) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), smoke(@Local, B), BVID := f_sha1("smoke"+Local+B),  RID := f_sha1("r2"+Local+PID), HVID := f_sha1("smoke"+Local+A).
 r2_2 smoke(@Local, A) :- esmoke(@Local, A, RID, BVID, HVID).
-r2_3 insertedge(@Local, RID1, RID2) :- esmoke(@Local, A, RID1, BVID, HVID), prov(@Local, BVID, RID2).
-r2_4 prov(@Local, HVID, RID) :- esmoke(@Local, A, RID, BVID, HVID).
+r2_3 prov(@Local, HVID, RID) :- esmoke(@Local, A, RID, BVID, HVID).
+r2_4 insertedge(@Local, RID1, RID2) :- esmoke(@Local, A, RID1, BVID, HVID), prov(@Local, BVID, RID2).
 
 r3_1 esmoke(@Local, B, RID, BVID, HVID) :- friends(@Local, A, B), PID := f_sha1("friends"+Local+A+B), smoke(@Local, A), BVID := f_sha1("smoke"+Local+A), RID := f_sha1("r3"+Local+PID), HVID := f_sha1("smoke"+Local+B).
 

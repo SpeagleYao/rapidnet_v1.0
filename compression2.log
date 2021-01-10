@@ -1,0 +1,490 @@
+friends 1 2
+friends 1 3
+friends 1 4
+friends 2 5
+friends 5 6
+friends 3 4
+friends 7 8
+friends 7 1
+smoke 1
+smoke 3
+smoke 4
+smoke 7
+cancer 1
+cancer 3
+Anna 1
+Bob 2
+Chris 5
+Daniel 6
+Edward 3
+Frank 4
+Gary 7
+Helen 8
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=1 friends_attr3=2 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=1 friends_attr3=3 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=1 friends_attr3=4 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=2 friends_attr3=5 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=3 friends_attr3=4 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=5 friends_attr3=6 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=7 friends_attr3=1 
+time=5 node=10.1.1.1 tuple=friends friends_attr1=10.1.1.1 friends_attr2=7 friends_attr3=8 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=1 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=2 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=3 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=4 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=5 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=6 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=7 
+time=5 node=10.1.1.1 tuple=smoke smoke_attr1=10.1.1.1 smoke_attr2=8 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=1 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=2 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=3 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=4 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=5 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=6 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=7 
+time=5 node=10.1.1.1 tuple=cancer cancer_attr1=10.1.1.1 cancer_attr2=8 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=8d2427656558cb58e0674a84fac298248f75e20d edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=4d471497923c1f62873d057a7e568db02e2f165c edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=8d2427656558cb58e0674a84fac298248f75e20d edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=8d2427656558cb58e0674a84fac298248f75e20d edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=8d2427656558cb58e0674a84fac298248f75e20d edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=4 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=2 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=3 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=4d471497923c1f62873d057a7e568db02e2f165c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=edge edge_attr1=10.1.1.1 edge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 edge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=12f41bab4946f7f7d576ea59ff9b96b2061d8aca maxedge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=3 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=8d2427656558cb58e0674a84fac298248f75e20d maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c maxedge_attr4=2 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=4 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 maxedge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr4=3 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=61ce7c435ee826e5eb875165216867480b9e2ec maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=4d471497923c1f62873d057a7e568db02e2f165c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=maxedge maxedge_attr1=10.1.1.1 maxedge_attr2=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 maxedge_attr4=1 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=2d1a371dddbf76853268f81a6caed63ece38526e prov_attr3=f4e56a1a5ab2d31ea337b0f47a559cd300809ec3 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=61ce7c435ee826e5eb875165216867480b9e2ec 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=12f41bab4946f7f7d576ea59ff9b96b2061d8aca 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=2a092dc59b2f7f7356a0cdc7b47dfb1dc1125ab4 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=2ae7d7e806beb9d48706cbb64d4924e822a8ac15 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=4d471497923c1f62873d057a7e568db02e2f165c 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=5ca6a26c8b8ab4aa3c51c8d53d10501a7ef49857 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=6071535870d27471ffdabdcf22ad1c48e20adc21 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=6f13c5e295dc4741620120969ffafe7cfa6bcd24 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=8d2427656558cb58e0674a84fac298248f75e20d 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=9f4d25ece40e7846458d305c32a84e8f230f8b1c 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=adc6cc53b26db1247c0cdb235ef05dd388f2e8d2 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=b698c61746d413b1d35cba02917a2bd327fe2aca 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=c326afad7c247b6d53883bce73996cc87f739fd6 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=d9f90a717bfafc9ddc0cf81c39e123ec0a08101c 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=df2b092e1c0613e5a45a6691e383e2f123feb093 
+time=5 node=10.1.1.1 tuple=prov prov_attr1=10.1.1.1 prov_attr2=43e56e6b84414f8118af934d169c50e35d543544 prov_attr3=f8de02f46abb0be2395cb1f8d43824782bd794e1 
