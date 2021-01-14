@@ -32,10 +32,10 @@ public:
   static const string CANCER;
   static const string ECANCER;
   static const string EDGE;
+  static const string EDGECOUNT;
   static const string ESMOKE;
   static const string FRIENDS;
   static const string INSERTEDGE;
-  static const string MAXEDGE;
   static const string PROV;
   static const string SHARESULT;
   static const string SMOKE;
@@ -82,11 +82,9 @@ protected:
 
   virtual void Re_1_eca (Ptr<Tuple> insertedge);
 
-  virtual void Re_2_eca (Ptr<Tuple> insertedge);
+  virtual void Re_2_eca (Ptr<Tuple> edgeCount);
 
-  virtual void Re_3eca (Ptr<Tuple> edge);
-
-  virtual void Re_3eca2 (Ptr<Tuple> edge);
+  virtual void Re_3_eca (Ptr<Tuple> edgeCount);
 
   virtual void R11Eca0Ins (Ptr<Tuple> smoke);
 
@@ -100,7 +98,6 @@ protected:
 
   virtual void R13Eca0Del (Ptr<Tuple> friends);
 
-  Ptr<Aggregator> m_aggr_maxedgeMaxN;
 };
 
 } // namespace smoke

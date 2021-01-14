@@ -1,0 +1,8 @@
+ECA Rule r1Eca0RemoteIns ACTION_ADD<packet(@N, S, D, DT)> :- EVENT_RECV<r1packetsend(@N, S, D, DT)>.
+ECA Rule r1Eca0RemoteDel ACTION_DELETE<packet(@N, S, D, DT)> :- EVENT_RECV<packetDelete(@N, S, D, DT)>.
+ECA Rule r1Eca0Ins ACTION_REMOTE_SEND<r1packetsend(@N, S, D, DT)> :- EVENT_INSERT<packet(@L, S, D, DT)>, route(@L, D, N).
+ECA Rule r1Eca0Del ACTION_REMOTE_SEND<packetDelete(@N, S, D, DT)> :- EVENT_DELETE<packet(@L, S, D, DT)>, route(@L, D, N).
+ECA Rule r1Eca1Ins ACTION_REMOTE_SEND<r1packetsend(@N, S, D, DT)> :- EVENT_INSERT<route(@L, D, N)>, packet(@L, S, D, DT).
+ECA Rule r1Eca1Del ACTION_REMOTE_SEND<packetDelete(@N, S, D, DT)> :- EVENT_DELETE<route(@L, D, N)>, packet(@L, S, D, DT).
+ECA Rule r2Eca0Ins ACTION_ADD<recv(@L, S, D, DT)> :- EVENT_INSERT<packet(@L, S, D, DT)>, D == L.
+ECA Rule r2Eca0Del ACTION_DELETE<recv(@L, S, D, DT)> :- EVENT_DELETE<packet(@L, S, D, DT)>, D == L.

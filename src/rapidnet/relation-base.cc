@@ -79,7 +79,10 @@ RelationBase::Project (string newRelnName, list<string> attrNames,
 
   for (it = tuples.begin (); it != tuples.end (); ++it)
     {
+      // cout << (*it)->Project(newRelnName, attrNames, newNames) << endl;
+      // cout << *it << endl;
       result->Insert ((*it)->Project (newRelnName, attrNames, newNames));
+      // cout << endl;
     }
   return result;
 }

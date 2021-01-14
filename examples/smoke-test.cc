@@ -160,7 +160,7 @@ void Print() {
   PrintRelation(apps, Smoke::CANCER);
   PrintRelation(apps, Smoke::EDGE);
   // PrintRelation(apps, Smoke::MAXEDGE);
-  PrintRelation(apps, Smoke::PROV);
+  // PrintRelation(apps, Smoke::PROV);
 }
 
 

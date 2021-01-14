@@ -1,0 +1,7 @@
+materialize(packet, infinity, infinity, keys(1, 2, 3, 4)).
+materialize(route, infinity, infinity, keys(1, 2, 3)).
+materialize(recv, infinity, infinity, keys(1, 2, 3, 4)).
+
+
+r1 packet(@N, S, D, DT) :- packet(@L, S, D, DT), route(@L, D, N).
+r2 recv(@L, S, D, DT) :- packet(@L, S, D, DT), D==L.

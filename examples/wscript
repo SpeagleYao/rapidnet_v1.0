@@ -245,3 +245,8 @@ def build(bld):
     obj = bld.create_ns3_program('hyper-text-class-query-test')
     obj.source = 'hyper-text-class-query-test.cc'
 
+    obj = bld.create_ns3_program('packet-forward-test')
+    obj.source = 'pktfwd-test.cc'
+
+
+
