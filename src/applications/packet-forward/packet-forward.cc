@@ -16,9 +16,14 @@ using namespace ns3;
 using namespace ns3::rapidnet;
 using namespace ns3::rapidnet::packetforward;
 
+const string PacketForward::EDGE = "edge";
+const string PacketForward::EDGECOUNT = "edgeCount";
+const string PacketForward::EPACKET = "epacket";
+const string PacketForward::ERECV = "erecv";
+const string PacketForward::INSERTEDGE = "insertedge";
 const string PacketForward::PACKET = "packet";
-const string PacketForward::PACKETDELETE = "packetDelete";
-const string PacketForward::R1PACKETSEND = "r1packetsend";
+const string PacketForward::PROV = "prov";
+const string PacketForward::R1_4EPACKETL = "r1_4epacketL";
 const string PacketForward::RECV = "recv";
 const string PacketForward::ROUTE = "route";
 
@@ -76,11 +81,21 @@ PacketForward::InitDatabase ()
 {
   //RapidNetApplicationBase::InitDatabase ();
 
+  AddRelationWithKeys (EDGE, attrdeflist (
+    attrdef ("edge_attr1", IPV4),
+    attrdef ("edge_attr2", IPV4),
+    attrdef ("edge_attr3", IPV4)));
+
   AddRelationWithKeys (PACKET, attrdeflist (
     attrdef ("packet_attr1", IPV4),
     attrdef ("packet_attr2", IPV4),
     attrdef ("packet_attr3", IPV4),
     attrdef ("packet_attr4", IPV4)));
+
+  AddRelationWithKeys (PROV, attrdeflist (
+    attrdef ("prov_attr1", IPV4),
+    attrdef ("prov_attr2", IPV4),
+    attrdef ("prov_attr3", IPV4)));
 
   AddRelationWithKeys (RECV, attrdeflist (
     attrdef ("recv_attr1", IPV4),
@@ -100,53 +115,225 @@ PacketForward::DemuxRecv (Ptr<Tuple> tuple)
 {
   RapidNetApplicationBase::DemuxRecv (tuple);
 
-  if (IsRecvEvent (tuple, R1PACKETSEND))
-    {
-      R1Eca0RemoteIns (tuple);
-    }
-  if (IsRecvEvent (tuple, PACKETDELETE))
-    {
-      R1Eca0RemoteDel (tuple);
-    }
   if (IsInsertEvent (tuple, PACKET))
     {
-      R1Eca0Ins (tuple);
-    }
-  if (IsDeleteEvent (tuple, PACKET))
-    {
-      R1Eca0Del (tuple);
+      R1_1Eca0Ins (tuple);
     }
   if (IsInsertEvent (tuple, ROUTE))
     {
-      R1Eca1Ins (tuple);
+      R1_1Eca1Ins (tuple);
     }
-  if (IsDeleteEvent (tuple, ROUTE))
+  if (IsRecvEvent (tuple, EPACKET))
     {
-      R1Eca1Del (tuple);
+      R1_2_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, EPACKET))
+    {
+      R1_3_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, EPACKET))
+    {
+      R1_4Local1_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, R1_4EPACKETL))
+    {
+      R1_4Local2_eca (tuple);
     }
   if (IsInsertEvent (tuple, PACKET))
     {
-      R2Eca0Ins (tuple);
+      R2_1Eca0Ins (tuple);
     }
-  if (IsDeleteEvent (tuple, PACKET))
+  if (IsRecvEvent (tuple, ERECV))
     {
-      R2Eca0Del (tuple);
+      R2_2_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, ERECV))
+    {
+      R2_3_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, ERECV))
+    {
+      R2_4_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, INSERTEDGE))
+    {
+      Re_1_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, EDGECOUNT))
+    {
+      Re_2_eca (tuple);
+    }
+  if (IsRecvEvent (tuple, EDGECOUNT))
+    {
+      Re_3_eca (tuple);
     }
 }
 
 void
-PacketForward::R1Eca0RemoteIns (Ptr<Tuple> r1packetsend)
+PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
 {
-  RAPIDNET_LOG_INFO ("R1Eca0RemoteIns triggered");
+  RAPIDNET_LOG_INFO ("R1_1Eca0Ins triggered");
 
-  Ptr<Tuple> result = r1packetsend;
+  Ptr<RelationBase> result;
+
+  result = GetRelation (ROUTE)->Join (
+    packet,
+    strlist ("route_attr2", "route_attr1"),
+    strlist ("packet_attr3", "packet_attr1"));
+
+  result->Assign (Assignor::New ("PID1",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("route")),
+            VarExpr::New ("packet_attr1")),
+          VarExpr::New ("packet_attr3")),
+        VarExpr::New ("route_attr3")))));
+
+  result->Assign (Assignor::New ("PID",
+    FAppend::New (
+      VarExpr::New ("PID1"))));
+
+  result->Assign (Assignor::New ("RID",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("r1")),
+          VarExpr::New ("route_attr3")),
+        VarExpr::New ("PID")))));
+
+  result->Assign (Assignor::New ("HVID",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("packet")),
+          VarExpr::New ("route_attr3")),
+        VarExpr::New ("packet_attr2")),
+      VarExpr::New ("packet_attr3"))));
+
+  result->Assign (Assignor::New ("BVID",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("packet")),
+          VarExpr::New ("packet_attr1")),
+        VarExpr::New ("packet_attr2")),
+      VarExpr::New ("packet_attr3"))));
+
+  result = result->Project (
+    EPACKET,
+    strlist ("route_attr3",
+      "packet_attr2",
+      "packet_attr3",
+      "packet_attr4",
+      "packet_attr1",
+      "RID",
+      "HVID",
+      "BVID",
+      "route_attr3"),
+    strlist ("epacket_attr1",
+      "epacket_attr2",
+      "epacket_attr3",
+      "epacket_attr4",
+      "epacket_attr5",
+      "epacket_attr6",
+      "epacket_attr7",
+      "epacket_attr8",
+      RN_DEST));
+
+  Send (result);
+}
+
+void
+PacketForward::R1_1Eca1Ins (Ptr<Tuple> route)
+{
+  RAPIDNET_LOG_INFO ("R1_1Eca1Ins triggered");
+
+  Ptr<RelationBase> result;
+
+  result = GetRelation (PACKET)->Join (
+    route,
+    strlist ("packet_attr3", "packet_attr1"),
+    strlist ("route_attr2", "route_attr1"));
+
+  result->Assign (Assignor::New ("PID1",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("route")),
+            VarExpr::New ("route_attr1")),
+          VarExpr::New ("route_attr2")),
+        VarExpr::New ("route_attr3")))));
+
+  result->Assign (Assignor::New ("PID",
+    FAppend::New (
+      VarExpr::New ("PID1"))));
+
+  result->Assign (Assignor::New ("RID",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("r1")),
+          VarExpr::New ("route_attr3")),
+        VarExpr::New ("PID")))));
+
+  result->Assign (Assignor::New ("HVID",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("packet")),
+          VarExpr::New ("route_attr3")),
+        VarExpr::New ("packet_attr2")),
+      VarExpr::New ("route_attr2"))));
+
+  result->Assign (Assignor::New ("BVID",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("packet")),
+          VarExpr::New ("route_attr1")),
+        VarExpr::New ("packet_attr2")),
+      VarExpr::New ("route_attr2"))));
+
+  result = result->Project (
+    EPACKET,
+    strlist ("route_attr3",
+      "packet_attr2",
+      "route_attr2",
+      "packet_attr4",
+      "route_attr1",
+      "RID",
+      "HVID",
+      "BVID",
+      "route_attr3"),
+    strlist ("epacket_attr1",
+      "epacket_attr2",
+      "epacket_attr3",
+      "epacket_attr4",
+      "epacket_attr5",
+      "epacket_attr6",
+      "epacket_attr7",
+      "epacket_attr8",
+      RN_DEST));
+
+  Send (result);
+}
+
+void
+PacketForward::R1_2_eca (Ptr<Tuple> epacket)
+{
+  RAPIDNET_LOG_INFO ("R1_2_eca triggered");
+
+  Ptr<Tuple> result = epacket;
 
   result = result->Project (
     PACKET,
-    strlist ("r1packetsend_attr1",
-      "r1packetsend_attr2",
-      "r1packetsend_attr3",
-      "r1packetsend_attr4"),
+    strlist ("epacket_attr1",
+      "epacket_attr2",
+      "epacket_attr3",
+      "epacket_attr4"),
     strlist ("packet_attr1",
       "packet_attr2",
       "packet_attr3",
@@ -156,144 +343,111 @@ PacketForward::R1Eca0RemoteIns (Ptr<Tuple> r1packetsend)
 }
 
 void
-PacketForward::R1Eca0RemoteDel (Ptr<Tuple> packetDelete)
+PacketForward::R1_3_eca (Ptr<Tuple> epacket)
 {
-  RAPIDNET_LOG_INFO ("R1Eca0RemoteDel triggered");
+  RAPIDNET_LOG_INFO ("R1_3_eca triggered");
 
-  Ptr<Tuple> result = packetDelete;
+  Ptr<Tuple> result = epacket;
 
   result = result->Project (
-    PACKET,
-    strlist ("packetDelete_attr1",
-      "packetDelete_attr2",
-      "packetDelete_attr3",
-      "packetDelete_attr4"),
-    strlist ("packet_attr1",
-      "packet_attr2",
-      "packet_attr3",
-      "packet_attr4"));
+    PROV,
+    strlist ("epacket_attr1",
+      "epacket_attr7",
+      "epacket_attr6"),
+    strlist ("prov_attr1",
+      "prov_attr2",
+      "prov_attr3"));
 
-  Delete (result);
+  Insert (result);
 }
 
 void
-PacketForward::R1Eca0Ins (Ptr<Tuple> packet)
+PacketForward::R1_4Local1_eca (Ptr<Tuple> epacket)
 {
-  RAPIDNET_LOG_INFO ("R1Eca0Ins triggered");
+  RAPIDNET_LOG_INFO ("R1_4Local1_eca triggered");
 
-  Ptr<RelationBase> result;
-
-  result = GetRelation (ROUTE)->Join (
-    packet,
-    strlist ("route_attr2", "route_attr1"),
-    strlist ("packet_attr3", "packet_attr1"));
+  Ptr<Tuple> result = epacket;
 
   result = result->Project (
-    R1PACKETSEND,
-    strlist ("route_attr3",
-      "packet_attr2",
-      "packet_attr3",
-      "packet_attr4",
-      "route_attr3"),
-    strlist ("r1packetsend_attr1",
-      "r1packetsend_attr2",
-      "r1packetsend_attr3",
-      "r1packetsend_attr4",
+    R1_4EPACKETL,
+    strlist ("epacket_attr1",
+      "epacket_attr2",
+      "epacket_attr3",
+      "epacket_attr4",
+      "epacket_attr5",
+      "epacket_attr6",
+      "epacket_attr7",
+      "epacket_attr8",
+      "epacket_attr5"),
+    strlist ("r1_4epacketL_attr1",
+      "r1_4epacketL_attr2",
+      "r1_4epacketL_attr3",
+      "r1_4epacketL_attr4",
+      "r1_4epacketL_attr5",
+      "r1_4epacketL_attr6",
+      "r1_4epacketL_attr7",
+      "r1_4epacketL_attr8",
       RN_DEST));
 
   Send (result);
 }
 
 void
-PacketForward::R1Eca0Del (Ptr<Tuple> packet)
+PacketForward::R1_4Local2_eca (Ptr<Tuple> r1_4epacketL)
 {
-  RAPIDNET_LOG_INFO ("R1Eca0Del triggered");
+  RAPIDNET_LOG_INFO ("R1_4Local2_eca triggered");
 
   Ptr<RelationBase> result;
 
-  result = GetRelation (ROUTE)->Join (
-    packet,
-    strlist ("route_attr2", "route_attr1"),
-    strlist ("packet_attr3", "packet_attr1"));
+  result = GetRelation (PROV)->Join (
+    r1_4epacketL,
+    strlist ("prov_attr2", "prov_attr1"),
+    strlist ("r1_4epacketL_attr8", "r1_4epacketL_attr5"));
 
   result = result->Project (
-    PACKETDELETE,
-    strlist ("route_attr3",
-      "packet_attr2",
-      "packet_attr3",
-      "packet_attr4",
-      "route_attr3"),
-    strlist ("packetDelete_attr1",
-      "packetDelete_attr2",
-      "packetDelete_attr3",
-      "packetDelete_attr4",
+    INSERTEDGE,
+    strlist ("r1_4epacketL_attr1",
+      "r1_4epacketL_attr6",
+      "prov_attr3",
+      "r1_4epacketL_attr1"),
+    strlist ("insertedge_attr1",
+      "insertedge_attr2",
+      "insertedge_attr3",
       RN_DEST));
 
   Send (result);
 }
 
 void
-PacketForward::R1Eca1Ins (Ptr<Tuple> route)
+PacketForward::R2_1Eca0Ins (Ptr<Tuple> packet)
 {
-  RAPIDNET_LOG_INFO ("R1Eca1Ins triggered");
-
-  Ptr<RelationBase> result;
-
-  result = GetRelation (PACKET)->Join (
-    route,
-    strlist ("packet_attr3", "packet_attr1"),
-    strlist ("route_attr2", "route_attr1"));
-
-  result = result->Project (
-    R1PACKETSEND,
-    strlist ("route_attr3",
-      "packet_attr2",
-      "route_attr2",
-      "packet_attr4",
-      "route_attr3"),
-    strlist ("r1packetsend_attr1",
-      "r1packetsend_attr2",
-      "r1packetsend_attr3",
-      "r1packetsend_attr4",
-      RN_DEST));
-
-  Send (result);
-}
-
-void
-PacketForward::R1Eca1Del (Ptr<Tuple> route)
-{
-  RAPIDNET_LOG_INFO ("R1Eca1Del triggered");
-
-  Ptr<RelationBase> result;
-
-  result = GetRelation (PACKET)->Join (
-    route,
-    strlist ("packet_attr3", "packet_attr1"),
-    strlist ("route_attr2", "route_attr1"));
-
-  result = result->Project (
-    PACKETDELETE,
-    strlist ("route_attr3",
-      "packet_attr2",
-      "route_attr2",
-      "packet_attr4",
-      "route_attr3"),
-    strlist ("packetDelete_attr1",
-      "packetDelete_attr2",
-      "packetDelete_attr3",
-      "packetDelete_attr4",
-      RN_DEST));
-
-  Send (result);
-}
-
-void
-PacketForward::R2Eca0Ins (Ptr<Tuple> packet)
-{
-  RAPIDNET_LOG_INFO ("R2Eca0Ins triggered");
+  RAPIDNET_LOG_INFO ("R2_1Eca0Ins triggered");
 
   Ptr<Tuple> result = packet;
+
+  result->Assign (Assignor::New ("RID",
+    FSha1::New (
+      Operation::New (RN_PLUS,
+        ValueExpr::New (StrValue::New ("r2")),
+        VarExpr::New ("packet_attr1")))));
+
+  result->Assign (Assignor::New ("HVID",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("recv")),
+          VarExpr::New ("packet_attr1")),
+        VarExpr::New ("packet_attr2")),
+      VarExpr::New ("packet_attr3"))));
+
+  result->Assign (Assignor::New ("BVID",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          ValueExpr::New (StrValue::New ("packet")),
+          VarExpr::New ("packet_attr1")),
+        VarExpr::New ("packet_attr2")),
+      VarExpr::New ("packet_attr3"))));
 
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
@@ -301,11 +455,38 @@ PacketForward::R2Eca0Ins (Ptr<Tuple> packet)
       VarExpr::New ("packet_attr1"))));
 
   result = result->Project (
-    RECV,
+    ERECV,
     strlist ("packet_attr1",
       "packet_attr2",
       "packet_attr3",
-      "packet_attr4"),
+      "packet_attr4",
+      "RID",
+      "HVID",
+      "BVID"),
+    strlist ("erecv_attr1",
+      "erecv_attr2",
+      "erecv_attr3",
+      "erecv_attr4",
+      "erecv_attr5",
+      "erecv_attr6",
+      "erecv_attr7"));
+
+  SendLocal (result);
+}
+
+void
+PacketForward::R2_2_eca (Ptr<Tuple> erecv)
+{
+  RAPIDNET_LOG_INFO ("R2_2_eca triggered");
+
+  Ptr<Tuple> result = erecv;
+
+  result = result->Project (
+    RECV,
+    strlist ("erecv_attr1",
+      "erecv_attr2",
+      "erecv_attr3",
+      "erecv_attr4"),
     strlist ("recv_attr1",
       "recv_attr2",
       "recv_attr3",
@@ -315,28 +496,147 @@ PacketForward::R2Eca0Ins (Ptr<Tuple> packet)
 }
 
 void
-PacketForward::R2Eca0Del (Ptr<Tuple> packet)
+PacketForward::R2_3_eca (Ptr<Tuple> erecv)
 {
-  RAPIDNET_LOG_INFO ("R2Eca0Del triggered");
+  RAPIDNET_LOG_INFO ("R2_3_eca triggered");
 
-  Ptr<Tuple> result = packet;
+  Ptr<Tuple> result = erecv;
+
+  result = result->Project (
+    PROV,
+    strlist ("erecv_attr1",
+      "erecv_attr6",
+      "erecv_attr5"),
+    strlist ("prov_attr1",
+      "prov_attr2",
+      "prov_attr3"));
+
+  Insert (result);
+}
+
+void
+PacketForward::R2_4_eca (Ptr<Tuple> erecv)
+{
+  RAPIDNET_LOG_INFO ("R2_4_eca triggered");
+
+  Ptr<RelationBase> result;
+
+  result = GetRelation (PROV)->Join (
+    erecv,
+    strlist ("prov_attr2", "prov_attr1"),
+    strlist ("erecv_attr7", "erecv_attr1"));
+
+  result = result->Project (
+    INSERTEDGE,
+    strlist ("erecv_attr1",
+      "erecv_attr5",
+      "prov_attr3"),
+    strlist ("insertedge_attr1",
+      "insertedge_attr2",
+      "insertedge_attr3"));
+
+  SendLocal (result);
+}
+
+void
+PacketForward::Re_1_eca (Ptr<Tuple> insertedge)
+{
+  RAPIDNET_LOG_INFO ("Re_1_eca triggered");
+
+  Ptr<RelationBase> result;
+
+  result = GetRelation (EDGE)->Join (
+    insertedge,
+    strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
+    strlist ("insertedge_attr1", "insertedge_attr2", "insertedge_attr3"));
+
+  result = AggWrapCount::New ()->Compute (result, insertedge);
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+
+  result = result->Project (
+    EDGECOUNT,
+    strlist ("Local",
+      "insertedge_attr2",
+      "insertedge_attr3",
+      "count"),
+    strlist ("edgeCount_attr1",
+      "edgeCount_attr2",
+      "edgeCount_attr3",
+      "edgeCount_attr4"));
+
+  SendLocal (result);
+}
+
+void
+PacketForward::Re_2_eca (Ptr<Tuple> edgeCount)
+{
+  RAPIDNET_LOG_INFO ("Re_2_eca triggered");
+
+  Ptr<Tuple> result = edgeCount;
+
+  result->Assign (Assignor::New ("N",
+    ValueExpr::New (Int32Value::New (1))));
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
 
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,
-      VarExpr::New ("packet_attr3"),
-      VarExpr::New ("packet_attr1"))));
+      VarExpr::New ("edgeCount_attr4"),
+      ValueExpr::New (Int32Value::New (0)))));
 
   result = result->Project (
-    RECV,
-    strlist ("packet_attr1",
-      "packet_attr2",
-      "packet_attr3",
-      "packet_attr4"),
-    strlist ("recv_attr1",
-      "recv_attr2",
-      "recv_attr3",
-      "recv_attr4"));
+    EDGE,
+    strlist ("Local",
+      "edgeCount_attr2",
+      "edgeCount_attr3",
+      "N"),
+    strlist ("edge_attr1",
+      "edge_attr2",
+      "edge_attr3",
+      "edge_attr4"));
 
-  Delete (result);
+  Insert (result);
+}
+
+void
+PacketForward::Re_3_eca (Ptr<Tuple> edgeCount)
+{
+  RAPIDNET_LOG_INFO ("Re_3_eca triggered");
+
+  Ptr<RelationBase> result;
+
+  result = GetRelation (EDGE)->Join (
+    edgeCount,
+    strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
+    strlist ("edgeCount_attr1", "edgeCount_attr2", "edgeCount_attr3"));
+
+  result->Assign (Assignor::New ("N1",
+    Operation::New (RN_PLUS,
+      VarExpr::New ("edge_attr4"),
+      ValueExpr::New (Int32Value::New (1)))));
+
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
+
+  result = result->Select (Selector::New (
+    Operation::New (RN_GT,
+      VarExpr::New ("edgeCount_attr4"),
+      ValueExpr::New (Int32Value::New (0)))));
+
+  result = result->Project (
+    EDGE,
+    strlist ("Local",
+      "edgeCount_attr2",
+      "edgeCount_attr3",
+      "N1"),
+    strlist ("edge_attr1",
+      "edge_attr2",
+      "edge_attr3",
+      "edge_attr4"));
+
+  Insert (result);
 }
 

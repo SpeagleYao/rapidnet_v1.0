@@ -29,9 +29,14 @@ namespace packetforward {
 class PacketForward : public RapidNetApplicationBase
 {
 public:
+  static const string EDGE;
+  static const string EDGECOUNT;
+  static const string EPACKET;
+  static const string ERECV;
+  static const string INSERTEDGE;
   static const string PACKET;
-  static const string PACKETDELETE;
-  static const string R1PACKETSEND;
+  static const string PROV;
+  static const string R1_4EPACKETL;
   static const string RECV;
   static const string ROUTE;
 
@@ -53,21 +58,31 @@ protected:
 
   virtual void DemuxRecv (Ptr<Tuple> tuple);
 
-  virtual void R1Eca0RemoteIns (Ptr<Tuple> r1packetsend);
+  virtual void R1_1Eca0Ins (Ptr<Tuple> packet);
 
-  virtual void R1Eca0RemoteDel (Ptr<Tuple> packetDelete);
+  virtual void R1_1Eca1Ins (Ptr<Tuple> route);
 
-  virtual void R1Eca0Ins (Ptr<Tuple> packet);
+  virtual void R1_2_eca (Ptr<Tuple> epacket);
 
-  virtual void R1Eca0Del (Ptr<Tuple> packet);
+  virtual void R1_3_eca (Ptr<Tuple> epacket);
 
-  virtual void R1Eca1Ins (Ptr<Tuple> route);
+  virtual void R1_4Local1_eca (Ptr<Tuple> epacket);
 
-  virtual void R1Eca1Del (Ptr<Tuple> route);
+  virtual void R1_4Local2_eca (Ptr<Tuple> r1_4epacketL);
 
-  virtual void R2Eca0Ins (Ptr<Tuple> packet);
+  virtual void R2_1Eca0Ins (Ptr<Tuple> packet);
 
-  virtual void R2Eca0Del (Ptr<Tuple> packet);
+  virtual void R2_2_eca (Ptr<Tuple> erecv);
+
+  virtual void R2_3_eca (Ptr<Tuple> erecv);
+
+  virtual void R2_4_eca (Ptr<Tuple> erecv);
+
+  virtual void Re_1_eca (Ptr<Tuple> insertedge);
+
+  virtual void Re_2_eca (Ptr<Tuple> edgeCount);
+
+  virtual void Re_3_eca (Ptr<Tuple> edgeCount);
 
 };
 

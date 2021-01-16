@@ -23,40 +23,42 @@
 #include "ns3/packet-forward-module.h"
 #include "ns3/list-value.h"
 #include <fstream>
+#include <iostream>
 #include <string>
+#include <stdio.h>
+#include <stdlib.h>
 #include <vector>
 #include <map>
 #include <bits/stdc++.h>
 #include <boost/algorithm/string.hpp>
 
 
-#define PacketForward \
+#define Train \
 "./data/packet-forward/packet-forward.db"
-
 
 #define packet(local, src, dst, data) \
 tuple (PacketForward::PACKET, \
 attr ("packet_attr1", Ipv4Value, local), \
-attr ("packet_attr2", Int32Value, src), \
-attr ("packet_attr3", Int32Value, dst), \
-attr ("packet_attr4", StrValue, data)
+attr ("packet_attr2", Ipv4Value, src), \
+attr ("packet_attr3", Ipv4Value, dst), \
+attr ("packet_attr4", StrValue, data) \
 )
 
 
 #define route(local, dst, next) \
 tuple (PacketForward::ROUTE, \
-attr ("route_attr1", Int32Value, local), \
-attr ("route_attr2", Int32Value, dst), \
-attr ("route_attr3", Ipv4Value, next)
+attr ("route_attr1", Ipv4Value, local), \
+attr ("route_attr2", Ipv4Value, dst), \
+attr ("route_attr3", Ipv4Value, next) \
 )
 
 
 #define insertpacket(local, src, dst, data) \
-app(local)->Insert(packet(addr(local), src, dst, data))
+app(local)->Insert(packet(addr(local), addr(src), addr(dst), data))
 
 
 #define insertroute(local, dst, next) \
-app(local)->Insert(route(addr(local), dst, next))
+app(local)->Insert(route(addr(local), addr(dst), addr(next)))
 
 
 
@@ -85,17 +87,19 @@ void parseLine(const string& line) {
   if (predicate=="//") {
     return;
   }
+
   if (predicate=="route") {
-    int local = std::stoi(words[1], nullptr);
-    int dst = std::stoi(words[2], nullptr);
-    int next = std::stoi(words[3], nullptr);
+    int local = atoi(words[1].c_str());
+    int dst = atoi(words[2].c_str());
+    int next = atoi(words[3].c_str());
     cout << "route(" << local << ", " << dst << ", " << next << ")\n";
     insertroute(local, dst, next);
   }
+
   else if (predicate=="packet") {
-    int local = std::stoi(words[1], nullptr);
-    int src = std::stoi(words[2], nullptr);
-    int dst = std::stoi(words[3], nullptr);
+    int local = atoi(words[1].c_str());
+    int src = atoi(words[2].c_str());
+    int dst = atoi(words[3].c_str());
     string data = words[4];
     cout << "packet(" << local << ", " << src << ", " << dst << ", " << data << ")\n";
     insertpacket(local, src, dst, data);
@@ -104,7 +108,7 @@ void parseLine(const string& line) {
 
 
 void train() {
-  ifstream fp(PacketForward);
+  ifstream fp(Train);
   string line;
 
   while (getline(fp, line)) {
@@ -128,6 +132,8 @@ void Print() {
   PrintRelation(apps, PacketForward::ROUTE);
   PrintRelation(apps, PacketForward::PACKET);
   PrintRelation(apps, PacketForward::RECV);
+  PrintRelation(apps, PacketForward::EDGE);
+  PrintRelation(apps, PacketForward::PROV);
 }
 
 
