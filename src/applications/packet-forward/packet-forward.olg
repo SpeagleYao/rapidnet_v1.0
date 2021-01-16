@@ -10,8 +10,8 @@ materialize(prov, infinity, infinity, keys(1, 2, 3)).
 r1_1 epacket(@N, S, D, DT, L, RID, HVID, BVID) :- packet(@L, S, D, DT), route(@L, D, N),
 					       PID1 := f_sha1("route"+L+D+N), PID := f_append(PID1), 
 					       RID := f_sha1("r1"+N+PID), 
-					       HVID := "packet"+N+S+D,
-					       BVID := "packet"+L+S+D.
+					       HVID := f_sha1("packet"+N+S+D),
+					       BVID := f_sha1("packet"+L+S+D).
 r1_2 packet(@N, S, D, DT) :- epacket(@N, S, D, DT, L, RID, HVID, BVID).
 r1_3 prov(@N, HVID, RID) :- epacket(@N, S, D, DT, L, RID, HVID, BVID).
 r1_4 insertedge(@N, RID1, RID2) :- epacket(@N, S, D, DT, L, RID1, HVID, BVID), prov(@L, BVID, RID2).
@@ -20,8 +20,8 @@ r1_4 insertedge(@N, RID1, RID2) :- epacket(@N, S, D, DT, L, RID1, HVID, BVID), p
 // r2 recv(@L, S, D, DT) :- packet(@L, S, D, DT), D==L.
 r2_1 erecv(@L, S, D, DT, RID, HVID, BVID) :- packet(@L, S, D, DT), D==L,
 			    		     RID := f_sha1("r2"+L),
-			    		     HVID := "recv"+L+S+D,
-					     BVID := "packet"+L+S+D.
+			    		     HVID := f_sha1("recv"+L+S+D),
+					     BVID := f_sha1("packet"+L+S+D).
 r2_2 recv(@L, S, D, DT) :- erecv(@L, S, D, DT, RID, HVID, BVID).
 r2_3 prov(@L, HVID, RID) :- erecv(@L, S, D, DT, RID, HVID, BVID).
 r2_4 insertedge(@L, RID1, RID2) :- erecv(@L, S, D, DT, RID1, HVID, BVID), prov(@L, BVID, RID2).
