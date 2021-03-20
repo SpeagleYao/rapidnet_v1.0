@@ -135,8 +135,12 @@ GetSHA1Digest (string message)
   for (int i = 0; i < SHA_DIGEST_LENGTH; i++)
     {
         sprintf(temp, "%02x", obuf[i]);
+	// cout << temp << endl;
         digest << temp;
     }
+  // cout << SHA_DIGEST_LENGTH << endl;
+  // cout << digest.str() << endl;
+  // cout << endl;
   return digest.str ();
 }
 

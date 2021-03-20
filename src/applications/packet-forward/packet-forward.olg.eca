@@ -1,10 +1,10 @@
-ECA Rule r1_1Eca0Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID)> :- EVENT_INSERT<packet(@L, S, D, DT)>, route(@L, D, N), PID1 := f_sha1(((route+ L)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), HVID := ((packet+ N)+ S)+ D, BVID := ((packet+ L)+ S)+ D.
-ECA Rule r1_1Eca1Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID)> :- EVENT_INSERT<route(@L, D, N)>, packet(@L, S, D, DT), PID1 := f_sha1(((route+ L)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), HVID := ((packet+ N)+ S)+ D, BVID := ((packet+ L)+ S)+ D.
+ECA Rule r1_1Eca0Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID)> :- EVENT_INSERT<packet(@L, S, D, DT)>, route(@L, D, N), PID1 := f_sha1(((route+ L)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), HVID := f_sha1(((packet+ N)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
+ECA Rule r1_1Eca1Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID)> :- EVENT_INSERT<route(@L, D, N)>, packet(@L, S, D, DT), PID1 := f_sha1(((route+ L)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), HVID := f_sha1(((packet+ N)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
 ECA Rule r1_2_eca ACTION_ADD<packet(@N, S, D, DT)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID, HVID, BVID)>.
 ECA Rule r1_3_eca ACTION_ADD<prov(@N, HVID, RID)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID, HVID, BVID)>.
 ECA Rule r1_4Local1_eca ACTION_REMOTE_SEND<r1_4epacketL(N, S, D, DT, @L, RID1, HVID, BVID)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID1, HVID, BVID)>.
 ECA Rule r1_4Local2_eca ACTION_REMOTE_SEND<insertedge(@N, RID1, RID2)> :- EVENT_RECV<r1_4epacketL(N, S, D, DT, @L, RID1, HVID, BVID)>, prov(@L, BVID, RID2).
-ECA Rule r2_1Eca0Ins ACTION_LOCAL_SEND<erecv(@L, S, D, DT, RID, HVID, BVID)> :- EVENT_INSERT<packet(@L, S, D, DT)>, D == L, RID := f_sha1(r2+ L), HVID := ((recv+ L)+ S)+ D, BVID := ((packet+ L)+ S)+ D.
+ECA Rule r2_1Eca0Ins ACTION_LOCAL_SEND<erecv(@L, S, D, DT, RID, HVID, BVID)> :- EVENT_INSERT<packet(@L, S, D, DT)>, D == L, RID := f_sha1(r2+ L), HVID := f_sha1(((recv+ L)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
 ECA Rule r2_2_eca ACTION_ADD<recv(@L, S, D, DT)> :- EVENT_RECV<erecv(@L, S, D, DT, RID, HVID, BVID)>.
 ECA Rule r2_3_eca ACTION_ADD<prov(@L, HVID, RID)> :- EVENT_RECV<erecv(@L, S, D, DT, RID, HVID, BVID)>.
 ECA Rule r2_4_eca ACTION_LOCAL_SEND<insertedge(@L, RID1, RID2)> :- EVENT_RECV<erecv(@L, S, D, DT, RID1, HVID, BVID)>, prov(@L, BVID, RID2).

@@ -204,22 +204,24 @@ PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
         VarExpr::New ("PID")))));
 
   result->Assign (Assignor::New ("HVID",
-    Operation::New (RN_PLUS,
+    FSha1::New (
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("packet")),
-          VarExpr::New ("route_attr3")),
-        VarExpr::New ("packet_attr2")),
-      VarExpr::New ("packet_attr3"))));
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("packet")),
+            VarExpr::New ("route_attr3")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("packet_attr3")))));
 
   result->Assign (Assignor::New ("BVID",
-    Operation::New (RN_PLUS,
+    FSha1::New (
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("packet")),
-          VarExpr::New ("packet_attr1")),
-        VarExpr::New ("packet_attr2")),
-      VarExpr::New ("packet_attr3"))));
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("packet")),
+            VarExpr::New ("packet_attr1")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("packet_attr3")))));
 
   result = result->Project (
     EPACKET,
@@ -241,6 +243,11 @@ PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
       "epacket_attr7",
       "epacket_attr8",
       RN_DEST));
+
+  // cout << packet << endl;
+  // result->PrintAllTuples(cout);
+  // cout << "Send" << endl;
+  // cout << endl;
 
   Send (result);
 }
@@ -280,22 +287,24 @@ PacketForward::R1_1Eca1Ins (Ptr<Tuple> route)
         VarExpr::New ("PID")))));
 
   result->Assign (Assignor::New ("HVID",
-    Operation::New (RN_PLUS,
+    FSha1::New (
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("packet")),
-          VarExpr::New ("route_attr3")),
-        VarExpr::New ("packet_attr2")),
-      VarExpr::New ("route_attr2"))));
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("packet")),
+            VarExpr::New ("route_attr3")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("route_attr2")))));
 
   result->Assign (Assignor::New ("BVID",
-    Operation::New (RN_PLUS,
+    FSha1::New (
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("packet")),
-          VarExpr::New ("route_attr1")),
-        VarExpr::New ("packet_attr2")),
-      VarExpr::New ("route_attr2"))));
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("packet")),
+            VarExpr::New ("route_attr1")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("route_attr2")))));
 
   result = result->Project (
     EPACKET,
@@ -432,22 +441,24 @@ PacketForward::R2_1Eca0Ins (Ptr<Tuple> packet)
         VarExpr::New ("packet_attr1")))));
 
   result->Assign (Assignor::New ("HVID",
-    Operation::New (RN_PLUS,
+    FSha1::New (
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("recv")),
-          VarExpr::New ("packet_attr1")),
-        VarExpr::New ("packet_attr2")),
-      VarExpr::New ("packet_attr3"))));
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("recv")),
+            VarExpr::New ("packet_attr1")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("packet_attr3")))));
 
   result->Assign (Assignor::New ("BVID",
-    Operation::New (RN_PLUS,
+    FSha1::New (
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("packet")),
-          VarExpr::New ("packet_attr1")),
-        VarExpr::New ("packet_attr2")),
-      VarExpr::New ("packet_attr3"))));
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("packet")),
+            VarExpr::New ("packet_attr1")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("packet_attr3")))));
 
   result = result->Select (Selector::New (
     Operation::New (RN_EQ,

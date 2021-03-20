@@ -36,11 +36,8 @@
 #include <ctime>
 
 
-#define Design \
+#define Train \
 "./data/packet-forward/packet-forward.db"
-
-#define Test1 \
-"./data/packet-forward/test.db"
 
 #define packet(local, src, dst, data) \
 tuple (PacketForward::PACKET, \
@@ -76,8 +73,7 @@ using namespace ns3::rapidnet::packetforward;
 
 ApplicationContainer apps;
 
-vector<vector<string> > inputdata;;
-int g_i = 0;
+
 
 void parseLine(const string& line) {
   vector<string> splits;
@@ -95,13 +91,12 @@ void parseLine(const string& line) {
     return;
   }
 
-  /*
   if (predicate=="route") {
     int local = atoi(words[1].c_str());
     int dst = atoi(words[2].c_str());
     int next = atoi(words[3].c_str());
-    // cout << "route(" << local << ", " << dst << ", " << next << ")\n";
-    // insertroute(local, dst, next);
+    cout << "route(" << local << ", " << dst << ", " << next << ")\n";
+    insertroute(local, dst, next);
   }
 
   else if (predicate=="packet") {
@@ -113,19 +108,15 @@ void parseLine(const string& line) {
     stringstream ss;
     ss << now;
     data += ss.str();
-    // cout << "packet(" << local << ", " << src << ", " << dst << ", " << data << ")\n";
-    // insertpacket(local, src, dst, data);
-    // usleep(100000);
+    cout << "packet(" << local << ", " << src << ", " << dst << ", " << data << ")\n";
+    insertpacket(local, src, dst, data);
+    usleep(100000);
   }
-  */
-
-  inputdata.push_back(splits);
-
 }
 
 
 void train() {
-  ifstream fp(Test1);
+  ifstream fp(Train);
   string line;
 
   while (getline(fp, line)) {
@@ -144,70 +135,26 @@ void train() {
 }
 
 
-void inserttuples() {
-  vector<string> tupledata = inputdata[g_i];
-  if (tupledata[0]=="route") {
-    int local = atoi(tupledata[1].c_str());
-    int dst = atoi(tupledata[2].c_str());
-    int next = atoi(tupledata[3].c_str());
-    // cout << local << ' ' << dst << ' ' << next << endl;    
-    insertroute(local, dst, next);
-  }  
-  else if (tupledata[0]=="packet") {
-    // cout << "packet" << endl;
-    // cout << tupledata.size() << endl;
-    int local = atoi(tupledata[1].c_str());
-    int src = atoi(tupledata[2].c_str());
-    int dst = atoi(tupledata[3].c_str());
-    string data = tupledata[4];
-    // cout << local << src << dst << data << endl;
-    clock_t now = clock();
-    // cout << now << endl;
-    stringstream ss;
-    ss << now;
-    data += ss.str();
-    // cout << local << ' ' << src << ' ' << dst << ' ' << data << endl;
-    insertpacket(local, src, dst, data);
-    usleep(10);
-  }
-  g_i++;
-}
-
 
 void Print() {
-  // PrintRelation(apps, PacketForward::ROUTE);
-  // PrintRelation(apps, PacketForward::PACKET);
-  // PrintRelation(apps, PacketForward::RECV);
+  PrintRelation(apps, PacketForward::ROUTE);
+  PrintRelation(apps, PacketForward::PACKET);
+  PrintRelation(apps, PacketForward::RECV);
   PrintRelation(apps, PacketForward::EDGE);
-  // PrintRelation(apps, PacketForward::PROV);
+  PrintRelation(apps, PacketForward::PROV);
 }
 
 
 int main(int argc, char *argv[]){
-	
-	train();
-	/*
-	for (int i=0; i<inputdata.size(); i++) {
-	  for (int j=0; j<inputdata[i].size(); j++) {
-	    cout << inputdata[i][j] << ' ';
-	  }
-	  cout << endl;
-	}
-	*/
 
-	apps = InitRapidNetApps (50, Create<PacketForwardHelper> ());
+	apps = InitRapidNetApps (5, Create<PacketForwardHelper> ());
 	SetMaxJitter (apps, 0.000);
 
 	apps.Start (Seconds (0.0));
-	apps.Stop (Seconds (10000.0));
+	apps.Stop (Seconds (10.0));
 
-	// schedule (1.0, train);
-
-
-	for (int i=0; i<inputdata.size(); i++) {
-	schedule (3.0+i, inserttuples);
-	}
-        schedule (9999.0, Print);
+	schedule (2.0, train);
+  schedule (5.0, Print);
 
 	Simulator::Run ();
 	Simulator::Destroy ();

@@ -181,7 +181,7 @@ FMember::New (Ptr<Expression> lst, Ptr<Expression> item)
 Ptr<Value>
 FNow::Eval (Ptr<Tuple> tuple)
 {
-	return RealValue::New (Simulator::Now ().GetSeconds ());
+	return RealValue::New (Simulator::Now ().GetPicoSeconds ());
 }
 
 Ptr<FunctionExpr>

@@ -278,6 +278,7 @@ PacketSocket::GetTxAvailable (void) const
 int
 PacketSocket::SendTo (Ptr<Packet> p, uint32_t flags, const Address &address)
 {
+	std::cout << p << std::endl;
   NS_LOG_FUNCTION (this << p << flags << address);
   PacketSocketAddress ad;
   if (m_state == STATE_CLOSED)
