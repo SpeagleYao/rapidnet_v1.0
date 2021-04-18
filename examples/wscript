@@ -248,5 +248,11 @@ def build(bld):
     obj = bld.create_ns3_program('packet-forward-test')
     obj.source = 'packet-forward-test.cc'
 
+    obj = bld.create_ns3_program('packet-forward-prob-test')
+    obj.source = 'packet-forward-prob-test.cc'
+
+    # obj = bld.create_ns3_program('trust-prob-test')
+    # obj.source = 'trust-prob-test.cc'
+
 
 

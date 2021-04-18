@@ -72,7 +72,8 @@ all_modules = (
     'applications/smoke-query',
     'applications/hyper-text-class',
     'applications/hyper-text-class-query',
-    'applications/packet-forward'
+    'applications/packet-forward',
+    # 'applications/trust-prob'
     )
 
 def set_options(opt):

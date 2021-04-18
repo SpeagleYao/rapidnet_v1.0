@@ -1,0 +1,2 @@
+route 1 2 2
+packet 1 1 2 data 0.5

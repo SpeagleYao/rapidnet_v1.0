@@ -1,13 +1,13 @@
-ECA Rule r1_1Eca0Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID)> :- EVENT_INSERT<packet(@L, S, D, DT)>, route(@L, D, N), PID1 := f_sha1(((route+ L)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), HVID := f_sha1(((packet+ N)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
-ECA Rule r1_1Eca1Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID)> :- EVENT_INSERT<route(@L, D, N)>, packet(@L, S, D, DT), PID1 := f_sha1(((route+ L)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), HVID := f_sha1(((packet+ N)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
-ECA Rule r1_2_eca ACTION_ADD<packet(@N, S, D, DT)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID, HVID, BVID)>.
-ECA Rule r1_3_eca ACTION_ADD<prov(@N, HVID, RID)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID, HVID, BVID)>.
-ECA Rule r1_4Local1_eca ACTION_REMOTE_SEND<r1_4epacketL(N, S, D, DT, @L, RID1, HVID, BVID)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID1, HVID, BVID)>.
-ECA Rule r1_4Local2_eca ACTION_REMOTE_SEND<insertedge(@N, RID1, RID2)> :- EVENT_RECV<r1_4epacketL(N, S, D, DT, @L, RID1, HVID, BVID)>, prov(@L, BVID, RID2).
-ECA Rule r2_1Eca0Ins ACTION_LOCAL_SEND<erecv(@L, S, D, DT, RID, HVID, BVID)> :- EVENT_INSERT<packet(@L, S, D, DT)>, D == L, RID := f_sha1(r2+ L), HVID := f_sha1(((recv+ L)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
-ECA Rule r2_2_eca ACTION_ADD<recv(@L, S, D, DT)> :- EVENT_RECV<erecv(@L, S, D, DT, RID, HVID, BVID)>.
-ECA Rule r2_3_eca ACTION_ADD<prov(@L, HVID, RID)> :- EVENT_RECV<erecv(@L, S, D, DT, RID, HVID, BVID)>.
-ECA Rule r2_4_eca ACTION_LOCAL_SEND<insertedge(@L, RID1, RID2)> :- EVENT_RECV<erecv(@L, S, D, DT, RID1, HVID, BVID)>, prov(@L, BVID, RID2).
-ECA Rule re_1_eca ACTION_LOCAL_SEND<edgeCount(@Local, RID1, RID2, COUNT< * >)> :- EVENT_RECV<insertedge(@Local, RID1, RID2)>, edge(@Local, RID1, RID2, N).
-ECA Rule re_2_eca ACTION_ADD<edge(@Local, RID1, RID2, N)> :- EVENT_RECV<edgeCount(@Local, RID1, RID2, C)>, C == 0, N := 1.
-ECA Rule re_3_eca ACTION_ADD<edge(@Local, RID1, RID2, N1)> :- EVENT_RECV<edgeCount(@Local, RID1, RID2, C)>, edge(@Local, RID1, RID2, N), C > 0, N1 := N+ 1.
+ECA Rule r1_1Eca0Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID, RContent)> :- EVENT_INSERT<packet(@L, S, D, DT)>, route(@L, D, N), PID1 := f_sha1((((route+ L)+ S)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), RContent := ((((((r1_+ N)+ _route_)+ L)+ _)+ S)+ _)+ D, HVID := f_sha1(((packet+ N)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
+ECA Rule r1_1Eca1Ins ACTION_REMOTE_SEND<epacket(@N, S, D, DT, L, RID, HVID, BVID, RContent)> :- EVENT_INSERT<route(@L, D, N)>, packet(@L, S, D, DT), PID1 := f_sha1((((route+ L)+ S)+ D)+ N), PID := f_append(PID1), RID := f_sha1((r1+ N)+ PID), RContent := ((((((r1_+ N)+ _route_)+ L)+ _)+ S)+ _)+ D, HVID := f_sha1(((packet+ N)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
+ECA Rule r1_2_eca ACTION_ADD<packet(@N, S, D, DT)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID, HVID, BVID, RContent)>.
+ECA Rule r1_3_eca ACTION_ADD<prov(@N, HVID, RID, RContent)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID, HVID, BVID, RContent)>.
+ECA Rule r1_4Local1_eca ACTION_REMOTE_SEND<r1_4epacketL(N, S, D, DT, @L, RID1, HVID, BVID, RContent1)> :- EVENT_RECV<epacket(@N, S, D, DT, L, RID1, HVID, BVID, RContent1)>.
+ECA Rule r1_4Local2_eca ACTION_REMOTE_SEND<insertedge(@N, RID1, RID2, RContent1, RContent2)> :- EVENT_RECV<r1_4epacketL(N, S, D, DT, @L, RID1, HVID, BVID, RContent1)>, prov(@L, BVID, RID2, RContent2).
+ECA Rule r2_1Eca0Ins ACTION_LOCAL_SEND<erecv(@L, S, D, DT, RID, HVID, BVID, RContent)> :- EVENT_INSERT<packet(@L, S, D, DT)>, D == L, RID := f_sha1(((r2+ L)+ S)+ D), RContent := ((((r2_+ L)+ _packet_)+ S)+ _)+ D, HVID := f_sha1(((recv+ L)+ S)+ D), BVID := f_sha1(((packet+ L)+ S)+ D).
+ECA Rule r2_2_eca ACTION_ADD<recv(@L, S, D, DT)> :- EVENT_RECV<erecv(@L, S, D, DT, RID, HVID, BVID, RContent)>.
+ECA Rule r2_3_eca ACTION_ADD<prov(@L, HVID, RID, RContent)> :- EVENT_RECV<erecv(@L, S, D, DT, RID, HVID, BVID, RContent)>.
+ECA Rule r2_4_eca ACTION_LOCAL_SEND<insertedge(@L, RID1, RID2, RContent1, RContent2)> :- EVENT_RECV<erecv(@L, S, D, DT, RID1, HVID, BVID, RContent1)>, prov(@L, BVID, RID2, RContent2).
+ECA Rule re_1_eca ACTION_LOCAL_SEND<edgeCount(@Local, RID1, RID2, COUNT< * >, RContent1, RContent2)> :- EVENT_RECV<insertedge(@Local, RID1, RID2, RContent1, RContent2)>, edge(@Local, RID1, RID2, N, RContent1, RContent2).
+ECA Rule re_2_eca ACTION_ADD<edge(@Local, RID1, RID2, N, RContent1, RContent2)> :- EVENT_RECV<edgeCount(@Local, RID1, RID2, C, RContent1, RContent2)>, C == 0, N := 1.
+ECA Rule re_3_eca ACTION_ADD<edge(@Local, RID1, RID2, N1, RContent1, RContent2)> :- EVENT_RECV<edgeCount(@Local, RID1, RID2, C, RContent1, RContent2)>, edge(@Local, RID1, RID2, N, RContent1, RContent2), C > 0, N1 := N+ 1.

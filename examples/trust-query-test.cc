@@ -175,11 +175,12 @@ TupleToQuery ()
 void Print(){
 	// PrintRelation(apps, Trust::TRUST);
   // PrintRelation(apps, Trust::TRUSTPATH);
-  PrintRelation(apps, Trust::MUTUALTRUSTPATH);
+  // PrintRelation(apps, Trust::MUTUALTRUSTPATH);
 
 
 	// PrintRelation (queryapps, TrustQuery::TUPLE);
   PrintRelation (queryapps, TrustQuery::RECORDS); //modify: add col tuple's vid (hash)
+  PrintRelation (apps, Trust::PROV);
 }
 
 
@@ -207,7 +208,7 @@ int main(int argc, char *argv[]){
 
     schedule (1.0, TupleToQuery);	
     schedule (2.0, train);
-    schedule (5.0, Print);
+    schedule (9.9, Print);
 
     Simulator::Run ();
     Simulator::Destroy ();

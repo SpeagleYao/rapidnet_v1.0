@@ -34,6 +34,7 @@
 #include <bits/stdc++.h>
 #include <boost/algorithm/string.hpp>
 #include <ctime>
+#include <stdlib.h>
 
 
 #define Design \
@@ -41,6 +42,9 @@
 
 #define Test1 \
 "./data/packet-forward/test.db"
+
+#define Testp \
+"./data/packet-forward/test_p.db"
 
 #define packet(local, src, dst, data) \
 tuple (PacketForward::PACKET, \
@@ -76,8 +80,13 @@ using namespace ns3::rapidnet::packetforward;
 
 ApplicationContainer apps;
 
-vector<vector<string> > inputdata;;
-int g_i = 0;
+vector<vector<string> > routes;
+vector<vector<string> > packets;
+int r_i = 0;
+int p_i = 0;
+
+int max_rounds = 100;
+int r = 0;
 
 void parseLine(const string& line) {
   vector<string> splits;
@@ -95,37 +104,19 @@ void parseLine(const string& line) {
     return;
   }
 
-  /*
   if (predicate=="route") {
-    int local = atoi(words[1].c_str());
-    int dst = atoi(words[2].c_str());
-    int next = atoi(words[3].c_str());
-    // cout << "route(" << local << ", " << dst << ", " << next << ")\n";
-    // insertroute(local, dst, next);
+    routes.push_back(words);
   }
 
   else if (predicate=="packet") {
-    int local = atoi(words[1].c_str());
-    int src = atoi(words[2].c_str());
-    int dst = atoi(words[3].c_str());
-    string data = words[4];
-    clock_t now = clock();
-    stringstream ss;
-    ss << now;
-    data += ss.str();
-    // cout << "packet(" << local << ", " << src << ", " << dst << ", " << data << ")\n";
-    // insertpacket(local, src, dst, data);
-    // usleep(100000);
+    packets.push_back(words);
   }
-  */
-
-  inputdata.push_back(splits);
 
 }
 
 
 void train() {
-  ifstream fp(Test1);
+  ifstream fp(Testp);
   string line;
 
   while (getline(fp, line)) {
@@ -144,33 +135,39 @@ void train() {
 }
 
 
-void inserttuples() {
-  vector<string> tupledata = inputdata[g_i];
-  if (tupledata[0]=="route") {
-    int local = atoi(tupledata[1].c_str());
-    int dst = atoi(tupledata[2].c_str());
-    int next = atoi(tupledata[3].c_str());
-    // cout << local << ' ' << dst << ' ' << next << endl;    
-    insertroute(local, dst, next);
-  }  
-  else if (tupledata[0]=="packet") {
-    // cout << "packet" << endl;
-    // cout << tupledata.size() << endl;
+void insertroutetuples() {
+  vector<string> tupledata = routes[r_i];
+  int local = atoi(tupledata[1].c_str());
+  int dst = atoi(tupledata[2].c_str());
+  int next = atoi(tupledata[3].c_str());
+  // cout << local << ' ' << dst << ' ' << next << endl;    
+  insertroute(local, dst, next);
+  r_i++;
+}
+
+
+void insertpackettuples() {
+    vector<string> tupledata = packets[p_i%packets.size()];
     int local = atoi(tupledata[1].c_str());
     int src = atoi(tupledata[2].c_str());
     int dst = atoi(tupledata[3].c_str());
     string data = tupledata[4];
+    double prob = atof(tupledata[5].c_str());
+    // double prob = 0.5;
     // cout << local << src << dst << data << endl;
     clock_t now = clock();
     // cout << now << endl;
     stringstream ss;
-    ss << now;
+    ss << p_i/packets.size();
+    // data += ss.str();
     data += ss.str();
     // cout << local << ' ' << src << ' ' << dst << ' ' << data << endl;
-    insertpacket(local, src, dst, data);
-    usleep(10);
-  }
-  g_i++;
+    double sample = rand()*1.0/RAND_MAX;
+    if (sample<prob) {
+      insertpacket(local, src, dst, data);
+      // usleep(10);
+    }
+    p_i++;
 }
 
 
@@ -195,6 +192,8 @@ int main(int argc, char *argv[]){
 	}
 	*/
 
+	clock_t t1 = clock();
+
 	apps = InitRapidNetApps (50, Create<PacketForwardHelper> ());
 	SetMaxJitter (apps, 0.000);
 
@@ -204,13 +203,23 @@ int main(int argc, char *argv[]){
 	// schedule (1.0, train);
 
 
-	for (int i=0; i<inputdata.size(); i++) {
-	schedule (3.0+i*0.1, inserttuples);
+	for (int i=0; i<routes.size(); i++) {
+	  schedule (3.0+i*0.1, insertroutetuples);
 	}
-        schedule (9999.0, Print);
+	
+	for (r=0; r<max_rounds; r++) {
+	  for (int i=0; i<packets.size(); i++) {
+	    schedule (3.0+routes.size()*0.1+0.1*(r*packets.size()+i), insertpackettuples);
+	  }
+	}
+
+	schedule (9999.0, Print);
 
 	Simulator::Run ();
 	Simulator::Destroy ();
+
+	clock_t t2 = clock();
+	cout << (t2-t1)*1.0/CLOCKS_PER_SEC << endl;
 
 	return 0;
 

@@ -186,8 +186,10 @@ PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
           Operation::New (RN_PLUS,
-            ValueExpr::New (StrValue::New ("route")),
-            VarExpr::New ("packet_attr1")),
+            Operation::New (RN_PLUS,
+              ValueExpr::New (StrValue::New ("route")),
+              VarExpr::New ("packet_attr1")),
+            VarExpr::New ("packet_attr2")),
           VarExpr::New ("packet_attr3")),
         VarExpr::New ("route_attr3")))));
 
@@ -202,6 +204,23 @@ PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
           ValueExpr::New (StrValue::New ("r1")),
           VarExpr::New ("route_attr3")),
         VarExpr::New ("PID")))));
+
+  result->Assign (Assignor::New ("RContent",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            Operation::New (RN_PLUS,
+              Operation::New (RN_PLUS,
+                Operation::New (RN_PLUS,
+                  ValueExpr::New (StrValue::New ("r1_")),
+                  VarExpr::New ("route_attr3")),
+                ValueExpr::New (StrValue::New ("_route_"))),
+              VarExpr::New ("packet_attr1")),
+            ValueExpr::New (StrValue::New ("_"))),
+          VarExpr::New ("packet_attr2")),
+        ValueExpr::New (StrValue::New ("_"))),
+      VarExpr::New ("packet_attr3"))));
 
   result->Assign (Assignor::New ("HVID",
     FSha1::New (
@@ -233,6 +252,7 @@ PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
       "RID",
       "HVID",
       "BVID",
+      "RContent",
       "route_attr3"),
     strlist ("epacket_attr1",
       "epacket_attr2",
@@ -242,12 +262,8 @@ PacketForward::R1_1Eca0Ins (Ptr<Tuple> packet)
       "epacket_attr6",
       "epacket_attr7",
       "epacket_attr8",
+      "epacket_attr9",
       RN_DEST));
-
-  // cout << packet << endl;
-  // result->PrintAllTuples(cout);
-  // cout << "Send" << endl;
-  // cout << endl;
 
   Send (result);
 }
@@ -269,8 +285,10 @@ PacketForward::R1_1Eca1Ins (Ptr<Tuple> route)
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
           Operation::New (RN_PLUS,
-            ValueExpr::New (StrValue::New ("route")),
-            VarExpr::New ("route_attr1")),
+            Operation::New (RN_PLUS,
+              ValueExpr::New (StrValue::New ("route")),
+              VarExpr::New ("route_attr1")),
+            VarExpr::New ("packet_attr2")),
           VarExpr::New ("route_attr2")),
         VarExpr::New ("route_attr3")))));
 
@@ -285,6 +303,23 @@ PacketForward::R1_1Eca1Ins (Ptr<Tuple> route)
           ValueExpr::New (StrValue::New ("r1")),
           VarExpr::New ("route_attr3")),
         VarExpr::New ("PID")))));
+
+  result->Assign (Assignor::New ("RContent",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            Operation::New (RN_PLUS,
+              Operation::New (RN_PLUS,
+                Operation::New (RN_PLUS,
+                  ValueExpr::New (StrValue::New ("r1_")),
+                  VarExpr::New ("route_attr3")),
+                ValueExpr::New (StrValue::New ("_route_"))),
+              VarExpr::New ("route_attr1")),
+            ValueExpr::New (StrValue::New ("_"))),
+          VarExpr::New ("packet_attr2")),
+        ValueExpr::New (StrValue::New ("_"))),
+      VarExpr::New ("route_attr2"))));
 
   result->Assign (Assignor::New ("HVID",
     FSha1::New (
@@ -316,6 +351,7 @@ PacketForward::R1_1Eca1Ins (Ptr<Tuple> route)
       "RID",
       "HVID",
       "BVID",
+      "RContent",
       "route_attr3"),
     strlist ("epacket_attr1",
       "epacket_attr2",
@@ -325,6 +361,7 @@ PacketForward::R1_1Eca1Ins (Ptr<Tuple> route)
       "epacket_attr6",
       "epacket_attr7",
       "epacket_attr8",
+      "epacket_attr9",
       RN_DEST));
 
   Send (result);
@@ -362,10 +399,12 @@ PacketForward::R1_3_eca (Ptr<Tuple> epacket)
     PROV,
     strlist ("epacket_attr1",
       "epacket_attr7",
-      "epacket_attr6"),
+      "epacket_attr6",
+      "epacket_attr9"),
     strlist ("prov_attr1",
       "prov_attr2",
-      "prov_attr3"));
+      "prov_attr3",
+      "prov_attr4"));
 
   Insert (result);
 }
@@ -387,6 +426,7 @@ PacketForward::R1_4Local1_eca (Ptr<Tuple> epacket)
       "epacket_attr6",
       "epacket_attr7",
       "epacket_attr8",
+      "epacket_attr9",
       "epacket_attr5"),
     strlist ("r1_4epacketL_attr1",
       "r1_4epacketL_attr2",
@@ -396,6 +436,7 @@ PacketForward::R1_4Local1_eca (Ptr<Tuple> epacket)
       "r1_4epacketL_attr6",
       "r1_4epacketL_attr7",
       "r1_4epacketL_attr8",
+      "r1_4epacketL_attr9",
       RN_DEST));
 
   Send (result);
@@ -418,10 +459,14 @@ PacketForward::R1_4Local2_eca (Ptr<Tuple> r1_4epacketL)
     strlist ("r1_4epacketL_attr1",
       "r1_4epacketL_attr6",
       "prov_attr3",
+      "r1_4epacketL_attr9",
+      "prov_attr4",
       "r1_4epacketL_attr1"),
     strlist ("insertedge_attr1",
       "insertedge_attr2",
       "insertedge_attr3",
+      "insertedge_attr4",
+      "insertedge_attr5",
       RN_DEST));
 
   Send (result);
@@ -437,8 +482,25 @@ PacketForward::R2_1Eca0Ins (Ptr<Tuple> packet)
   result->Assign (Assignor::New ("RID",
     FSha1::New (
       Operation::New (RN_PLUS,
-        ValueExpr::New (StrValue::New ("r2")),
-        VarExpr::New ("packet_attr1")))));
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            ValueExpr::New (StrValue::New ("r2")),
+            VarExpr::New ("packet_attr1")),
+          VarExpr::New ("packet_attr2")),
+        VarExpr::New ("packet_attr3")))));
+
+  result->Assign (Assignor::New ("RContent",
+    Operation::New (RN_PLUS,
+      Operation::New (RN_PLUS,
+        Operation::New (RN_PLUS,
+          Operation::New (RN_PLUS,
+            Operation::New (RN_PLUS,
+              ValueExpr::New (StrValue::New ("r2_")),
+              VarExpr::New ("packet_attr1")),
+            ValueExpr::New (StrValue::New ("_packet_"))),
+          VarExpr::New ("packet_attr2")),
+        ValueExpr::New (StrValue::New ("_"))),
+      VarExpr::New ("packet_attr3"))));
 
   result->Assign (Assignor::New ("HVID",
     FSha1::New (
@@ -473,14 +535,16 @@ PacketForward::R2_1Eca0Ins (Ptr<Tuple> packet)
       "packet_attr4",
       "RID",
       "HVID",
-      "BVID"),
+      "BVID",
+      "RContent"),
     strlist ("erecv_attr1",
       "erecv_attr2",
       "erecv_attr3",
       "erecv_attr4",
       "erecv_attr5",
       "erecv_attr6",
-      "erecv_attr7"));
+      "erecv_attr7",
+      "erecv_attr8"));
 
   SendLocal (result);
 }
@@ -517,10 +581,12 @@ PacketForward::R2_3_eca (Ptr<Tuple> erecv)
     PROV,
     strlist ("erecv_attr1",
       "erecv_attr6",
-      "erecv_attr5"),
+      "erecv_attr5",
+      "erecv_attr8"),
     strlist ("prov_attr1",
       "prov_attr2",
-      "prov_attr3"));
+      "prov_attr3",
+      "prov_attr4"));
 
   Insert (result);
 }
@@ -541,10 +607,14 @@ PacketForward::R2_4_eca (Ptr<Tuple> erecv)
     INSERTEDGE,
     strlist ("erecv_attr1",
       "erecv_attr5",
-      "prov_attr3"),
+      "prov_attr3",
+      "erecv_attr8",
+      "prov_attr4"),
     strlist ("insertedge_attr1",
       "insertedge_attr2",
-      "insertedge_attr3"));
+      "insertedge_attr3",
+      "insertedge_attr4",
+      "insertedge_attr5"));
 
   SendLocal (result);
 }
@@ -558,24 +628,29 @@ PacketForward::Re_1_eca (Ptr<Tuple> insertedge)
 
   result = GetRelation (EDGE)->Join (
     insertedge,
-    strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
-    strlist ("insertedge_attr1", "insertedge_attr2", "insertedge_attr3"));
+    strlist ("edge_attr1", "edge_attr5", "edge_attr6", "edge_attr2", "edge_attr3"),
+    strlist ("insertedge_attr1", "insertedge_attr4", "insertedge_attr5", "insertedge_attr2", "insertedge_attr3"));
+
 
   result = AggWrapCount::New ()->Compute (result, insertedge);
+
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
-
 
   result = result->Project (
     EDGECOUNT,
     strlist ("Local",
       "insertedge_attr2",
       "insertedge_attr3",
-      "count"),
+      "count",
+      "insertedge_attr4",
+      "insertedge_attr5"),
     strlist ("edgeCount_attr1",
       "edgeCount_attr2",
       "edgeCount_attr3",
-      "edgeCount_attr4"));
+      "edgeCount_attr4",
+      "edgeCount_attr5",
+      "edgeCount_attr6"));
 
   SendLocal (result);
 }
@@ -603,11 +678,15 @@ PacketForward::Re_2_eca (Ptr<Tuple> edgeCount)
     strlist ("Local",
       "edgeCount_attr2",
       "edgeCount_attr3",
-      "N"),
+      "N",
+      "edgeCount_attr5",
+      "edgeCount_attr6"),
     strlist ("edge_attr1",
       "edge_attr2",
       "edge_attr3",
-      "edge_attr4"));
+      "edge_attr4",
+      "edge_attr5",
+      "edge_attr6"));
 
   Insert (result);
 }
@@ -621,8 +700,8 @@ PacketForward::Re_3_eca (Ptr<Tuple> edgeCount)
 
   result = GetRelation (EDGE)->Join (
     edgeCount,
-    strlist ("edge_attr1", "edge_attr2", "edge_attr3"),
-    strlist ("edgeCount_attr1", "edgeCount_attr2", "edgeCount_attr3"));
+    strlist ("edge_attr1", "edge_attr5", "edge_attr6", "edge_attr2", "edge_attr3"),
+    strlist ("edgeCount_attr1", "edgeCount_attr5", "edgeCount_attr6", "edgeCount_attr2", "edgeCount_attr3"));
 
   result->Assign (Assignor::New ("N1",
     Operation::New (RN_PLUS,
@@ -642,11 +721,15 @@ PacketForward::Re_3_eca (Ptr<Tuple> edgeCount)
     strlist ("Local",
       "edgeCount_attr2",
       "edgeCount_attr3",
-      "N1"),
+      "N1",
+      "edgeCount_attr5",
+      "edgeCount_attr6"),
     strlist ("edge_attr1",
       "edge_attr2",
       "edge_attr3",
-      "edge_attr4"));
+      "edge_attr4",
+      "edge_attr5",
+      "edge_attr6"));
 
   Insert (result);
 }

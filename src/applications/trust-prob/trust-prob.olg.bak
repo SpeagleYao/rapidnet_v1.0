@@ -1,0 +1,58 @@
+materialize(trust, infinity, infinity, keys(1, 2:int32, 3:int32, 4:int32)).
+materialize(trustPath, infinity, infinity, keys(1, 2:int32, 3:int32, 4:int32)).
+materialize(trustEvent, infinity, infinity, keys(1, 2:int32, 3:int32, 4:int32)).
+materialize(mutualTrustPath, infinity, infinity, keys(1, 2:int32, 3:int32, 4:int32)).
+
+materialize(edge, infinity, infinity, keys(1, 2, 3)).
+materialize(prov, infinity, infinity, keys(1, 2, 3)).
+
+// ra 1.0 trustEvent(@Local, P1, P2) :- trustPath(@Local, P1, P2).
+ra_1 1.0 etrustEvent(@Local, P1, P2, RID, HVID, BVID, RContent, R) :- trustPath(@Local, P1, P2, R), 
+				    			       RContent := "ra_trustPath_"+P1+"_"+P2,
+				                               RID := f_sha1("ra"+"trustPath"+P1+P2),
+				                               HVID := f_sha1("trustEvent"+P1+P2),
+				                               BVID := f_sha1("trustPath"+P1+P2).
+ra_2 trustEvent(@Local, P1, P2, R) :- etrustEvent(@Local, P1, P2, RID, HVID, BVID, RContent, R).
+ra_3 prov(@Local, HVID, RID, RContent) :- etrustEvent(@Local, P1, P2, RID, HVID, BVID, RContent, R).
+ra_4 insertedge(@Local, RID1, RID2, RContent1, RContent2) :- etrustEvent(@Local, P1, P2, RID1, HVID, BVID, RContent1, R), prov(@Local, BVID, RID2, RContent2).
+
+
+// r1 1.0 trustPath(@Local, P1, P2) :- trust(@Local, P1, P2).
+r1_1 1.0 etrustPath(@Local, P1, P2, RID, HVID, BVID, RContent, R) :- trust(@Local, P1, P2, R),
+								  RContent := "r1_trust_"+P1+"_"+P2,
+								  RID := f_sha1("r1"+"trust"+P1+P2),
+								  HVID := f_sha1("trustPath"+P1+P2),
+								  BVID := f_sha1("trust"+P1+P2).
+r1_2 trustPath(@Local, P1, P2, R) :- etrustPath(@Local, P1, P2, RID, HVID, BVID, RContent, R).
+r1_3 prov(@Local, HVID, RID, RContent) :- etrustPath(@Local, P1, P2, RID, HVID, BVID, RContent, R).
+
+
+// r2 0.8 trustPath(@Local, P1, P3) :- trust(@Local, P1, P2), trustPath(@Local, P2, P3), P1!=P3.
+r2_1 0.8 etrustPath(@Local, P1, P3, RID, HVID, BVID, RContent, R) :- trust(@Local, P1, P2, R), trustPath(@Local, P2, P3, R), P1!=P3,
+								  RContent := "r2_trust_"+P1+"_"+P2+"_trustPath_"+P2+"_"+P3,
+								  RID := f_sha1("r2"+"trust"+P1+P2+"trustPath"+P2+P3),
+								  HVID := f_sha1("trustPath"+P1+P3),
+								  BVID := f_sha1("trustPath"+P2+P3).
+r2_2 trustPath(@Local, P1, P3, R) :- etrustPath(@Local, P1, P3, RID, HVID, BVID, RContent, R).
+r2_3 prov(@Local, HVID, RID, RContent) :- etrustPath(@Local, P1, P3, RID, HVID, BVID, RContent, R).
+r2_4 insertedge(@Local, RID1, RID2, RContent1, RContent2) :- etrustPath(@Local, P1, P3, RID1, HVID, BVID, RContent1, R), prov(@Local, BVID, RID2, RContent2).
+
+
+
+// r3 0.8 mutualTrustPath(@Local, P1, P2) :- trustEvent(@Local, P1, P2), trustPath(@Local, P2, P1).
+r3_1 1.0 emutualTrustPath(@Local, P1, P2, RID, HVID, BVID1, BVID2, RContent, R) :- trustEvent(@Local, P1, P2, R), trustPath(@Local, P2, P1, R),
+										RContent := "r3_trustEvent_"+P1+"_"+P2+"_trustPath_"+P2+"_"+P1,
+										RID := f_sha1("r3"+"trustEvent"+P1+P2+"trustPath"+P2+P1),
+										HVID := f_sha1("mutualTrustPath"+P1+P2),
+										BVID1 := f_sha1("trustEvent"+P1+P2),
+										BVID2 := f_sha1("trustPath"+P2+P1).
+r3_2 mutualTrustPath(@Local, P1, P2, R) :- emutualTrustPath(@Local, P1, P2, RID, HVID, BVID1, BVID2, RContent, R).
+r3_3 prov(@Local, HVID, RID, RContent) :- emutualTrustPath(@Local, P1, P2, RID, HVID, BVID1, BVID2, RContent, R).
+r3_4 insertedge(@Local, RID1, RID2, RContent1, RContent2) :- emutualTrustPath(@Local, P1, P2, RID1, HVID, BVID1, BVID2, RContent1, R), prov(@Local, BVID1, RID2, RContent2).
+r3_5 insertedge(@Local, RID1, RID2, RContent1, RContent2) :- emutualTrustPath(@Local, P1, P2, RID1, HVID, BVID1, BVID2, RContent1, R), prov(@Local, BVID2, RID2, RContent2).
+
+
+re_1 edgeCount(@Local, RID1, RID2, a_COUNT<*>, RContent1, RContent2) :- insertedge(@Local, RID1, RID2, RContent1, RContent2), edge(@Local, RID1, RID2, N, RContent1, RContent2).
+re_2 edge(@Local, RID1, RID2, N, RContent1, RContent2) :- edgeCount(@Local, RID1, RID2, C, RContent1, RContent2), C==0, N:=1.
+re_3 edge(@Local, RID1, RID2, N1, RContent1, RContent2) :- edgeCount(@Local, RID1, RID2, C, RContent1, Rcontent2), edge(@Local, RID1, RID2, N, RContent1, RContent2), C>0, N1:=N+1.
+

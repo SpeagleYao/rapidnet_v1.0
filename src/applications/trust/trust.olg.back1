@@ -1,0 +1,17 @@
+materialize(trust, infinity, infinity, keys(1, 2:int32, 3:int32)).
+materialize(trustPath, infinity, infinity, keys(1, 2:int32, 3:int32)).
+materialize(trustEvent, infinity, infinity, keys(1, 2:int32, 3:int32)).
+materialize(mutualTrustPath, infinity, infinity, keys(1, 2:int32, 3:int32)).
+
+materialize(shaResult, infinity, infinity, keys(1, 2:cid, 3:str)).
+
+ra 1.0 trustEvent(@Local, P1, P2) :- trustPath(@Local, P1, P2).
+
+r1 1.0 trustPath(@Local, P1, P2) :- trust(@Local, P1, P2).
+r2 1.0 trustPath(@Local, P1, P3) :- trust(@Local, P1, P2), trustPath(@Local, P2, P3), P1!=P3.
+r3 0.8 mutualTrustPath(@Local, P1, P2) :- trustEvent(@Local, P1, P2), trustPath(@Local, P2, P1).
+
+r4 shaResult(@Local, VID, Content) :- trust(@Local, P1, P2), VID:=f_sha1("trust"+Local+P1+P2), Name:="trust", Content:=Name+P1+"-"+P2.
+r5 shaResult(@Local, VID, Content) :- trustPath(@Local, P1, P2), VID:=f_sha1("trustPath"+Local+P1+P2), Name:="trustPath", Content:=Name+P1+"-"+P2.
+r6 shaResult(@Local, VID, Content) :- trustEvent(@Local, P1, P2), VID:=f_sha1("trustEvent"+Local+P1+P2), Name:="trustEvent", Content:=Name+P1+"-"+P2.
+r7 shaResult(@Local, VID, Content) :- mutualTrustPath(@Local, P1, P2), VID:=f_sha1("mutualTrustPath"+Local+P1+P2), Name:="mutualTrustPath", Content:=Name+P1+"-"+P2.
