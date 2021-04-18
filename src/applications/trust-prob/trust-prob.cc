@@ -19,6 +19,7 @@ using namespace ns3::rapidnet::trustprob;
 const string TrustProb::EMUTUALTRUSTPATH = "emutualTrustPath";
 const string TrustProb::ETRUSTEVENT = "etrustEvent";
 const string TrustProb::ETRUSTPATH = "etrustPath";
+const string TrustProb::ETRUSTPATHR2 = "etrustPathR2";
 const string TrustProb::INSERTPROVEDGE = "insertProvEdge";
 const string TrustProb::INSERTRULEEDGE = "insertRuleEdge";
 const string TrustProb::MUTUALTRUSTPATH = "mutualTrustPath";
@@ -165,19 +166,19 @@ TrustProb::DemuxRecv (Ptr<Tuple> tuple)
     {
       R2_1Eca1Ins (tuple);
     }
-  if (IsRecvEvent (tuple, ETRUSTPATH))
+  if (IsRecvEvent (tuple, ETRUSTPATHR2))
     {
       R2_2_eca (tuple);
     }
-  if (IsRecvEvent (tuple, ETRUSTPATH))
+  if (IsRecvEvent (tuple, ETRUSTPATHR2))
     {
       R2_3_eca (tuple);
     }
-  if (IsRecvEvent (tuple, ETRUSTPATH))
+  if (IsRecvEvent (tuple, ETRUSTPATHR2))
     {
       R2_4_eca (tuple);
     }
-  if (IsRecvEvent (tuple, ETRUSTPATH))
+  if (IsRecvEvent (tuple, ETRUSTPATHR2))
     {
       R2_5_eca (tuple);
     }
@@ -666,7 +667,7 @@ TrustProb::R2_1Eca0Ins (Ptr<Tuple> trust)
       VarExpr::New ("trustPath_attr3"))));
 
   result = result->Project (
-    ETRUSTPATH,
+    ETRUSTPATHR2,
     strlist ("Local",
       "trust_attr2",
       "trustPath_attr3",
@@ -679,18 +680,18 @@ TrustProb::R2_1Eca0Ins (Ptr<Tuple> trust)
       "BC1",
       "BC2",
       "trust_attr4"),
-    strlist ("etrustPath_attr1",
-      "etrustPath_attr2",
-      "etrustPath_attr3",
-      "etrustPath_attr4",
-      "etrustPath_attr5",
-      "etrustPath_attr6",
-      "etrustPath_attr7",
-      "etrustPath_attr8",
-      "etrustPath_attr9",
-      "etrustPath_attr10",
-      "etrustPath_attr11",
-      "etrustPath_attr12"));
+    strlist ("etrustPathR2_attr1",
+      "etrustPathR2_attr2",
+      "etrustPathR2_attr3",
+      "etrustPathR2_attr4",
+      "etrustPathR2_attr5",
+      "etrustPathR2_attr6",
+      "etrustPathR2_attr7",
+      "etrustPathR2_attr8",
+      "etrustPathR2_attr9",
+      "etrustPathR2_attr10",
+      "etrustPathR2_attr11",
+      "etrustPathR2_attr12"));
 
   SendLocal (result);
 }
@@ -800,7 +801,7 @@ TrustProb::R2_1Eca1Ins (Ptr<Tuple> trustPath)
       VarExpr::New ("trustPath_attr3"))));
 
   result = result->Project (
-    ETRUSTPATH,
+    ETRUSTPATHR2,
     strlist ("Local",
       "trust_attr2",
       "trustPath_attr3",
@@ -813,28 +814,28 @@ TrustProb::R2_1Eca1Ins (Ptr<Tuple> trustPath)
       "BC1",
       "BC2",
       "trustPath_attr4"),
-    strlist ("etrustPath_attr1",
-      "etrustPath_attr2",
-      "etrustPath_attr3",
-      "etrustPath_attr4",
-      "etrustPath_attr5",
-      "etrustPath_attr6",
-      "etrustPath_attr7",
-      "etrustPath_attr8",
-      "etrustPath_attr9",
-      "etrustPath_attr10",
-      "etrustPath_attr11",
-      "etrustPath_attr12"));
+    strlist ("etrustPathR2_attr1",
+      "etrustPathR2_attr2",
+      "etrustPathR2_attr3",
+      "etrustPathR2_attr4",
+      "etrustPathR2_attr5",
+      "etrustPathR2_attr6",
+      "etrustPathR2_attr7",
+      "etrustPathR2_attr8",
+      "etrustPathR2_attr9",
+      "etrustPathR2_attr10",
+      "etrustPathR2_attr11",
+      "etrustPathR2_attr12"));
 
   SendLocal (result);
 }
 
 void
-TrustProb::R2_2_eca (Ptr<Tuple> etrustPath)
+TrustProb::R2_2_eca (Ptr<Tuple> etrustPathR2)
 {
   RAPIDNET_LOG_INFO ("R2_2_eca triggered");
 
-  Ptr<Tuple> result = etrustPath;
+  Ptr<Tuple> result = etrustPathR2;
 
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
@@ -842,9 +843,9 @@ TrustProb::R2_2_eca (Ptr<Tuple> etrustPath)
   result = result->Project (
     TRUSTPATH,
     strlist ("Local",
-      "etrustPath_attr2",
-      "etrustPath_attr3",
-      "etrustPath_attr12"),
+      "etrustPathR2_attr2",
+      "etrustPathR2_attr3",
+      "etrustPathR2_attr12"),
     strlist ("trustPath_attr1",
       "trustPath_attr2",
       "trustPath_attr3",
@@ -854,11 +855,11 @@ TrustProb::R2_2_eca (Ptr<Tuple> etrustPath)
 }
 
 void
-TrustProb::R2_3_eca (Ptr<Tuple> etrustPath)
+TrustProb::R2_3_eca (Ptr<Tuple> etrustPathR2)
 {
   RAPIDNET_LOG_INFO ("R2_3_eca triggered");
 
-  Ptr<Tuple> result = etrustPath;
+  Ptr<Tuple> result = etrustPathR2;
 
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
@@ -866,10 +867,10 @@ TrustProb::R2_3_eca (Ptr<Tuple> etrustPath)
   result = result->Project (
     INSERTPROVEDGE,
     strlist ("Local",
-      "etrustPath_attr5",
-      "etrustPath_attr4",
-      "etrustPath_attr9",
-      "etrustPath_attr8"),
+      "etrustPathR2_attr5",
+      "etrustPathR2_attr4",
+      "etrustPathR2_attr9",
+      "etrustPathR2_attr8"),
     strlist ("insertProvEdge_attr1",
       "insertProvEdge_attr2",
       "insertProvEdge_attr3",
@@ -880,11 +881,11 @@ TrustProb::R2_3_eca (Ptr<Tuple> etrustPath)
 }
 
 void
-TrustProb::R2_4_eca (Ptr<Tuple> etrustPath)
+TrustProb::R2_4_eca (Ptr<Tuple> etrustPathR2)
 {
   RAPIDNET_LOG_INFO ("R2_4_eca triggered");
 
-  Ptr<Tuple> result = etrustPath;
+  Ptr<Tuple> result = etrustPathR2;
 
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
@@ -892,10 +893,10 @@ TrustProb::R2_4_eca (Ptr<Tuple> etrustPath)
   result = result->Project (
     INSERTRULEEDGE,
     strlist ("Local",
-      "etrustPath_attr4",
-      "etrustPath_attr6",
-      "etrustPath_attr8",
-      "etrustPath_attr10"),
+      "etrustPathR2_attr4",
+      "etrustPathR2_attr6",
+      "etrustPathR2_attr8",
+      "etrustPathR2_attr10"),
     strlist ("insertRuleEdge_attr1",
       "insertRuleEdge_attr2",
       "insertRuleEdge_attr3",
@@ -906,11 +907,11 @@ TrustProb::R2_4_eca (Ptr<Tuple> etrustPath)
 }
 
 void
-TrustProb::R2_5_eca (Ptr<Tuple> etrustPath)
+TrustProb::R2_5_eca (Ptr<Tuple> etrustPathR2)
 {
   RAPIDNET_LOG_INFO ("R2_5_eca triggered");
 
-  Ptr<Tuple> result = etrustPath;
+  Ptr<Tuple> result = etrustPathR2;
 
   result->Assign (Assignor::New ("Local",
     LOCAL_ADDRESS));
@@ -918,10 +919,10 @@ TrustProb::R2_5_eca (Ptr<Tuple> etrustPath)
   result = result->Project (
     INSERTRULEEDGE,
     strlist ("Local",
-      "etrustPath_attr4",
-      "etrustPath_attr7",
-      "etrustPath_attr8",
-      "etrustPath_attr11"),
+      "etrustPathR2_attr4",
+      "etrustPathR2_attr7",
+      "etrustPathR2_attr8",
+      "etrustPathR2_attr11"),
     strlist ("insertRuleEdge_attr1",
       "insertRuleEdge_attr2",
       "insertRuleEdge_attr3",
@@ -1303,11 +1304,11 @@ TrustProb::Re_1_eca (Ptr<Tuple> insertProvEdge)
     strlist ("provEdge_attr4", "provEdge_attr2", "provEdge_attr1", "provEdge_attr5", "provEdge_attr3"),
     strlist ("insertProvEdge_attr4", "insertProvEdge_attr2", "insertProvEdge_attr1", "insertProvEdge_attr5", "insertProvEdge_attr3"));
 
-  result->Assign (Assignor::New ("Local",
-    LOCAL_ADDRESS));
 
   result = AggWrapCount::New ()->Compute (result, insertProvEdge);
 
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
   result = result->Project (
     PROVEDGECOUNT,
     strlist ("Local",
@@ -1394,7 +1395,7 @@ TrustProb::Re_3_eca (Ptr<Tuple> provEdgeCount)
       "provEdgeCount_attr3",
       "provEdgeCount_attr4",
       "provEdgeCount_attr5",
-      "provEdge_attr6"),
+      "N1"),
     strlist ("provEdge_attr1",
       "provEdge_attr2",
       "provEdge_attr3",
@@ -1417,11 +1418,11 @@ TrustProb::Re_4_eca (Ptr<Tuple> insertRuleEdge)
     strlist ("ruleEdge_attr5", "ruleEdge_attr3", "ruleEdge_attr1", "ruleEdge_attr4", "ruleEdge_attr2"),
     strlist ("insertRuleEdge_attr5", "insertRuleEdge_attr3", "insertRuleEdge_attr1", "insertRuleEdge_attr4", "insertRuleEdge_attr2"));
 
-  result->Assign (Assignor::New ("Local",
-    LOCAL_ADDRESS));
 
   result = AggWrapCount::New ()->Compute (result, insertRuleEdge);
 
+  result->Assign (Assignor::New ("Local",
+    LOCAL_ADDRESS));
   result = result->Project (
     RULEEDGECOUNT,
     strlist ("Local",
@@ -1508,7 +1509,7 @@ TrustProb::Re_6_eca (Ptr<Tuple> ruleEdgeCount)
       "ruleEdgeCount_attr3",
       "ruleEdgeCount_attr4",
       "ruleEdgeCount_attr5",
-      "ruleEdge_attr6"),
+      "N1"),
     strlist ("ruleEdge_attr1",
       "ruleEdge_attr2",
       "ruleEdge_attr3",

@@ -52,13 +52,13 @@ r1_2 trustPath(@Local, P1, P2, R) :- etrustPath(@Local, P1, P2, RID, HVID, BVID,
 r1_3 insertProvEdge(@Local, HVID, RID, HC, RC) :- etrustPath(@Local, P1, P2, RID, HVID, BVID, RC, HC, BC, R).
 r1_4 insertRuleEdge(@Local, RID, BVID, RC, BC) :- etrustPath(@Local, P1, P2, RID, HVID, BVID, RC, HC, BC, R).
 // r2 0.8 trustPath(@Local, P1, P3) :- trust(@Local, P1, P2), trustPath(@Local, P2, P3), P1!=P3.
-r2_1 0.8 etrustPath(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R) :- trust(@Local, P1, P2, R), trustPath(@Local, P2, P3, R), P1!=P3,
+r2_1 0.8 etrustPathR2(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R) :- trust(@Local, P1, P2, R), trustPath(@Local, P2, P3, R), P1!=P3,
           RC := "r2_trust_"+P1+"_"+P2+"_trustPath_"+P2+"_"+P3, HC := "trustPath_"+P1+"_"+P3, BC1 := "trust_"+P1+"_"+P2, BC2 := "trustPath_"+P2+"_"+P3,
           RID := f_sha1("r2"+"trust"+P1+P2+"trustPath"+P2+P3), HVID := f_sha1("trustPath"+P1+P3), BVID1 := f_sha1("trust"+P1+P2), BVID2 := f_sha1("trustPath"+P2+P3).
-r2_2 trustPath(@Local, P1, P3, R) :- etrustPath(@Local, P1, P3, RID, HVID, BVID1, BVID2, HC, RC, BC1, BC2, R).
-r2_3 insertProvEdge(@Local, HVID, RID, HC, RC) :- etrustPath(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
-r2_4 insertRuleEdge(@Local, RID, BVID1, RC, BC1) :- etrustPath(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
-r2_5 insertRuleEdge(@Local, RID, BVID2, RC, BC2) :- etrustPath(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
+r2_2 trustPath(@Local, P1, P3, R) :- etrustPathR2(@Local, P1, P3, RID, HVID, BVID1, BVID2, HC, RC, BC1, BC2, R).
+r2_3 insertProvEdge(@Local, HVID, RID, HC, RC) :- etrustPathR2(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
+r2_4 insertRuleEdge(@Local, RID, BVID1, RC, BC1) :- etrustPathR2(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
+r2_5 insertRuleEdge(@Local, RID, BVID2, RC, BC2) :- etrustPathR2(@Local, P1, P3, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
 // r3 0.8 mutualTrustPath(@Local, P1, P2) :- trustEvent(@Local, P1, P2), trustPath(@Local, P2, P1).
 r3_1 1.0 emutualTrustPath(@Local, P1, P2, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R) :- trustEvent(@Local, P1, P2, R), trustPath(@Local, P2, P1, R),
         RC := "r3_trustEvent_"+P1+"_"+P2+"_trustPath_"+P2+"_"+P1, HC := "mutualTrustPath_"+P1+"_"+P2, BC1 := "trustEvent_"+P1+"_"+P2, BC2 := "trustPath_"+P2+"_"+P1,
@@ -69,7 +69,7 @@ r3_4 insertRuleEdge(@Local, RID, BVID1, RC, BC1) :- emutualTrustPath(@Local, P1,
 r3_5 insertRuleEdge(@Local, RID, BVID2, RC, BC2) :- emutualTrustPath(@Local, P1, P2, RID, HVID, BVID1, BVID2, RC, HC, BC1, BC2, R).
 re_1 provEdgeCount(@Local, HVID, RID, HC, RC, a_count<*>) :- insertProvEdge(@Local, HVID, RID, HC, RC), provEdge(@Local, HVID, RID, HC, RC, N).
 re_2 provEdge(@Local, HVID, RID, HC, RC, N) :- provEdgeCount(@Local, HVID, RID, HC, RC, C), C==0, N:=1.
-re_3 provEdge(@Local, HVID, RID, HC, RC, N) :- provEdgeCount(@Local, HVID, RID, HC, RC, C), provEdge(@Local, HVID, RID, HC, RC, N), C>0, N1:=N+1.
+re_3 provEdge(@Local, HVID, RID, HC, RC, N1) :- provEdgeCount(@Local, HVID, RID, HC, RC, C), provEdge(@Local, HVID, RID, HC, RC, N), C>0, N1:=N+1.
 re_4 ruleEdgeCount(@Local, RID, BVID, RC, BC, a_count<*>) :- insertRuleEdge(@Local, RID, BVID, RC, BC), ruleEdge(@Local, RID, BVID, RC, BC, N).
 re_5 ruleEdge(@Local, RID, BVID, RC, BC, N) :- ruleEdgeCount(@Local, RID, BVID, RC, BC, C), C==0, N:=1.
-re_6 ruleEdge(@Local, RID, BVID, RC, BC, N) :- ruleEdgeCount(@Local, RID, BVID, RC, BC, C), ruleEdge(@Local, RID, BVID, RC, BC, N), C>0, N1:=N+1.
+re_6 ruleEdge(@Local, RID, BVID, RC, BC, N1) :- ruleEdgeCount(@Local, RID, BVID, RC, BC, C), ruleEdge(@Local, RID, BVID, RC, BC, N), C>0, N1:=N+1.

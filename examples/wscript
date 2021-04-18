@@ -198,61 +198,62 @@ def build(bld):
    
     obj = bld.create_ns3_program('messf-query-test')
     obj.source = 'messf-query-test.cc'
-
-    obj = bld.create_ns3_program('acquaintance-test')
-    obj.source = 'acquaintance-test.cc'
-
-    obj = bld.create_ns3_program('acquaintance-query-test')
-    obj.source = 'acquaintance-query-test.cc'
-
-    obj = bld.create_ns3_program('trust-query-test')
-    obj.source = 'trust-query-test.cc'
-
-
-    obj = bld.create_ns3_program('vqap-query-test')
-    obj.source = 'vqap-query-test.cc'
-
-    obj = bld.create_ns3_program('vqap-query-factory-test')
-    obj.source = 'vqap-query-factory-test.cc'
-   
-    obj = bld.create_ns3_program('vqap-query-skyscraper-test')
-    obj.source = 'vqap-query-skyscraper-test.cc'
-
-    obj = bld.create_ns3_program('vqap-query-terminal-test')
-    obj.source = 'vqap-query-terminal-test.cc'
-
-    obj = bld.create_ns3_program('vqap-query-station-test')
-    obj.source = 'vqap-query-station-test.cc'
-
-    obj = bld.create_ns3_program('vqap-query-stadium-test')
-    obj.source = 'vqap-query-stadium-test.cc'
-
-    obj = bld.create_ns3_program('vqap-query-hotel-test')
-    obj.source = 'vqap-query-hotel-test.cc'
-
-    obj = bld.create_ns3_program('vqap-query-church-test')
-    obj.source = 'vqap-query-church-test.cc'
-
-    obj = bld.create_ns3_program('smoke-test')
-    obj.source = 'smoke-test.cc'
-    
-    obj = bld.create_ns3_program('smoke-query-test')
-    obj.source = 'smoke-query-test.cc'
-
-    obj = bld.create_ns3_program("hyper-text-class-test")
-    obj.source = "hyper-text-class-test.cc"
-
-    obj = bld.create_ns3_program('hyper-text-class-query-test')
-    obj.source = 'hyper-text-class-query-test.cc'
-
-    obj = bld.create_ns3_program('packet-forward-test')
-    obj.source = 'packet-forward-test.cc'
-
-    obj = bld.create_ns3_program('packet-forward-prob-test')
-    obj.source = 'packet-forward-prob-test.cc'
-
-    # obj = bld.create_ns3_program('trust-prob-test')
-    # obj.source = 'trust-prob-test.cc'
+	
+#    
+#    obj = bld.create_ns3_program('acquaintance-test')
+#    obj.source = 'acquaintance-test.cc'
+#
+#    obj = bld.create_ns3_program('acquaintance-query-test')
+#    obj.source = 'acquaintance-query-test.cc'
+#
+#    obj = bld.create_ns3_program('trust-query-test')
+#    obj.source = 'trust-query-test.cc'
+#
+#
+#    obj = bld.create_ns3_program('vqap-query-test')
+#    obj.source = 'vqap-query-test.cc'
+#
+#    obj = bld.create_ns3_program('vqap-query-factory-test')
+#    obj.source = 'vqap-query-factory-test.cc'
+#   
+#    obj = bld.create_ns3_program('vqap-query-skyscraper-test')
+#    obj.source = 'vqap-query-skyscraper-test.cc'
+#
+#    obj = bld.create_ns3_program('vqap-query-terminal-test')
+#    obj.source = 'vqap-query-terminal-test.cc'
+#
+#    obj = bld.create_ns3_program('vqap-query-station-test')
+#    obj.source = 'vqap-query-station-test.cc'
+#
+#    obj = bld.create_ns3_program('vqap-query-stadium-test')
+#    obj.source = 'vqap-query-stadium-test.cc'
+#
+#    obj = bld.create_ns3_program('vqap-query-hotel-test')
+#    obj.source = 'vqap-query-hotel-test.cc'
+#
+#    obj = bld.create_ns3_program('vqap-query-church-test')
+#    obj.source = 'vqap-query-church-test.cc'
+#
+#    obj = bld.create_ns3_program('smoke-test')
+#    obj.source = 'smoke-test.cc'
+#    
+#    obj = bld.create_ns3_program('smoke-query-test')
+#    obj.source = 'smoke-query-test.cc'
+#
+#    obj = bld.create_ns3_program("hyper-text-class-test")
+#    obj.source = "hyper-text-class-test.cc"
+#
+#    obj = bld.create_ns3_program('hyper-text-class-query-test')
+#    obj.source = 'hyper-text-class-query-test.cc'
+#
+#    obj = bld.create_ns3_program('packet-forward-test')
+#    obj.source = 'packet-forward-test.cc'
+#
+#    obj = bld.create_ns3_program('packet-forward-prob-test')
+#    obj.source = 'packet-forward-prob-test.cc'
+#
+    obj = bld.create_ns3_program('trust-prob-test')
+    obj.source = 'trust-prob-test.cc'
 
 
 

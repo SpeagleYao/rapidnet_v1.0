@@ -64,16 +64,16 @@ all_modules = (
     'applications/messf-query',
     'applications/acquaintance',
     'applications/acquaintance-query',
-    'applications/trust',
-    'applications/trust-query',
-    'applications/vqap',
-    'applications/vqap-query',
-    'applications/smoke',
-    'applications/smoke-query',
-    'applications/hyper-text-class',
-    'applications/hyper-text-class-query',
-    'applications/packet-forward',
-    # 'applications/trust-prob'
+    # 'applications/trust',
+    # 'applications/trust-query',
+    # 'applications/vqap',
+    # 'applications/vqap-query',
+    # 'applications/smoke',
+    # 'applications/smoke-query',
+    # 'applications/hyper-text-class',
+    # 'applications/hyper-text-class-query',
+    # 'applications/packet-forward',
+    'applications/trust-prob'
     )
 
 def set_options(opt):

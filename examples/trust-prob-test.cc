@@ -71,7 +71,7 @@ ApplicationContainer apps;
 vector<vector<string> > trusts;
 int t_i = 0;
 
-int max_rounds = 100;
+int max_rounds = 10;
 int r = 0;
 	
 int stringToInt(string s){
@@ -98,7 +98,7 @@ void parseLine(const string& line)
 }
 
 void train() {
-  ifstream fp(TrustTrain_30);
+  ifstream fp(TrustTrain_10);
   string line;
 
   int count = 0;

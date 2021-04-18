@@ -305,7 +305,6 @@ list<T> MakeList (T t1, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9, T t10, T
 /**
  * \brief Creates a list with object(s) of given type inserted.
  */
-/*
 template<class T>
 list<T> MakeList (T t1, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9, T t10, T t11, T t12)
 {
@@ -324,7 +323,6 @@ list<T> MakeList (T t1, T t2, T t3, T t4, T t5, T t6, T t7, T t8, T t9, T t10, T
   retval.push_back (t12);
   return retval;
 }
-*/
 /**
  * \brief A utility C++ wrapper over openssl's SHA1 function.
  */

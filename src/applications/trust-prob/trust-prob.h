@@ -32,6 +32,7 @@ public:
   static const string EMUTUALTRUSTPATH;
   static const string ETRUSTEVENT;
   static const string ETRUSTPATH;
+  static const string ETRUSTPATHR2;
   static const string INSERTPROVEDGE;
   static const string INSERTRULEEDGE;
   static const string MUTUALTRUSTPATH;
@@ -81,13 +82,13 @@ protected:
 
   virtual void R2_1Eca1Ins (Ptr<Tuple> trustPath);
 
-  virtual void R2_2_eca (Ptr<Tuple> etrustPath);
+  virtual void R2_2_eca (Ptr<Tuple> etrustPathR2);
 
-  virtual void R2_3_eca (Ptr<Tuple> etrustPath);
+  virtual void R2_3_eca (Ptr<Tuple> etrustPathR2);
 
-  virtual void R2_4_eca (Ptr<Tuple> etrustPath);
+  virtual void R2_4_eca (Ptr<Tuple> etrustPathR2);
 
-  virtual void R2_5_eca (Ptr<Tuple> etrustPath);
+  virtual void R2_5_eca (Ptr<Tuple> etrustPathR2);
 
   virtual void R3_1Eca0Ins (Ptr<Tuple> trustEvent);
 
