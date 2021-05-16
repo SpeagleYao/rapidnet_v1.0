@@ -180,12 +180,12 @@ void Print(){
 
 	// PrintRelation (queryapps, TrustQuery::TUPLE);
   PrintRelation (queryapps, TrustQuery::RECORDS); //modify: add col tuple's vid (hash)
-  PrintRelation (apps, Trust::PROV);
+  // PrintRelation (apps, Trust::PROV);
 }
 
 
 void train(){
-	vector<string> trust_train = readFile(TrustTrain_30);
+	vector<string> trust_train = readFile(TrustTrain_10);
 	parse(trust_train);
 }
 

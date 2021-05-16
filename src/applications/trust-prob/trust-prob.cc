@@ -252,18 +252,18 @@ TrustProb::Ra_1Eca0Ins (Ptr<Tuple> trustPath)
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustEvent_")),
+          ValueExpr::New (StrValue::New ("trustEvent")),
           VarExpr::New ("trustPath_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("BC",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trustPath_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("RID",
@@ -417,18 +417,18 @@ TrustProb::R1_1Eca0Ins (Ptr<Tuple> trust)
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trust_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trust_attr3"))));
 
   result->Assign (Assignor::New ("BC",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trust_")),
+          ValueExpr::New (StrValue::New ("trust")),
           VarExpr::New ("trust_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trust_attr3"))));
 
   result->Assign (Assignor::New ("RID",
@@ -595,27 +595,27 @@ TrustProb::R2_1Eca0Ins (Ptr<Tuple> trust)
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trust_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("BC1",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trust_")),
+          ValueExpr::New (StrValue::New ("trust")),
           VarExpr::New ("trust_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trust_attr3"))));
 
   result->Assign (Assignor::New ("BC2",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trust_attr3")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("RID",
@@ -729,27 +729,27 @@ TrustProb::R2_1Eca1Ins (Ptr<Tuple> trustPath)
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trust_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("BC1",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trust_")),
+          ValueExpr::New (StrValue::New ("trust")),
           VarExpr::New ("trust_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr2"))));
 
   result->Assign (Assignor::New ("BC2",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trustPath_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("RID",
@@ -965,27 +965,27 @@ TrustProb::R3_1Eca0Ins (Ptr<Tuple> trustEvent)
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("mutualTrustPath_")),
+          ValueExpr::New (StrValue::New ("mutualTrustPath")),
           VarExpr::New ("trustEvent_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustEvent_attr3"))));
 
   result->Assign (Assignor::New ("BC1",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustEvent_")),
+          ValueExpr::New (StrValue::New ("trustEvent")),
           VarExpr::New ("trustEvent_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustEvent_attr3"))));
 
   result->Assign (Assignor::New ("BC2",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trustEvent_attr3")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustEvent_attr2"))));
 
   result->Assign (Assignor::New ("RID",
@@ -1094,27 +1094,27 @@ TrustProb::R3_1Eca1Ins (Ptr<Tuple> trustPath)
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("mutualTrustPath_")),
+          ValueExpr::New (StrValue::New ("mutualTrustPath")),
           VarExpr::New ("trustPath_attr3")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr2"))));
 
   result->Assign (Assignor::New ("BC1",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustEvent_")),
+          ValueExpr::New (StrValue::New ("trustEvent")),
           VarExpr::New ("trustPath_attr3")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr2"))));
 
   result->Assign (Assignor::New ("BC2",
     Operation::New (RN_PLUS,
       Operation::New (RN_PLUS,
         Operation::New (RN_PLUS,
-          ValueExpr::New (StrValue::New ("trustPath_")),
+          ValueExpr::New (StrValue::New ("trustPath")),
           VarExpr::New ("trustPath_attr2")),
-        ValueExpr::New (StrValue::New ("_"))),
+        ValueExpr::New (StrValue::New ("-"))),
       VarExpr::New ("trustPath_attr3"))));
 
   result->Assign (Assignor::New ("RID",

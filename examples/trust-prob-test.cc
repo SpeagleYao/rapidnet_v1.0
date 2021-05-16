@@ -23,6 +23,9 @@
 #define TrustTrain_10 \
 "./data/trust/sample_10.csv"
 
+#define TrustTrain_10_new \
+"./data/trust/sample_10_new.csv"
+
 #define TrustTrain_20 \
 "./data/trust/sample_20.csv"
 
@@ -71,7 +74,7 @@ ApplicationContainer apps;
 vector<vector<string> > trusts;
 int t_i = 0;
 
-int max_rounds = 10;
+int max_rounds = 200;
 int r = 0;
 	
 int stringToInt(string s){
@@ -98,7 +101,7 @@ void parseLine(const string& line)
 }
 
 void train() {
-  ifstream fp(TrustTrain_10);
+  ifstream fp(TrustTrain_10_new);
   string line;
 
   int count = 0;
@@ -119,7 +122,7 @@ void train() {
 }
 
 void Print(){
-	PrintRelation(apps, TrustProb::TRUST);
+	// PrintRelation(apps, TrustProb::TRUST);
   // PrintRelation(apps, Trust::TRUSTPATH);
   // PrintRelation(apps, Trust::MUTUALTRUSTPATH);
 
