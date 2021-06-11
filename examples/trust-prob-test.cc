@@ -14,44 +14,35 @@
 #include <boost/algorithm/string.hpp>
 #include <stdlib.h>
 
-#define TrustTrain \
-"./data/trust/sample.csv"
-
-#define TrustTrain_5 \
-"./data/trust/sample_5.csv"
-
 #define TrustTrain_10 \
-"./data/trust/sample_10.csv"
-
-#define TrustTrain_10_new \
-"./data/trust/sample_10_new.csv"
+"./data/trust-new/sample_10_new.csv"
 
 #define TrustTrain_20 \
-"./data/trust/sample_20.csv"
+"./data/trust-new/sample_20_new.csv"
 
 #define TrustTrain_30 \
-"./data/trust/sample_30.csv"
+"./data/trust-new/sample_30_new.csv"
 
 #define TrustTrain_40 \
-"./data/trust/sample_40.csv"
+"./data/trust-new/sample_40_new.csv"
 
 #define TrustTrain_50 \
-"./data/trust/sample_50.csv"
+"./data/trust-new/sample_50_new.csv"
 
 #define TrustTrain_60 \
-"./data/trust/sample_60.csv"
+"./data/trust-new/sample_60_new.csv"
 
 #define TrustTrain_70 \
-"./data/trust/sample_70.csv"
+"./data/trust-new/sample_70_new.csv"
 
 #define TrustTrain_80 \
-"./data/trust/sample_80.csv"
+"./data/trust-new/sample_80_new.csv"
 
 #define TrustTrain_90 \
-"./data/trust/sample_90.csv"
+"./data/trust-new/sample_90_new.csv"
 
 #define TrustTrain_100 \
-"./data/trust/sample_100.csv"
+"./data/trust-new/sample_100_new.csv"
 
 #define trust(local, person1, person2, round) \
 tuple (TrustProb::TRUST, \
@@ -74,7 +65,7 @@ ApplicationContainer apps;
 vector<vector<string> > trusts;
 int t_i = 0;
 
-int max_rounds = 200;
+int max_rounds = 1;
 int r = 0;
 	
 int stringToInt(string s){
@@ -101,7 +92,7 @@ void parseLine(const string& line)
 }
 
 void train() {
-  ifstream fp(TrustTrain_10_new);
+  ifstream fp(TrustTrain_50);
   string line;
 
   int count = 0;

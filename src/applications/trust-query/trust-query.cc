@@ -127,9 +127,6 @@ TrustQuery::Q1_ecaperiodic ()
 void
 TrustQuery::Q1_eca (Ptr<Tuple> q1_ecaperiodic)
 {
-  clock_t t = clock();
-  cout << (double)t/CLOCKS_PER_SEC << endl;
-
   RAPIDNET_LOG_INFO ("Q1_eca triggered");
 
   Ptr<RelationBase> result;
@@ -200,9 +197,6 @@ TrustQuery::Q2_eca (Ptr<Tuple> pReturn)
       "records_attr2",
       "records_attr3",
       "records_attr4"));
-
-  clock_t t = clock();
-  cout << (double)t/CLOCKS_PER_SEC << endl;
 
   Insert (result);
   

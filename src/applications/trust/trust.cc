@@ -411,7 +411,7 @@ Trust::DemuxRecv (Ptr<Tuple> tuple)
     }
   if (IsRecvEvent (tuple, ERULEQUERY))
     {
-      Idb6a_eca (tuple);
+      Idb6_eca (tuple);
     }
   if (IsRecvEvent (tuple, RRETURN))
     {
@@ -427,7 +427,7 @@ Trust::DemuxRecv (Ptr<Tuple> tuple)
     }
   if (IsRecvEvent (tuple, EPRETURN))
     {
-      Idb9_eca (tuple);
+      Idb9a_eca (tuple);
     }
   if (IsRecvEvent (tuple, RULEQUERY))
     {
@@ -3291,13 +3291,6 @@ Trust::Idb2_eca (Ptr<Tuple> provQuery)
     FEmpty::New (
 )));
 
-  result = result->Select (Selector::New (
-    Operation::New (RN_EQ,
-      FMember::New (
-        VarExpr::New ("provQuery_attr4"),
-        VarExpr::New ("provQuery_attr3")),
-      ValueExpr::New (Int32Value::New (0)))));
-
   result = result->Project (
     PRESULTTMP,
     strlist ("provQuery_attr1",
@@ -3328,12 +3321,10 @@ Trust::Idb3_eca (Ptr<Tuple> provQuery)
     PITERATE,
     strlist ("provQuery_attr1",
       "provQuery_attr2",
-      "N",
-      "provQuery_attr5"),
+      "N"),
     strlist ("pIterate_attr1",
       "pIterate_attr2",
-      "pIterate_attr3",
-      "pIterate_attr4"));
+      "pIterate_attr3"));
 
   SendLocal (result);
 }
@@ -3365,12 +3356,10 @@ Trust::Idb4_eca (Ptr<Tuple> pIterate)
     PITERATE,
     strlist ("pIterate_attr1",
       "pIterate_attr2",
-      "N",
-      "pIterate_attr4"),
+      "N"),
     strlist ("pIterate_attr1",
       "pIterate_attr2",
-      "pIterate_attr3",
-      "pIterate_attr4"));
+      "pIterate_attr3"));
 
   SendLocal (result);
 }
@@ -3410,31 +3399,27 @@ Trust::Idb5_eca (Ptr<Tuple> pIterate)
     ERULEQUERY,
     strlist ("pIterate_attr1",
       "NQID",
-      "pIterate_attr2",
       "RID",
-      "pQList_attr3",
-      "pIterate_attr4"),
+      "pQList_attr3"),
     strlist ("eRuleQuery_attr1",
       "eRuleQuery_attr2",
       "eRuleQuery_attr3",
-      "eRuleQuery_attr4",
-      "eRuleQuery_attr5",
-      "eRuleQuery_attr6"));
+      "eRuleQuery_attr4"));
 
   SendLocal (result);
 }
 
 void
-Trust::Idb6a_eca (Ptr<Tuple> eRuleQuery)
+Trust::Idb6_eca (Ptr<Tuple> eRuleQuery)
 {
-  RAPIDNET_LOG_INFO ("Idb6a_eca triggered");
+  RAPIDNET_LOG_INFO ("Idb6_eca triggered");
 
   Ptr<RelationBase> result;
 
   result = GetRelation (PROV)->Join (
     eRuleQuery,
     strlist ("prov_attr3", "prov_attr1"),
-    strlist ("eRuleQuery_attr4", "eRuleQuery_attr1"));
+    strlist ("eRuleQuery_attr3", "eRuleQuery_attr1"));
 
   result->Assign (Assignor::New ("P2",
     FAppend::New (
@@ -3442,14 +3427,14 @@ Trust::Idb6a_eca (Ptr<Tuple> eRuleQuery)
 
   result->Assign (Assignor::New ("P",
     FConcat::New (
-      VarExpr::New ("eRuleQuery_attr5"),
+      VarExpr::New ("eRuleQuery_attr4"),
       VarExpr::New ("P2"))));
 
   result = result->Project (
     RULEQUERY,
     strlist ("prov_attr4",
       "eRuleQuery_attr2",
-      "eRuleQuery_attr4",
+      "eRuleQuery_attr3",
       "P",
       "eRuleQuery_attr1",
       "prov_attr4"),
@@ -3581,9 +3566,9 @@ Trust::Idb8Eca1Ins (Ptr<Tuple> pQList)
 }
 
 void
-Trust::Idb9_eca (Ptr<Tuple> ePReturn)
+Trust::Idb9a_eca (Ptr<Tuple> ePReturn)
 {
-  RAPIDNET_LOG_INFO ("Idb9_eca triggered");
+  RAPIDNET_LOG_INFO ("Idb9a_eca triggered");
 
   Ptr<RelationBase> result;
 
@@ -3592,10 +3577,20 @@ Trust::Idb9_eca (Ptr<Tuple> ePReturn)
     strlist ("pResultTmp_attr2", "pResultTmp_attr1"),
     strlist ("ePReturn_attr2", "ePReturn_attr1"));
 
-  result->Assign (Assignor::New ("Prov",
+  result = GetRelation (SHARESULT)->Join (
+    result,
+    strlist ("shaResult_attr2", "shaResult_attr1"),
+    strlist ("pResultTmp_attr4", "ePReturn_attr1"));
+
+  result->Assign (Assignor::New ("Prov1",
     FPIdb::New (
       VarExpr::New ("pResultTmp_attr5"),
       VarExpr::New ("ePReturn_attr1"))));
+
+  result->Assign (Assignor::New ("Prov",
+    Operation::New (RN_PLUS,
+      VarExpr::New ("shaResult_attr3"),
+      VarExpr::New ("Prov1"))));
 
   result = result->Project (
     PRETURN,
@@ -3629,8 +3624,8 @@ Trust::Rv1_eca (Ptr<Tuple> ruleQuery)
     RQLIST,
     strlist ("ruleQuery_attr1",
       "ruleQuery_attr2",
-      "ruleExec_attr5",
-      "ruleQuery_attr4"),
+      "ruleQuery_attr4",
+      "ruleExec_attr5"),
     strlist ("rQList_attr1",
       "rQList_attr2",
       "rQList_attr3",
@@ -3709,7 +3704,7 @@ Trust::Rv4_eca (Ptr<Tuple> rIterate)
     Operation::New (RN_LT,
       VarExpr::New ("rIterate_attr3"),
       FSize::New (
-        VarExpr::New ("rQList_attr3")))));
+        VarExpr::New ("rQList_attr4")))));
 
   result = result->Project (
     RITERATE,
@@ -3737,7 +3732,7 @@ Trust::Rv5_eca (Ptr<Tuple> rIterate)
 
   result->Assign (Assignor::New ("VID",
     FItem::New (
-      VarExpr::New ("rQList_attr3"),
+      VarExpr::New ("rQList_attr4"),
       VarExpr::New ("rIterate_attr3"))));
 
   result->Assign (Assignor::New ("NQID",
@@ -3753,7 +3748,7 @@ Trust::Rv5_eca (Ptr<Tuple> rIterate)
     strlist ("rIterate_attr1",
       "NQID",
       "VID",
-      "rQList_attr4"),
+      "rQList_attr3"),
     strlist ("eProvQuery_attr1",
       "eProvQuery_attr2",
       "eProvQuery_attr3",
@@ -3852,7 +3847,7 @@ Trust::Rv8Eca0Ins (Ptr<Tuple> rResultTmp)
       FSize::New (
         VarExpr::New ("rResultTmp_attr5")),
       FSize::New (
-        VarExpr::New ("rQList_attr3")))));
+        VarExpr::New ("rQList_attr4")))));
 
   result = result->Project (
     ERRETURN,
@@ -3881,7 +3876,7 @@ Trust::Rv8Eca1Ins (Ptr<Tuple> rQList)
       FSize::New (
         VarExpr::New ("rResultTmp_attr5")),
       FSize::New (
-        VarExpr::New ("rQList_attr3")))));
+        VarExpr::New ("rQList_attr4")))));
 
   result = result->Project (
     ERRETURN,

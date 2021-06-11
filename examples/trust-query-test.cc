@@ -14,40 +14,40 @@
 #include <list>
 
 #define TrustTrain \
-"./data/trust/sample.csv"
+"./data/trust-new/sample_new.csv"
 
 #define TrustTrain_5 \
-"./data/trust/sample_5.csv"
+"./data/trust-new/sample_5_new.csv"
 
 #define TrustTrain_10 \
-"./data/trust/sample_10.csv"
+"./data/trust-new/sample_10_new.csv"
 
 #define TrustTrain_20 \
-"./data/trust/sample_20.csv"
+"./data/trust-new/sample_20_new.csv"
 
 #define TrustTrain_30 \
-"./data/trust/sample_30.csv"
+"./data/trust-new/sample_30_new.csv"
 
 #define TrustTrain_40 \
-"./data/trust/sample_40.csv"
+"./data/trust-new/sample_40_new.csv"
 
 #define TrustTrain_50 \
-"./data/trust/sample_50.csv"
+"./data/trust-new/sample_50_new.csv"
 
 #define TrustTrain_60 \
-"./data/trust/sample_60.csv"
+"./data/trust-new/sample_60_new.csv"
 
 #define TrustTrain_70 \
-"./data/trust/sample_70.csv"
+"./data/trust-new/sample_70_new.csv"
 
 #define TrustTrain_80 \
-"./data/trust/sample_80.csv"
+"./data/trust-new/sample_80_new.csv"
 
 #define TrustTrain_90 \
-"./data/trust/sample_90.csv"
+"./data/trust-new/sample_90_new.csv"
 
 #define TrustTrain_100 \
-"./data/trust/sample_100.csv"
+"./data/trust-new/sample_100_new.csv"
 
 #define trust(local, person1, person2) \
 tuple (Trust::TRUST, \
@@ -169,13 +169,13 @@ void
 TupleToQuery ()
 {
   Ptr<RapidNetApplicationBase> queryNode = queryapps.Get(0)->GetObject<RapidNetApplicationBase>();
-  inserttuple(1, "mutualTrustPath", 1, 1, 2);  
+  inserttuple(1, "mutualTrustPath", 1, 4, 1);  
 }
 
 void Print(){
 	// PrintRelation(apps, Trust::TRUST);
   // PrintRelation(apps, Trust::TRUSTPATH);
-  // PrintRelation(apps, Trust::MUTUALTRUSTPATH);
+  PrintRelation(apps, Trust::MUTUALTRUSTPATH);
 
 
 	// PrintRelation (queryapps, TrustQuery::TUPLE);
@@ -185,7 +185,7 @@ void Print(){
 
 
 void train(){
-	vector<string> trust_train = readFile(TrustTrain_10);
+	vector<string> trust_train = readFile(TrustTrain_50);
 	parse(trust_train);
 }
 
@@ -198,6 +198,7 @@ int main(int argc, char *argv[]){
   // LogComponentEnable("TrustQuery", LOG_LEVEL_INFO);
   // LogComponentEnable("RapidNetApplicationBase", LOG_LEVEL_INFO);
   // for (int i=0; i<2; i++){
+    clock_t t1 = clock();
     
     initApps();
 
@@ -205,7 +206,7 @@ int main(int argc, char *argv[]){
     apps.Stop (Seconds (10.0));
     queryapps.Start (Seconds (0.0));
     queryapps.Stop (Seconds (10.0));
-
+	
     schedule (1.0, TupleToQuery);	
     schedule (2.0, train);
     schedule (9.9, Print);
@@ -213,6 +214,8 @@ int main(int argc, char *argv[]){
     Simulator::Run ();
     Simulator::Destroy ();
 
+    clock_t t2 = clock();
+    cout << (double)(t2-t1)/CLOCKS_PER_SEC << endl;
   // }
   return 0;
 }

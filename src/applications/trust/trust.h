@@ -207,7 +207,7 @@ protected:
 
   virtual void Idb5_eca (Ptr<Tuple> pIterate);
 
-  virtual void Idb6a_eca (Ptr<Tuple> eRuleQuery);
+  virtual void Idb6_eca (Ptr<Tuple> eRuleQuery);
 
   virtual void Idb7_eca (Ptr<Tuple> rReturn);
 
@@ -215,7 +215,7 @@ protected:
 
   virtual void Idb8Eca1Ins (Ptr<Tuple> pQList);
 
-  virtual void Idb9_eca (Ptr<Tuple> ePReturn);
+  virtual void Idb9a_eca (Ptr<Tuple> ePReturn);
 
   virtual void Rv1_eca (Ptr<Tuple> ruleQuery);
 
