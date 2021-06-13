@@ -14,35 +14,38 @@
 #include <boost/algorithm/string.hpp>
 #include <stdlib.h>
 
+#define TrustTrain_5 \
+"./data/new_samples/sample_5_new.csv"
+
 #define TrustTrain_10 \
-"./data/trust-new/sample_10_new.csv"
+"./data/new_samples/sample_10_new.csv"
 
 #define TrustTrain_20 \
-"./data/trust-new/sample_20_new.csv"
+"./data/new_samples/sample_20_new.csv"
 
 #define TrustTrain_30 \
-"./data/trust-new/sample_30_new.csv"
+"./data/new_samples/sample_30_new.csv"
 
 #define TrustTrain_40 \
-"./data/trust-new/sample_40_new.csv"
+"./data/new_samples/sample_40_new.csv"
 
 #define TrustTrain_50 \
-"./data/trust-new/sample_50_new.csv"
+"./data/new_samples/sample_50_new.csv"
 
 #define TrustTrain_60 \
-"./data/trust-new/sample_60_new.csv"
+"./data/new_samples/sample_60_new.csv"
 
 #define TrustTrain_70 \
-"./data/trust-new/sample_70_new.csv"
+"./data/new_samples/sample_70_new.csv"
 
 #define TrustTrain_80 \
-"./data/trust-new/sample_80_new.csv"
+"./data/new_samples/sample_80_new.csv"
 
 #define TrustTrain_90 \
-"./data/trust-new/sample_90_new.csv"
+"./data/new_samples/sample_90_new.csv"
 
 #define TrustTrain_100 \
-"./data/trust-new/sample_100_new.csv"
+"./data/new_samples/sample_100_new.csv"
 
 #define trust(local, person1, person2, round) \
 tuple (TrustProb::TRUST, \
