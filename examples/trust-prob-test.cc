@@ -95,7 +95,7 @@ void parseLine(const string& line)
 }
 
 void train() {
-  ifstream fp(TrustTrain_70);
+  ifstream fp(TrustTrain_100);
   string line;
 
   int count = 0;
