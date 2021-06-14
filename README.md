@@ -1,6 +1,12 @@
 
 Rapidnet
 ========
+Experiment Results
+------------------
+
+Query-test result can be seen in [here](./result_query).
+
+Prob-test result can be seen in [here](./result_prob).
 
 Using the data-structures
 -------------------------
